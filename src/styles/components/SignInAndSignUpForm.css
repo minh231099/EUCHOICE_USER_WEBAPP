@@ -1,0 +1,63 @@
+.siasuf-container {
+    height: 100vh;
+    background-color: var(--primary-color);
+
+    .siasuf-header {
+        padding: 0 20%;
+        height: 10vh;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left-content {
+            display: flex;
+            align-items: center;
+
+            .logo {
+                height: 8vh;
+                width: 10vh;
+            }
+
+            .header-text {
+                font-size: 25px;
+                color: #444;
+                margin-left: 20px;
+            }
+        }
+
+        .right-content {
+            .need-help-text {
+                color: var(--primary-color);
+                cursor: pointer;
+                font-size: 15px;
+            }
+        }
+    }
+
+    .siasuf-body {
+        height: 60vh;
+        margin: 0 20%;
+
+        .siasuf-form {
+            display: flex;
+            height: 100%;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+}
+
+.YVmVV3u82Q {
+    border-left: solid 1px rgba(0, 0, 0, 0.1);
+    margin: -5px -10px;
+    padding: 5px 15px;
+    z-index: 99999;
+    cursor: pointer;
+}
+
+.YVmVV3u82Q:hover {
+    color: #fff;
+    background-color: var(--primary-color);
+    ;
+}

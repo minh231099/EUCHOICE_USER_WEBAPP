@@ -1,0 +1,43 @@
+{
+  "name": "user-webapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.17",
+    "@types/react-dom": "18.2.7",
+    "@types/react-lazyload": "^3.2.0",
+    "antd": "^5.8.4",
+    "axios": "^1.4.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "i18next": "^23.4.1",
+    "immutable": "^5.0.0-beta.4",
+    "js-cookie": "^3.0.5",
+    "moment": "^2.29.4",
+    "next": "13.4.12",
+    "prop-types": "^15.8.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-i18next": "^13.0.3",
+    "react-icons": "^4.10.1",
+    "react-lazyload": "^3.2.0",
+    "react-redux": "^8.1.2",
+    "react-use": "^17.4.0",
+    "redux-thunk": "^2.4.2",
+    "swiper": "^10.2.0",
+    "typescript": "5.1.6",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.3"
+  }
+}

@@ -1,0 +1,25 @@
+.M2GXrTnvkg {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.Aoekk79GJR {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.add-new-address-modal {
+    .ant-modal-content {
+        padding: 0;
+    }
+
+    .ant-modal-title {
+        padding: 15px 20px;
+        font-size: 20px;
+    }
+
+    .ant-modal-footer {
+        padding: 15px 20px;
+    }
+}

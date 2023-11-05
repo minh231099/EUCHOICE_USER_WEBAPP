@@ -1,0 +1,95 @@
+.mobile_header_container {
+    background: var(--primary-color);
+}
+
+.header-mobile {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+}
+
+.mobile-header-element {
+    padding: 8px 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search_container-mobile {
+    margin: 0;
+    width: 100%;
+    display: block;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
+
+.search_box-mobile {
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    font-size: 12px;
+    width: 90%;
+    color: #fff;
+    padding: 0px 5px;
+}
+
+.search_button {
+    background: #fff;
+    border: 0;
+    width: 10%;
+    background: var(--primary-color);
+    margin: 5px;
+
+    .search_icon {
+        color: var(--icon-color);
+    }
+}
+
+.right-content {
+    align-items: center;
+    width: 25%;
+    justify-content: space-around;
+    margin-left: 10px;
+}
+
+.cart_icon_container-mobile {
+    .cart_icon-mobile {
+        font-size: 24px;
+        color: var(--icon-color);
+    }
+}
+
+.user_icon_container {
+    border: 1px solid var(--icon-color);
+    background-color: var(--icon-color);
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+
+    .user-icon {
+        font-size: 20px;
+        color: var(--primary-color);
+    }
+}
+
+.mobile-header-nav-container {
+    padding-top: 30px;
+}
+
+.down-icon-mb-header {
+    position: relative;
+    right: -120px
+}
+
+.icon-show-is-true {
+    visibility: visible;
+}
+
+.icon-show-is-false {
+    display: none;
+    visibility: hidden;
+}

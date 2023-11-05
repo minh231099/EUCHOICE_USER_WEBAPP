@@ -1,0 +1,39 @@
+.blog-details-container {
+    margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Pk4JpUa0w2 {
+        max-width: 900px;
+
+        .blog-header {
+            .jyRAp30ZG6 {
+                font-weight: 600;
+                font-size: 32px;
+            }
+
+            .AZQq8ur7SM {
+                font-style: italic;
+                color: #333;
+            }
+
+            .mKEF9bGKoe {
+                margin: 25px 0;
+                width: 100%;
+            }
+        }
+
+        .blog-body {
+            width: 100%;
+            word-break: break-all;
+
+            .vLv4CZQ3Es {
+                width: 100%;
+            }
+        }
+    }
+}

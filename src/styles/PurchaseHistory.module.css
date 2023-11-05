@@ -1,0 +1,253 @@
+.Vo975bjGLM {
+    margin: 20px 0px 15px 20px;
+}
+
+.ae52a2fIEK {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.j5L55xGKBr {
+    padding: 15px;
+    cursor: pointer;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.KQeVWhP97F {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.n7vWrAkZl9 {
+    padding: 15px 20px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+
+.bPYYC5KVFy {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.kWE27JEQeR {
+    width: 100px;
+    height: 100px;
+}
+
+.NUHjyLzAe9 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.pYPfmv2vWO {
+    display: flex;
+    font-size: 16px;
+
+    .price-unit {
+        font-size: 12px;
+    }
+}
+
+.yGtP0MKAVm {
+    margin-left: 10px;
+    font-size: 18px;
+
+    .UP7pUHoTPz {
+        font-size: 14px;
+        color: #555;
+        margin: 5px 0;
+    }
+}
+
+.FnrTmZmU5d {
+    padding: 20px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.Z0PsouoV4C {
+    display: flex;
+    justify-content: space-between;
+}
+
+.iDhMoasO3r {
+    font-size: 15px !important;
+}
+
+.mAEuftJaKn {
+    font-size: 20px;
+    display: flex;
+
+    .YgtfbkDOcI {
+        font-weight: bold;
+        letter-spacing: 1.4px;
+        margin-left: 5px;
+    }
+
+    .price-unit {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.IPxqDV0w15 {
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 15px 0;
+}
+
+.CMylhjMf3a {
+    margin: 10px 0px 0px 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.E9LbSyeF1K {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.re2hADo8vE {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.il9lzie8c5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 15px 0;
+}
+
+.H3Jo34inFl {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.hlxPgnEBr1 {
+    min-height: 60vh;
+}
+
+.T9OuzWhzc2 {
+    cursor: pointer;
+}
+
+.bZQ0MSNB9b {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+.D56h5pa34O {
+    display: flex;
+    cursor: pointer;
+}
+
+.D56h5pa34O:hover {
+    color: var(--a-tag-text);
+}
+
+.EnxLq1AW6F {
+    margin-left: 5px;
+}
+
+/* .cae8QrM1G0 {
+    font-weight: 500;
+} */
+
+.KOSTPWBdzB {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.jVDYQ5pVdN {
+    margin-top: 15px;
+    padding: 50px 0px;
+}
+
+.W3nbPxn2jd {
+    background-color: #e2eeee;
+}
+
+.BIHydX44O2 {
+    padding: 20px;
+}
+
+.aeN5QGxSGY {
+    text-decoration: underline;
+}
+
+.ToErdTIwng {
+    margin-top: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+
+.dCme0Xe3Mz {
+    padding: 20px;
+
+    .nMSZsfpWfI {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 10px 0px;
+    }
+}
+
+.LtWUFPyQwV {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.CqZNH6DXGw {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0px;
+}
+
+.estF6RrAJf {
+    padding: 20px 20px 20px;
+}
+
+@media (max-width: 800px) {
+    .Vo975bjGLM {
+        margin: 15px 0px;
+    }
+
+    .n7vWrAkZl9 {
+        font-size: 14px !important;
+    }
+
+    .mAEuftJaKn {
+        font-size: 16px !important;
+    }
+
+    .yGtP0MKAVm {
+        font-size: 14px !important;
+    }
+
+    .kWE27JEQeR {
+        width: 80px;
+        height: 80px;
+    }
+}

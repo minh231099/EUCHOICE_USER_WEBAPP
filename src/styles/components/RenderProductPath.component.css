@@ -1,0 +1,14 @@
+.prod-path-container {
+    display: flex;
+    width: fit-content;
+    font-size: .8125rem;
+}
+
+.name-container {
+    width: fit-content;
+}
+
+.prod-path-clickable {
+    color: var(--a-tag-text);
+    cursor: pointer;
+}

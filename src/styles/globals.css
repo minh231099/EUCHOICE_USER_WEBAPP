@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: #1e1e1e;
+    --primary-color-lighter: rgba(255, 195, 217, 0.4);
+    --warning-color: yellow;
+    --error-color: #F70101;
+    --secondary-color: #F47E2E;
+    --primary-gradient-color: #555;
+    --text-color: #333;
+    --secondary-text-color: rgb(233, 233, 233);
+    --font-size-large: 24px;
+    --section-background-color: #F8F8F8;
+    --icon-color: #fff;
+    --nav-header-text: rgb(168, 168, 168);
+    --a-tag-text: #4080ee;
+    --header-text-color: #fff;
+    --footer-text-color: #fff;
+    --backgroud-color-darker: rgba(51, 51, 51, 0.02)
+}
+
+@import 'Layout.module.css';
+@import 'components/ChangeLanguage.component.css';
+@import 'components/Header.component.css';
+@import 'components/Footer.component.css';
+@import 'components/MobileHeader.component.css';
+@import 'components/RenderProductPath.component.css';
+@import 'components/ProductImageSlider.css';
+@import 'components/ProductCard.component.css';
+@import 'components/AddNewShippingInfoModal.component.css';
+@import 'components/SignInAndSignUpForm.css';
+@import 'components/CustomNotification.component.css';
+@import 'components/LeftUserLayout.component.css';
+@import 'components/StepsCustom.component.css';
+@import 'components/ListBlogsItem.component.css';
+
+@import 'Home.module.css';
+@import 'ProductDetails.css';
+@import 'SignIn.css';
+@import 'Cart.css';
+@import 'Order.module.css';
+@import 'Information.module.css';
+@import 'Address.module.css';
+@import 'PurchaseHistory.module.css';
+@import 'User.module.css';
+@import 'Blogs.module.css';
+@import 'BlogDetails.module.css';
+
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
+.d-flex {
+    display: flex;
+}
+
+.flex-left {
+    margin-right: auto;
+}
+
+.flex-right {
+    margin-left: auto;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.align_center {
+    align-items: center;
+}
+
+.justify_flex_end {
+    justify-content: flex-end;
+}
+
+.mlr-10 {
+    margin: 0px 10px
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

@@ -1,0 +1,78 @@
+.Z6Gc3maKKd {
+    display: flex;
+    justify-content: space-between;
+}
+
+.qjMyXh09iM {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.qjMyXh09iM::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+}
+
+.qjMyXh09iM .JewLNWYpXj {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 6px;
+}
+
+.qjMyXh09iM:last-child::after {
+    content: none;
+}
+
+.qjMyXh09iM.done .JewLNWYpXj .rNAsGxQfoM {
+    border: solid 2px #00B072;
+    stroke: #00B072;
+    color: #00B072;
+}
+
+.qjMyXh09iM.active .JewLNWYpXj .rNAsGxQfoM {
+    border: solid 2px #00B072;
+    background-color: #00B072;
+    stroke: #fff;
+    color: #fff;
+}
+
+.qjMyXh09iM.done::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #00B072;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+}
+
+.rNAsGxQfoM {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    padding: 20px;
+    border: solid 2px var(--primary-color);
+    background-color: #fff;
+    border-radius: 100%;
+    stroke-width: 15;
+    stroke: var(--primary-color);
+    height: 30px;
+    width: 40px;
+}
+
+.WKDOczktmK {
+    margin-top: 20px;
+}
