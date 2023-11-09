@@ -4,6 +4,7 @@ import { LiaShippingFastSolid, LiaMedalSolid } from 'react-icons/lia';
 import { BiSupport } from 'react-icons/bi';
 import { useTranslation } from 'react-i18next';
 const logo = '/logo.png';
+const logoSaleNoti = '/logoSaleNoti.png';
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -171,9 +172,8 @@ const Footer = () => {
                                     <div>
                                         <a href="http://online.gov.vn/Home/WebDetails/85990" target="_blank" rel="noopener">
                                             <img
-                                                src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"
+                                                src={logoSaleNoti}
                                                 alt=""
-                                                data-lazy-src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"
                                                 data-ll-status="loaded"
                                                 className="gov-vn"
                                             >
