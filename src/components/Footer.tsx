@@ -12,7 +12,7 @@ const Footer = () => {
         <footer>
             <section className="section">
                 <div className="bg-section bg-section2 bg-img"></div>
-                {/* <div className="section-content footer-bot" >
+                <div className="section-content footer-bot" >
                     <Row className="row" gutter={24} >
                         <Col className="col" md={6} sm={12} xs={24}>
                             <div className="col-inner">
@@ -202,7 +202,7 @@ const Footer = () => {
                     </Row>
                 </div>
                 <div className="divider-footer">
-                </div> */}
+                </div>
                 <div className="copyright">
                     <strong>© Bản quyền thuộc về Công Ty HAGA86</strong>
                 </div>

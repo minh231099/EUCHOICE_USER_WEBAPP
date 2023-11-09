@@ -1,16 +1,29 @@
 import { API_URLS } from "@/api/apiURL";
 import apiCall from "@/helper/apiCall";
-import Link from "next/link";
+import { Card } from "antd";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Category = (props: any) => {
+    const router = useRouter();
     return (
-        <div>
-            {props?.category?.map((item: any) => (
-                <Link key={item._id} href={`/category/${item.name}`}>
-                    {item.name}
-                </Link>
-            ))}
+        <div className="page-container">
+            <div className="head-category">
+                Our Categories
+            </div>
+            <div className="category-container">
+                {props?.category?.map((item: any) => (
+                    <Card
+                        className="card-category"
+                        onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}
+                    >
+                        <img className="img-category"
+                            src="https://quomodothemes.website/html/shopus/assets/images/homepage-one/category-img/dresses.webp">
+                        </img>
+                        <p className="text-category">{item.name}</p>
+                    </Card>
+                ))}
+            </div>
         </div>
     )
 }

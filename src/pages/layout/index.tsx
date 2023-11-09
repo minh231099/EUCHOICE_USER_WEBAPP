@@ -38,7 +38,7 @@ const Layout: React.FC<CustomProps> = (props) => {
 
   const showLayout = !router.pathname.startsWith('/login') && !router.pathname.startsWith('/signup');
   const showUserLayout = router.pathname.startsWith('/user');
-  const showFooter = !router.pathname.startsWith('/cart') && !router.pathname.startsWith('/order') && !isMobile;
+  const showFooter = !router.pathname.startsWith('/cart') && !router.pathname.startsWith('/order') && isMobile;
 
   return showLayout ? (
     isMobile ?

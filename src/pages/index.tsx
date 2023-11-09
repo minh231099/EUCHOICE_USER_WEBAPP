@@ -1,15 +1,17 @@
 import { Inter } from 'next/font/google'
-import { Carousel, Col, Row } from 'antd'
+import { Button, Carousel, Col, Divider, Row } from 'antd'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { useWindowSize } from 'react-use';
 import { API_URLS } from '@/api/apiURL';
 import apiCall from '@/helper/apiCall';
+import { GiLindenLeaf, GiAlarmClock } from 'react-icons/gi';
 import { ProductInterface } from '@/redux/reducers/product/interfaces';
 import { useRouter } from 'next/router';
 import ProductCardFS from '@/components/ProductCardFS';
 import { BannerInterface } from '@/redux/reducers/banner/interfaces';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 const inter = Inter({ subsets: ['latin'] })
 const freeship = '/free-delivery1.png';
 const certification = '/policy_3.png';
@@ -24,24 +26,20 @@ export default function Home(props: any) {
   const router = useRouter();
 
   const getNumberOfSwiper = (screenWidth: number) => {
-    if (screenWidth >= 2834) return 9
-    if (screenWidth < 2834 && screenWidth >= 2517) return 8
-    if (screenWidth < 2517 && screenWidth >= 2200) return 7
-    if (screenWidth < 2200 && screenWidth >= 1884) return 6
-    if (screenWidth < 1884 && screenWidth >= 1801) return 5
-    if (screenWidth < 1801 && screenWidth >= 1737) return 7
-    if (screenWidth < 1737 && screenWidth >= 1501) return 6
-    if (screenWidth < 1501 && screenWidth >= 1467) return 7
-    if (screenWidth < 1467 && screenWidth >= 1256) return 6
-    if (screenWidth < 1256 && screenWidth >= 1201) return 5
-    if (screenWidth < 1201 && screenWidth >= 1178) return 6
-    if (screenWidth < 1178 && screenWidth >= 980) return 5
-    if (screenWidth < 980 && screenWidth >= 921) return 4
-    if (screenWidth < 921 && screenWidth >= 875) return 5
-    if (screenWidth < 875 && screenWidth >= 698) return 4
-    if (screenWidth < 698 && screenWidth >= 521) return 3
-    if (screenWidth < 521 && screenWidth >= 343) return 2
-    if (screenWidth < 343) return 1
+    if (screenWidth >= 2999) return 10
+    if (screenWidth < 2999 && screenWidth >= 2699) return 9
+    if (screenWidth < 2699 && screenWidth >= 2397) return 8
+    if (screenWidth < 2397 && screenWidth >= 2096) return 7
+    if (screenWidth < 2096 && screenWidth >= 1794) return 6
+    if (screenWidth < 1794 && screenWidth >= 1493) return 5
+    if (screenWidth < 1493 && screenWidth >= 1280) return 4
+
+
+    if (screenWidth < 1280 && screenWidth >= 1045) return 5
+    if (screenWidth < 1045 && screenWidth >= 745) return 4
+    if (screenWidth < 745 && screenWidth >= 556) return 3
+    if (screenWidth < 556 && screenWidth >= 367) return 2
+    if (screenWidth < 367) return 1
   }
 
   const onClickProduct = (id: string) => {
@@ -63,12 +61,210 @@ export default function Home(props: any) {
           })}
         </Carousel>
       </div>
-      {props?.listFS?.length > 0 ?
-        <div>
-          <div className='fs-relative-wrapper-home'>
-            <div className='flash-sale-wrapper-home'>
-              <img className='img-fs-home' src={flashsale}></img>
+      <div className='body-home'>
+        <div className='hidden-side-nav'>
+          <div className='category-menu-side'>
+            <h3 className='cate-h-side'>Category</h3>
+            <ul>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/vegetable.svg'></img>
+                  <span>
+                    Vegetables & Fruit
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/cup.svg'></img>
+                  <span>
+                    Beverages
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/meats.svg'></img>
+                  <span>
+                    Meats & Seafood
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/breakfast.svg'></img>
+                  <span>
+                    Breakfast & Dairy
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/frozen.svg'></img>
+                  <span>
+                    Frozen Foods
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/biscuit.svg'></img>
+                  <span>
+                    Biscuits & Snacks
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/grocery.svg'></img>
+                  <span>
+                    Grocery & Staples
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/drink.svg'></img>
+                  <span>
+                    Wines & Alcohol Drinks
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/milk.svg'></img>
+                  <span>
+                    Milk & Dairies
+                  </span>
+                </div>
+              </li>
+              <li className='last-li'>
+                <div className='category-list-side'>
+                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/pet.svg'></img>
+                  <span>
+                    Pet Foods
+                  </span>
+                </div>
+              </li>
+            </ul>
+            <ul className='value-list'>
+              <li>
+                <div className='category-list-side'>
+                  <span>
+                    Value of the Day
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className='category-list-side'>
+                  <span>
+                    Top 50 Offers
+                  </span>
+                </div>
+              </li>
+              <li >
+                <div className='category-list-side'>
+                  <span>
+                    New Arrivals
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className='div-img-side-wrapper'>
+            <img src='https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/8.jpg'></img>
+            <div className='div-text-detail-side-wrapper'>
+              <div>
+                <h2>
+                  Seafood
+                </h2>
+                <Button
+                  className='see-all-btn'
+                  onClick={() => { onClickProductPage() }}
+                >
+                  Shop Now <AiOutlineArrowRight className='shopnow-icon' />
+                </Button>
+              </div>
             </div>
+          </div>
+          <div className='div-img-side-wrapper'>
+            <img src='https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/11.jpg'></img>
+          </div>
+        </div>
+        <div>
+          {props?.listFS?.length > 0 ?
+            <div>
+              <div className='title-deal'>
+                <div>
+                  <h2 className='title-h2'>Top save today</h2>
+                  <div className='divider-title-wrapper'>
+                    <Divider orientation="left" className='divider-title'>
+                      <GiLindenLeaf className='divider-icon' />
+                    </Divider>
+                  </div>
+                  <p className='title-p'>Don't miss this opportunity at a special discount just for this week.</p>
+                </div>
+                <div className='expies-btn'>
+                  <Button className='exp-btn'> <GiAlarmClock className='clock-icon' />Expies in: 00:00:00:00</Button>
+                </div>
+              </div>
+              <div className='fs-relative-wrapper-home'>
+                <Swiper
+                  spaceBetween={0}
+                  slidesPerView={getNumberOfSwiper(w)}
+                  loop={true}
+                  autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
+                >
+                  {conditional.map((e, index) => (
+                    <div key={`listFS ${index}`}>
+                      {props.listFS?.map((item: ProductInterface, index: any) => (
+                        <SwiperSlide key={`listFS-${index}`}>
+                          <div className='product-card-swipper'>
+                            <ProductCardFS
+                              sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                              title={item?.name}
+                              price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
+                              amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
+                              onClick={() => onClickProduct(item._id)}
+                            />
+                          </div>
+                        </SwiperSlide>
+                      ))}
+                    </div>
+                  ))}
+                </Swiper>
+              </div>
+              <div className='btn-wrapper-home'>
+                {/* <button className='btn-open-all-home' onClick={() => { onClickProductPage() }}>
+                  <span className="span-open-all-home">Khám phá tất cả FlashSale</span>
+                </button> */}
+                <Divider />
+              </div>
+            </div>
+            : null}
+          <div className='title-deal'>
+            <div>
+              <h2 className='title-h2'>Top 10 Sản phẩm hot nhất tuần</h2>
+              <div className='divider-title-wrapper'>
+                <Divider orientation="left" className='divider-title'>
+                  <GiLindenLeaf className='divider-icon' />
+                </Divider>
+              </div>
+              <p className='title-p'>Don't miss top 10 hot deal this week.</p>
+            </div>
+            <div className='seeall-button-hidden'>
+              <Button
+                className='see-all-btn'
+                onClick={() => { onClickProductPage() }}
+              >
+                Shop Now <AiOutlineArrowRight className='shopnow-icon' />
+              </Button>
+            </div>
+          </div>
+          <div>
             <Swiper
               spaceBetween={0}
               slidesPerView={getNumberOfSwiper(w)}
@@ -79,15 +275,14 @@ export default function Home(props: any) {
               }}
             >
               {conditional.map((e, index) => (
-                <div key={`listFS ${index}`}>
-                  {props.listFS?.map((item: ProductInterface, index: any) => (
-                    <SwiperSlide key={`listFS-${index}`}>
+                <div key={`top-10 ${index}`}>
+                  {props.top10?.map((item: ProductInterface, index: any) => (
+                    <SwiperSlide key={`top10-${index}`}>
                       <div className='product-card-swipper'>
-                        <ProductCardFS
+                        <ProductCard
                           sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
                           title={item?.name}
-                          price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
-                          amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
+                          price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
                           onClick={() => onClickProduct(item._id)}
                         />
                       </div>
@@ -97,92 +292,75 @@ export default function Home(props: any) {
               ))}
             </Swiper>
           </div>
+          <div className='seeall-button'>
+            <Button
+              className='see-all-btn'
+              onClick={() => { onClickProductPage() }}
+            >
+              Shop Now <AiOutlineArrowRight className='shopnow-icon' />
+            </Button>
+          </div>
+
+
           <div className='btn-wrapper-home'>
+            {/* <button className='btn-open-all-home' onClick={() => { onClickProductPage() }}>
+              <span className="span-open-all-home">Khám phá tất cả deal hot</span>
+            </button> */}
+            <Divider />
+          </div>
+          <div className='banner-grid-2-home'>
+            <Swiper
+              spaceBetween={15}
+              slidesPerView={w > 1100 ? 2 : 1}
+              loop={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+            >
+              {conditional.map((e, index) => {
+                return (
+                  <div key={`deal-hot-${index}`}>
+                    {props.listBannerSub?.map((item: BannerInterface, index: any) => {
+                      return <SwiperSlide>
+                        <div className='banner-div-wrapper-home'>
+                          <img className='banner-img-home' src={`${baseUrl}image/${item?.image}`}></img>
+                        </div>
+                      </SwiperSlide>
+                    })}
+                  </div>
+                )
+              })}
+            </Swiper>
+          </div>
+          <div className='title-deal'>
+            <div>
+              <h2 className='title-h2'>Những sản phẩm mới nhất</h2>
+              <div className='divider-title-wrapper'>
+                <Divider orientation="left" className='divider-title'>
+                  <GiLindenLeaf className='divider-icon' />
+                </Divider>
+              </div>
+              <p className='title-p'>Don't miss all new hot deal.</p>
+            </div>
+          </div>
+          <div className='div-product'>
+            {props.list50?.map((item: ProductInterface, index: any) => (
+              <ProductCard
+                key={`list-50-${index}`}
+                sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                title={item?.name}
+                price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                onClick={() => onClickProduct(item._id)}
+              />
+            ))}
+          </div>
+          <div className='btn-wrapper-home-all'>
             <button className='btn-open-all-home' onClick={() => { onClickProductPage() }}>
-              <span className="span-open-all-home">Khám phá tất cả FlashSale</span>
+              <span className="span-open-all-home">Xem thêm sản phẩm</span>
             </button>
           </div>
         </div>
-        : null}
-      <div className='top10-wrapper-home'>
-        <h2 className='title-top10-home'>Top 10 sản phẩm hot nhất tuần</h2>
-      </div>
-      <div>
-        <Swiper
-          spaceBetween={0}
-          slidesPerView={getNumberOfSwiper(w)}
-          loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-        >
-          {conditional.map((e, index) => (
-            <div key={`top-10 ${index}`}>
-              {props.top10?.map((item: ProductInterface, index: any) => (
-                <SwiperSlide key={`top10-${index}`}>
-                  <div className='product-card-swipper'>
-                    <ProductCard
-                      sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                      title={item?.name}
-                      price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-                      onClick={() => onClickProduct(item._id)}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </div>
-          ))}
-        </Swiper>
-      </div>
-      <div className='btn-wrapper-home'>
-        <button className='btn-open-all-home' onClick={() => { onClickProductPage() }}>
-          <span className="span-open-all-home">Khám phá tất cả deal hot</span>
-        </button>
-      </div>
-      <div className='banner-grid-2-home'>
-        <Swiper
-          spaceBetween={15}
-          slidesPerView={w > 1100 ? 2 : 1}
-          loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-        >
-          {conditional.map((e, index) => {
-            return (
-              <div key={`deal-hot-${index}`}>
-                {props.listBannerSub?.map((item: BannerInterface, index: any) => {
-                  return <SwiperSlide>
-                    <div className='banner-div-wrapper-home'>
-                      <img className='banner-img-home' src={`${baseUrl}image/${item?.image}`}></img>
-                    </div>
-                  </SwiperSlide>
-                })}
-              </div>
-            )
-          })}
-        </Swiper>
-      </div>
-      <div className='top10-wrapper-home'>
-        <h2 className='title-top10-home'>Những sản phẩm mới nhất</h2>
-      </div>
-      <div className='div-product'>
-        {props.list50?.map((item: ProductInterface, index: any) => (
-          <ProductCard
-            key={`list-50-${index}`}
-            sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-            title={item?.name}
-            price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-            onClick={() => onClickProduct(item._id)}
-          />
-        ))}
-      </div>
-      <div className='btn-wrapper-home'>
-        <button className='btn-open-all-home' onClick={() => { onClickProductPage() }}>
-          <span className="span-open-all-home">Xem thêm sản phẩm</span>
-        </button>
       </div>
       <div className='swiper-wrapper-home'>
         <Swiper

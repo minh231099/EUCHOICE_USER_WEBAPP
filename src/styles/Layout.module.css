@@ -4,10 +4,10 @@
 }
 
 .main_body {
-    margin: 0 20%;
+    margin: 0 5%;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .main_body {
         margin: 0 2%;
     }
@@ -45,6 +45,6 @@
 
 @media (min-width: 1501px) and (max-width: 1800px) {
     .main_body {
-        margin: 0 12%;
+        margin: 0 5%;
     }
-}
+} */

@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import ChangeLanguage from './ChangeLanguage';
 import { IoIosMail } from "react-icons/io";
 import { FaPhoneAlt, FaSearch } from "react-icons/fa";
-import { BsCart2 } from 'react-icons/bs';
-import { AppstoreOutlined } from '@ant-design/icons';
-import { Popover } from "antd";
+import { IoFlashOutline } from "react-icons/io5";
+import { BiPhoneCall } from 'react-icons/bi';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { AlignLeftOutlined, AppstoreOutlined, HeartOutlined, SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { Divider, Popover } from "antd";
 import { useAppDispatch } from '@/redux/hooks';
 import { getCategoryList } from "@/redux/actions/categoryAction";
 import { RootState } from '@/redux';
@@ -37,6 +39,7 @@ const Header = (props: CategoryPagePropsInf) => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const [width, setWidth] = useState<number>(0);
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+    const [isShowBoxSearch, setIsShowBoxSearch] = useState<boolean>(false);
     const elementRef = useRef<HTMLDivElement | null>(null);
     const dispatch = useAppDispatch();
 
@@ -92,7 +95,7 @@ const Header = (props: CategoryPagePropsInf) => {
         const value = event.target.value;
         setSearchInput(value);
     }
-    
+
     const navItems = [
         {
             key: '',
@@ -109,10 +112,6 @@ const Header = (props: CategoryPagePropsInf) => {
         {
             key: 'introduce',
             value: 'Giới thiệu'
-        },
-        {
-            key: 'contact',
-            value: 'Liên hệ'
         },
     ];
 
@@ -176,49 +175,99 @@ const Header = (props: CategoryPagePropsInf) => {
                     <div className="header_second_row_left" onClick={() => { router.push('/') }}>
                         <img className="logo" src={logo} alt="Logo" />
                     </div>
-                    <div className="header_second_row_center">
-                        <form className="search_container" onSubmit={handleSubmit}>
-                            <div className="d-flex">
-                                <input
-                                    className="search_box"
-                                    type="text"
-                                    value={searchInput}
-                                    onChange={handleInputChange}
-                                    placeholder={`${t('search')}...`}
-                                />
-                                <button className="search_button" type="submit">
-                                    <FaSearch className="search_icon" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div className="header_second_row_right">
-                        <div className="cart_icon_container" onClick={onClickCartIcon}>
-                            {
-                                prodInCart > 0 && <div className="prod_count">{prodInCart}</div>
-                            }
-                            <BsCart2 className="cart_icon" />
+                    {isShowBoxSearch ?
+                        <div className="header_second_row_center">
+                            <form className="search_container" onSubmit={handleSubmit}>
+                                <div className="d-flex">
+                                    <input
+                                        className="search_box"
+                                        type="text"
+                                        value={searchInput}
+                                        onChange={handleInputChange}
+                                        placeholder={`${t('search')}...`}
+                                    />
+                                    <button className="search_button" onClick={() => { setIsShowBoxSearch(false) }}>
+                                        <AiOutlineCloseCircle className="search_icon" />
+                                    </button>
+                                </div>
+                            </form>
+                        </div> :
+                        <><div className="header_second_row_center hidden-search">
+                            <form className="search_container" onSubmit={handleSubmit}>
+                                <div className="d-flex">
+                                    <input
+                                        className="search_box"
+                                        type="text"
+                                        value={searchInput}
+                                        onChange={handleInputChange}
+                                        placeholder={`${t('search')}...`}
+                                    />
+                                    <button className="search_button" type="submit">
+                                        <FaSearch className="search_icon" />
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                    </div>
+                            <div className="header_second_row_center hidden-search-button">
+
+                            </div>
+                            <div className="header_second_row_right">
+                                <div className="cart_icon_container hidden-search-button">
+                                    <SearchOutlined className="cart_icon" onClick={() => { setIsShowBoxSearch(true) }} />
+                                </div>
+                                <div className="cart_icon_container hidden-search-button">
+                                    <Divider type="vertical" className="deli-divider" />
+                                </div>
+                                <div className="cart_icon_container" onClick={onClickCartIcon}>
+                                    <div className="deliver-wrapper">
+                                        <BiPhoneCall className="cart_icon" />
+                                        <div className="delivery-detail">
+                                            <span className="deli-span">24/7 Delivery</span>
+                                            <span className="deli-phone-span">088.828.3335</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="cart_icon_container">
+                                    <Divider type="vertical" className="deli-divider" />
+                                </div>
+                                <div className="cart_icon_container">
+                                    <HeartOutlined className="cart_icon" />
+                                </div>
+                                <div className="cart_icon_container">
+                                    <Divider type="vertical" className="deli-divider" />
+                                </div>
+                                <div className="cart_icon_container" onClick={onClickCartIcon}>
+                                    {
+                                        prodInCart > 0 && <div className="prod_count">{prodInCart}</div>
+                                    }
+                                    <ShoppingCartOutlined className="cart_icon" />
+                                </div>
+                            </div></>}
                 </div>
             </div>
             {
                 isShowNav && <div className="category-header">
                     <div className="category-grid" ref={elementRef}>
                         <Popover placement="bottomLeft" content={content} arrow={false}>
-                            <div className="nav-ul-header"> <AppstoreOutlined style={{ fontSize: '20px', marginRight: '10px', marginTop: '-3px' }} />
+                            <div className="nav-ul-header"> <AlignLeftOutlined style={{ fontSize: '20px', marginRight: '10px', marginTop: '-3px' }} />
                                 <span className="span-nav-ul-header">Danh mục sản phẩm</span>
                             </div>
                         </Popover>
-                        {navItems.map((item, index) => (
-                            <div
-                                key={index}
-                                className={`nav-header ${activeIndex === index ? 'active' : ''}`}
-                                onClick={() => { handleNavItemClick(index), router.push({ pathname: `/${item.key}` }) }}
-                            >
-                                {item.value}
-                            </div>
-                        ))}
+                        <div className="nav-bar-center">
+                            {navItems.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className={`nav-header ${activeIndex === index ? 'active' : ''}`}
+                                    onClick={() => { handleNavItemClick(index), router.push({ pathname: `/${item.key}` }) }}
+                                >
+                                    {item.value}
+                                </div>
+                            ))}
+                        </div>
+                        <div className="nav-ul-header hot-deal-nav">
+                            <IoFlashOutline style={{ fontSize: '20px', marginRight: '10px', marginTop: '-3px' }} />
+                            <span className="span-nav-ul-header hidden-span">Deal Today</span>
+                        </div>
                     </div>
                 </div>
             }

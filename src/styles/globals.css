@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --primary-color: #1e1e1e;
+    --primary-color: #3a89c5;
     --primary-color-lighter: rgba(255, 195, 217, 0.4);
     --warning-color: yellow;
     --error-color: #F70101;
-    --secondary-color: #F47E2E;
+    --secondary-color: #2ef4e4;
     --primary-gradient-color: #555;
     --text-color: #333;
+    --divider-color: #4644449f;
     --secondary-text-color: rgb(233, 233, 233);
     --font-size-large: 24px;
     --section-background-color: #F8F8F8;
@@ -16,7 +17,8 @@
     --a-tag-text: #4080ee;
     --header-text-color: #fff;
     --footer-text-color: #fff;
-    --backgroud-color-darker: rgba(51, 51, 51, 0.02)
+    --backgroud-color-darker: rgba(51, 51, 51, 0.02);
+    --background-category-side: #f8f8f8
 }
 
 @import 'Layout.module.css';
@@ -35,6 +37,7 @@
 @import 'components/ListBlogsItem.component.css';
 
 @import 'Home.module.css';
+@import 'Category.module.css';
 @import 'ProductDetails.css';
 @import 'SignIn.css';
 @import 'Cart.css';

@@ -30,11 +30,7 @@ const navItems = [
     {
         key: 'new',
         value: 'Tin tức'
-    },
-    {
-        key: 'contact',
-        value: 'Liên hệ'
-    },
+    }
 ];
 const MobileHeaderNav = (props: MobileNavPropsInf) => {
     const [sh, getSH] = useState<boolean>(true)
