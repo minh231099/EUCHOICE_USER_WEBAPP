@@ -16,7 +16,7 @@ const StepsCustom = (props: StepCustomProps) => {
         <div className='Z6Gc3maKKd'>
             {
                 items.map((item, index) => (
-                    <div className={`qjMyXh09iM ${index < current - 1 ? 'done' : ''} ${index == current - 1 ? 'active' : ''}` }>
+                    <div className={`qjMyXh09iM ${index < current - 1 ? 'done' : ''} ${index == current - 1 ? 'active' : ''}`} key={index}>
                         <div className='JewLNWYpXj'>
                             <div className='rNAsGxQfoM'>{item.icon}</div>
                         </div>

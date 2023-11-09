@@ -3,6 +3,8 @@ import apiCall from "@/helper/apiCall";
 import { Card } from "antd";
 import { useRouter } from "next/router";
 import React from "react";
+const iconCate = '/cup.png';
+const baseUrl = process.env.BASE_URL;
 
 const Category = (props: any) => {
     const router = useRouter();
@@ -12,13 +14,14 @@ const Category = (props: any) => {
                 Our Categories
             </div>
             <div className="category-container">
-                {props?.category?.map((item: any) => (
+                {props?.category?.map((item: any, index: any) => (
                     <Card
                         className="card-category"
+                        key={`card-key-${index}`}
                         onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}
                     >
                         <img className="img-category"
-                            src="https://quomodothemes.website/html/shopus/assets/images/homepage-one/category-img/dresses.webp">
+                            src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}>
                         </img>
                         <p className="text-category">{item.name}</p>
                     </Card>

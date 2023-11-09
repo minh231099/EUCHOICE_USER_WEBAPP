@@ -1,7 +1,9 @@
 .category-container {
     padding: 20px;
     display: flex;
+    width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -10,12 +12,19 @@
     height: 180px;
     cursor: pointer;
     display: flex;
-    background-color: rgba(0, 255, 213, 0.74);
+    background-color: rgba(0, 132, 255, 0.74);
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 10px;
     border: 1px solid rgb(0, 247, 255);
+}
+
+@media (max-width: 1024px) {
+    .card-category {
+        width: 150px;
+        height: 120px;
+    }
 }
 
 .card-category:hover {
@@ -33,6 +42,8 @@
 }
 
 .img-category {
+    width: 50px;
+    height: 50px;
     margin-top: 30px;
 }
 

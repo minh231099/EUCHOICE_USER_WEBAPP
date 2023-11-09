@@ -28,7 +28,7 @@
     justify-content: center;
 }
 
-@media (min-width: 551px) and (max-width: 768px) {
+@media (min-width: 551px) and (max-width: 769px) {
     .VNAMgHYWSk {
         grid-template-columns: 47.5% 47.5%;
     }

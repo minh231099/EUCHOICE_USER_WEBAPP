@@ -21,7 +21,7 @@ const Layout: React.FC<CustomProps> = (props) => {
 
   const [isMobile, setIsMobile] = useState(false);
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768);
+    setIsMobile(window.innerWidth < 771);
   };
 
   useEffect(() => {

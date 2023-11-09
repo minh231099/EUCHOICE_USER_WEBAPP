@@ -19,6 +19,8 @@ import UserDropDown from "./UserDropDown";
 import { CartInfoInterface } from "@/redux/reducers/cart/interfaces";
 import Cookies from "js-cookie";
 import { getListShippingInfo } from "@/redux/actions/shippingInfo";
+import { API_URLS } from "@/api/apiURL";
+import apiCall from "@/helper/apiCall";
 
 const logo = '/logo.png';
 

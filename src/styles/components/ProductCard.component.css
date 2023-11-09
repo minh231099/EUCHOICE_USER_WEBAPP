@@ -310,7 +310,7 @@ sup {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     .div-product {
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
         grid-gap: 10px;
@@ -346,7 +346,7 @@ sup {
     }
 }
 
-@media (min-width: 521px) and (max-width: 768px) {
+@media (min-width: 521px) and (max-width: 769px) {
     .product-image {
         height: 160px;
     }

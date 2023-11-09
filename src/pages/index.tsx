@@ -12,17 +12,17 @@ import { useRouter } from 'next/router';
 import ProductCardFS from '@/components/ProductCardFS';
 import { BannerInterface } from '@/redux/reducers/banner/interfaces';
 import { AiOutlineArrowRight } from 'react-icons/ai';
-const inter = Inter({ subsets: ['latin'] })
 const freeship = '/free-delivery1.png';
 const certification = '/policy_3.png';
 const support = '/policy_4.png';
 const promotion = '/policy_2.png';
-const flashsale = '/flashsale.png';
+const iconCate = '/cup.png';
+const baseUrl = process.env.BASE_URL;
+
 export default function Home(props: any) {
   const { width } = useWindowSize();
   let w = width;
   const conditional = [1, 2]
-  const baseUrl = process.env.BASE_URL;
   const router = useRouter();
 
   const getNumberOfSwiper = (screenWidth: number) => {
@@ -66,86 +66,34 @@ export default function Home(props: any) {
           <div className='category-menu-side'>
             <h3 className='cate-h-side'>Category</h3>
             <ul>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/vegetable.svg'></img>
-                  <span>
-                    Vegetables & Fruit
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/cup.svg'></img>
-                  <span>
-                    Beverages
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/meats.svg'></img>
-                  <span>
-                    Meats & Seafood
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/breakfast.svg'></img>
-                  <span>
-                    Breakfast & Dairy
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/frozen.svg'></img>
-                  <span>
-                    Frozen Foods
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/biscuit.svg'></img>
-                  <span>
-                    Biscuits & Snacks
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/grocery.svg'></img>
-                  <span>
-                    Grocery & Staples
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/drink.svg'></img>
-                  <span>
-                    Wines & Alcohol Drinks
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/milk.svg'></img>
-                  <span>
-                    Milk & Dairies
-                  </span>
-                </div>
-              </li>
-              <li className='last-li'>
-                <div className='category-list-side'>
-                  <img src='https://themes.pixelstrap.com/fastkart/assets/svg/1/pet.svg'></img>
-                  <span>
-                    Pet Foods
-                  </span>
-                </div>
-              </li>
+              {
+                props.category?.map((item: any, index: any, category: any) => {
+                  if (index + 1 === category.length) {
+                    return (
+                      <li key={`li-nav-cate-${index}`} className='last-li'>
+                        <div className='category-list-side'>
+                          <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
+                          <span>
+                            {item.name}
+                          </span>
+                        </div>
+                      </li>
+                    )
+                  }
+                  else {
+                    return (
+                      <li key={`li-nav-cate-${index}`}>
+                        <div className='category-list-side'>
+                          <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
+                          <span>
+                            {item.name}
+                          </span>
+                        </div>
+                      </li>
+                    )
+                  }
+                })
+              }
             </ul>
             <ul className='value-list'>
               <li>
@@ -335,7 +283,7 @@ export default function Home(props: any) {
                 return (
                   <div key={`deal-hot-${index}`}>
                     {props.listBannerSub?.map((item: BannerInterface, index: any) => {
-                      return <SwiperSlide>
+                      return <SwiperSlide key={`swip-${index}`}>
                         <div className='banner-div-wrapper-home'>
                           <img className='banner-img-home' src={`${baseUrl}image/${item?.image}`}></img>
                         </div>
@@ -449,8 +397,13 @@ export const getServerSideProps = async () => {
 
   const apiBannerSub = API_URLS.BANNER.getListBanner('');
   const listBannerSub = await apiCall({ ...apiBannerSub });
+
+  const apiListCategory = API_URLS.CATEGORY.getListCategory();
+  const listCategory = await apiCall({ ...apiListCategory });
+
   return {
     props: {
+      category: listCategory.response?.data || null,
       top10: top10.response?.data || null,
       list50: list50.response?.data || null,
       listFS: listFS.response?.data || null,

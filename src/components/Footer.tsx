@@ -171,9 +171,9 @@ const Footer = () => {
                                     <div>
                                         <a href="http://online.gov.vn/Home/WebDetails/85990" target="_blank" rel="noopener">
                                             <img
-                                                src="https://euchoice.vn/wp-content/uploads/2021/09/logoSaleNoti-300x114.png"
+                                                src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"
                                                 alt=""
-                                                data-lazy-src="https://euchoice.vn/wp-content/uploads/2021/09/logoSaleNoti-300x114.png"
+                                                data-lazy-src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"
                                                 data-ll-status="loaded"
                                                 className="gov-vn"
                                             >

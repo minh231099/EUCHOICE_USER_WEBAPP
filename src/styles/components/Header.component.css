@@ -88,7 +88,7 @@
 
         .logo {
             width: 150px;
-            height: 150px;
+            height: 120px;
             cursor: pointer;
         }
 
@@ -543,7 +543,7 @@
         .header_second_row {
             .logo {
                 width: 100px;
-                height: 100px;
+                height: 80px;
             }
 
             .header_second_row_right {
