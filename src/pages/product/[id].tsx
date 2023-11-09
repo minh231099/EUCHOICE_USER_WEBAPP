@@ -413,7 +413,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                         </div>
                         <div className='product-more-information-divider'></div>
                         <div className='product-policy-extend' onClick={onChangeShowPolicy}>
-                            <span className='product-more-information-left-content'>Vì sao bạn nên chọn HAGA86?</span>
+                            <span className='product-more-information-left-content'>Vì sao bạn nên chọn EUCHOICE?</span>
                             <span className='product-more-information-right-content'>
                                 {
                                     isShowPolicy ? <UpOutlined /> : <DownOutlined />

@@ -145,7 +145,7 @@ const Header = (props: CategoryPagePropsInf) => {
             <div className="above_header d-flex">
                 <div className="above_header_elm">
                     <div className="above_header_left_content d-flex">
-                        <span className="above_header_mail_icon"><IoIosMail /></span><span className="above_header_text">LIENHE@HAGA86.VN</span>
+                        <span className="above_header_mail_icon"><IoIosMail /></span><span className="above_header_text">LIENHE@EUCHOICE.VN</span>
                         <div className="above_header_vertical_divide"></div>
                         <span className="above_header_phone_icon"><FaPhoneAlt /></span><span className="above_header_text">0888283335</span>
                     </div>

@@ -22,7 +22,7 @@ const Footer = () => {
                                             <img className="img-object" src={logo} alt="Logo" />
                                         </div>
                                     </div>
-                                    <p className="infoEu text-justify-foot">HAGA là một công ty chuyên cung cấp và phân phối các sản phẩm Châu Âu chính ngạch, có hóa đơn, chứng từ sản phẩm. Phục vụ nhu cầu cao cấp, dịch vụ nhanh chóng & tin cậy nhằm mang đến cho bạn những sự lựa chọn thời thượng & độc đáo nhất.</p>
+                                    <p className="infoEu text-justify-foot">EUCHOICE là một công ty chuyên cung cấp và phân phối các sản phẩm Châu Âu chính ngạch, có hóa đơn, chứng từ sản phẩm. Phục vụ nhu cầu cao cấp, dịch vụ nhanh chóng & tin cậy nhằm mang đến cho bạn những sự lựa chọn thời thượng & độc đáo nhất.</p>
                                     <div className="infoEu connect-foot uppercase-foot text-title-foot"><h3 ><b></b><span >KẾT NỐI VỚI CHÚNG TÔI</span><b></b></h3></div>
                                     <a href="#" className="fa fa-facebook"></a>
                                     <a href="#" className="fa fa-youtube"></a>
@@ -111,11 +111,11 @@ const Footer = () => {
                         <Col className="col" md={6} sm={12} xs={24}>
                             <div className="col-inner">
                                 <div className="box">
-                                    <div className="infoEu uppercase-foot text-title-foot"><h3 ><b></b><span >Về HAGA86</span><b></b></h3></div>
+                                    <div className="infoEu uppercase-foot text-title-foot"><h3 ><b></b><span >Về EUCHOICE</span><b></b></h3></div>
                                     <div className="text-line-foot">
                                         <a href="#">
                                             <span className="infoEu capitalize-foot">
-                                                giới thiệu HAGA86
+                                                giới thiệu EUCHOICE
                                             </span>
                                         </a>
                                     </div>
@@ -204,7 +204,7 @@ const Footer = () => {
                 <div className="divider-footer">
                 </div>
                 <div className="copyright">
-                    <strong>© Bản quyền thuộc về Công Ty HAGA86</strong>
+                    <strong>© Bản quyền thuộc về Công Ty EUCHOICE</strong>
                 </div>
             </section>
         </footer >

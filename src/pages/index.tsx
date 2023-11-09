@@ -189,6 +189,19 @@ export default function Home(props: any) {
           </div>
           <div className='div-img-side-wrapper'>
             <img src='https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/11.jpg'></img>
+            <div className='div-text-detail-side-wrapper'>
+              <div>
+                <h2>
+                  Vegetable bla bla
+                </h2>
+                <Button
+                  className='see-all-btn'
+                  onClick={() => { onClickProductPage() }}
+                >
+                  Shop Now <AiOutlineArrowRight className='shopnow-icon' />
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
         <div>
