@@ -110,13 +110,17 @@ footer {
     .img {
         width: 46%;
         position: relative;
-        margin-bottom: 1em;
+        /* margin-bottom: 1em; */
         display: block;
     }
 
     .img-inner {
         position: relative;
         overflow: hidden;
+        margin-top: -35px;
+        height: 150px;
+        width: 130px;
+        background: linear-gradient(to bottom, white 20%, var(--primary-color))
     }
 
     .img-object {

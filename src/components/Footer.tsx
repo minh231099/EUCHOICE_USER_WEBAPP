@@ -187,6 +187,7 @@ const Footer = () => {
                             <div className="col-inner">
                                 <div className="box">
                                     <div className="infoEu uppercase-foot text-title-foot"><h3 ><b></b><span >Liên Hệ</span><b></b></h3></div>
+                                    <p className="infoEu text-justify-foot"><strong>Công ty TNHH XNK Hữu Cơ Việt Nam</strong></p>
                                     <p className="infoEu capitalize-foot"><strong>Địa chỉ chúng tôi</strong></p>
                                     <p className="infoEu text-justify-foot">Số 122 Trần Đại Nghĩa, Phường Đồng Tâm, Quận Hai Bà Trưng, Thành phố Hà Nội</p>
                                     <p className="infoEu capitalize-foot"><strong>Emai chúng tôi</strong></p>
