@@ -11,8 +11,8 @@
 }
 
 .product-card-container {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     cursor: pointer;
 }
 
