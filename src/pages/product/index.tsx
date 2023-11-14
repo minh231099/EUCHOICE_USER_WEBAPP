@@ -32,7 +32,7 @@ const ProductPage = (props: SearchPagePropsInf) => {
     }
 
     return (
-        <div className='category-page-container'>
+        <div className='category-page-container page-container'>
             <div className='div-grid'>
                 <div className='div-filter-mobile' onClick={() => { showDrawer() }}>
                     <UnorderedListOutlined className='icon-filter-mobile' /><strong className='span-filter-mobile'> Lọc</strong>

@@ -124,7 +124,7 @@ export default function Home(props: any) {
             <div className='div-text-detail-side-wrapper'>
               <div>
                 <h2>
-                  Seafood
+                  Infomation for banner
                 </h2>
                 <Button
                   className='see-all-btn'
@@ -140,7 +140,7 @@ export default function Home(props: any) {
             <div className='div-text-detail-side-wrapper'>
               <div>
                 <h2>
-                  Vegetable bla bla
+                  Infomation for banner
                 </h2>
                 <Button
                   className='see-all-btn'
@@ -165,9 +165,9 @@ export default function Home(props: any) {
                   </div>
                   <p className='title-p'>Don't miss this opportunity at a special discount just for this week.</p>
                 </div>
-                <div className='expies-btn'>
+                {/* <div className='expies-btn'>
                   <Button className='exp-btn'> <GiAlarmClock className='clock-icon' />Expies in: 00:00:00:00</Button>
-                </div>
+                </div> */}
               </div>
               <div className='fs-relative-wrapper-home'>
                 <Swiper
