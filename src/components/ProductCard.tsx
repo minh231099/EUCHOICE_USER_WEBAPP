@@ -17,7 +17,7 @@ const ProductCard = (props: ProductCardPropsInf) => {
                 <div className="product-details">
                     <div className="product-price"><strong>{props.price}</strong> <sup>đ</sup></div>
                     <div className="product-title">{props.title}</div>
-                    <div className="mz-rating__group-col">
+                    {/* <div className="mz-rating__group-col">
                         <div className="mz-rating__rating-star-field">
                             <i className="fa fa-star star-icon"></i>
                             <i className="fa fa-star star-icon"></i>
@@ -30,7 +30,7 @@ const ProductCard = (props: ProductCardPropsInf) => {
                                 (13.27K)
                             </span>
                         </div>
-                    </div>
+                    </div> */}
                     {/* <a href="#" className="product-button">Detail</a> */}
                 </div>
             </div>
