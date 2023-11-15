@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import ProductCardFS from '@/components/ProductCardFS';
 import { BannerInterface } from '@/redux/reducers/banner/interfaces';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { FaBullseye } from 'react-icons/fa';
 const freeship = '/free-delivery1.png';
 const certification = '/policy_3.png';
 const support = '/policy_4.png';
@@ -179,23 +180,36 @@ export default function Home(props: any) {
                     disableOnInteraction: false,
                   }}
                 >
-                  {conditional.map((e, index) => (
-                    <div key={`listFS ${index}`}>
-                      {props.listFS?.map((item: ProductInterface, index: any) => (
-                        <SwiperSlide key={`listFS-${index}`}>
-                          <div className='product-card-swipper'>
-                            <ProductCardFS
-                              sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                              title={item?.name}
-                              price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
-                              amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
-                              onClick={() => onClickProduct(item._id)}
-                            />
-                          </div>
-                        </SwiperSlide>
-                      ))}
-                    </div>
-                  ))}
+                  {props?.listFS?.length < getNumberOfSwiper(w)! ?
+                    props.listFS?.map((item: ProductInterface, index: any) => (
+                      <SwiperSlide key={`listFS-${index}`}>
+                        <div className='product-card-swipper'>
+                          <ProductCardFS
+                            sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                            title={item?.name}
+                            price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
+                            amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
+                            onClick={() => onClickProduct(item._id)}
+                          />
+                        </div>
+                      </SwiperSlide>
+                    )) : conditional.map((e, index) => (
+                      <div key={`listFS ${index}`}>
+                        {props.listFS?.map((item: ProductInterface, index: any) => (
+                          <SwiperSlide key={`listFS-${index}`}>
+                            <div className='product-card-swipper'>
+                              <ProductCardFS
+                                sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                                title={item?.name}
+                                price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
+                                amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
+                                onClick={() => onClickProduct(item._id)}
+                              />
+                            </div>
+                          </SwiperSlide>
+                        ))}
+                      </div>
+                    ))}
                 </Swiper>
               </div>
               <div className='btn-wrapper-home'>
@@ -235,22 +249,34 @@ export default function Home(props: any) {
                 disableOnInteraction: false,
               }}
             >
-              {conditional.map((e, index) => (
-                <div key={`top-10 ${index}`}>
-                  {props.top10?.map((item: ProductInterface, index: any) => (
-                    <SwiperSlide key={`top10-${index}`}>
-                      <div className='product-card-swipper'>
-                        <ProductCard
-                          sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                          title={item?.name}
-                          price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-                          onClick={() => onClickProduct(item._id)}
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </div>
-              ))}
+              {props?.top10?.length < getNumberOfSwiper(w)! ?
+                props.top10?.map((item: ProductInterface, index: any) => (
+                  <SwiperSlide key={`top10-${index}`}>
+                    <div className='product-card-swipper'>
+                      <ProductCard
+                        sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                        title={item?.name}
+                        price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                        onClick={() => onClickProduct(item._id)}
+                      />
+                    </div>
+                  </SwiperSlide>
+                )) : conditional.map((e, index) => (
+                  <div key={`top-10 ${index}`}>
+                    {props.top10?.map((item: ProductInterface, index: any) => (
+                      <SwiperSlide key={`top10-${index}`}>
+                        <div className='product-card-swipper'>
+                          <ProductCard
+                            sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                            title={item?.name}
+                            price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                            onClick={() => onClickProduct(item._id)}
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </div>
+                ))}
             </Swiper>
           </div>
           <div className='seeall-button'>
