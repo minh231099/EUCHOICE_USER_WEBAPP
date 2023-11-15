@@ -204,6 +204,7 @@
                 display: none;
                 position: relative;
                 margin-bottom: 10px;
+                white-space: pre-wrap;
             }
 
             .show {

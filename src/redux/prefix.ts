@@ -9,5 +9,6 @@ export default {
     SEARCH: '[search]',
     SHIPPING_INFO: '[shipping info]',
     ORDER: '[order]',
-    BLOGS: '[blogs]'
+    BLOGS: '[blogs]',
+    HISTORY: '[history]',
 };

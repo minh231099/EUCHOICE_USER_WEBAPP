@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { LayoutProps } from '../../redux/reducers/layout/interface';
 import MainLayout from './main_layout';
 import MobileLayout from './mobile_layout';
 import { useRouter } from 'next/router';
@@ -9,13 +8,16 @@ import { listProductInCart } from '@/redux/actions/cartAction';
 import { isLogged } from '@/utils/lib';
 import { RootState } from '@/redux';
 import UserLeftLayout from './left_layout';
+import { saveHistory } from '@/redux/actions/historyAction';
+import { HistoryInterface } from '@/redux/reducers/history/interfaces';
 
 interface CustomProps {
   children: React.ReactNode;
+  history: HistoryInterface;
 }
 
 const Layout: React.FC<CustomProps> = (props) => {
-  const { children } = props;
+  const { children, history } = props;
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -23,6 +25,11 @@ const Layout: React.FC<CustomProps> = (props) => {
   const handleResize = () => {
     setIsMobile(window.innerWidth < 771);
   };
+
+  useEffect(() => {
+    dispatch(saveHistory(history, router.asPath));
+  }, [router.asPath]);
+
 
   useEffect(() => {
     dispatch(listProductInCart());
@@ -49,7 +56,7 @@ const Layout: React.FC<CustomProps> = (props) => {
 
 const mapStateToProps = (state: RootState) => {
   return {
-    addToCartState: state?.cartReducer?.addToCart,
+    history: state?.historyReducer.history,
   };
 };
 

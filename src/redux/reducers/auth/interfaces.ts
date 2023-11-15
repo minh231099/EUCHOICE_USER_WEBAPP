@@ -8,6 +8,7 @@ export interface AuthState {
     token: string | null;
     userInfo: GetUserInfoInterface | null;
     logedOut: boolean;
+    signUpError: boolean;
 }
 
 export interface GetUserInfoInterface {
@@ -18,4 +19,12 @@ export interface GetUserInfoInterface {
     role: string;
     name: string;
     phonenumer: string;
+}
+
+export interface SignUpPayload {
+    email: string;
+    phone_number: string;
+    password: string;
+    repassword: string;
+    name: string;
 }

@@ -8,6 +8,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { RootState } from "@/redux";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
+import { HistoryInterface } from "@/redux/reducers/history/interfaces";
 
 const { Item } = Form;
 
@@ -15,10 +16,11 @@ interface LoginPagePropsItf {
     isFetching: boolean | null | undefined;
     loginError: boolean | null | undefined;
     token: string | null | undefined;
+    history: HistoryInterface;
 }
 
 const LoginPage = (props: LoginPagePropsItf) => {
-    const { isFetching, loginError, token } = props;
+    const { isFetching, loginError, token, history } = props;
     const router = useRouter();
     const dispatch = useAppDispatch();
 
@@ -34,8 +36,7 @@ const LoginPage = (props: LoginPagePropsItf) => {
             if (!isFetching && !loginError) {
                 if (token) Cookies.set("jwt", token.replace('Bearer ', ''));
                 setClickOnSubmit(false);
-                // router.push('/');
-                router.back();
+                router.push(history.back);
             }
             else if (!isFetching && loginError) {
                 setShowErrorMessage(true);
@@ -91,7 +92,7 @@ const LoginPage = (props: LoginPagePropsItf) => {
                             <span className="forgot-password">Quên mật khẩu?</span>
                             <div className="vertical-divider"></div>
                             <div className="another-info">
-                                <span className="sign-up-router">Lần đầu bạn tới với EU Choice? <span className="sign-up-text" onClick={() => {router.push('/signup')}}>Đăng ký</span></span>
+                                <span className="sign-up-router">Lần đầu bạn tới với EU Choice? <span className="sign-up-text" onClick={() => { router.push('/signup') }}>Đăng ký</span></span>
                             </div>
                         </div>
                     </div>
@@ -114,6 +115,7 @@ const mapStateToProps = (state: RootState) => {
         isFetching: state?.authReducer?.isFetching,
         loginError: state?.authReducer?.error,
         token: state?.authReducer?.token,
+        history: state.historyReducer.history,
     };
 };
 

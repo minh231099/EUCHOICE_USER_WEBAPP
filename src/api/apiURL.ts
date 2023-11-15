@@ -40,6 +40,11 @@ export const API_URLS = {
             endPoint: `v1/account/signout`,
             method: 'POST',
             headers: HEADERS.header()
+        }),
+        signUp: () => ({
+            endPoint: `v1/account/register`,
+            method: 'POST',
+            headers: HEADERS.header()
         })
     },
     CART: {

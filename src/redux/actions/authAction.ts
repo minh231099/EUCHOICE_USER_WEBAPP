@@ -3,9 +3,9 @@ import { API_URLS } from "@/api/apiURL";
 import prefix from "../prefix";
 import { isDispatchCalling, isDispatchFailed, isDispatchSuccess } from "@/helper/dispatchDedicate";
 import apiCall from "@/helper/apiCall";
-import { GetUserInfoInterface, LoginInterface } from '../reducers/auth/interfaces';
+import { GetUserInfoInterface, LoginInterface, SignUpPayload } from '../reducers/auth/interfaces';
 
-import { LOGIN, GET_USER_INFO, LOG_OUT } from '../types/authType';
+import { LOGIN, GET_USER_INFO, LOG_OUT, SIGN_UP } from '../types/authType';
 
 const { AUTH } = prefix;
 
@@ -72,4 +72,23 @@ export const logOut = () => async (dispatch: Dispatch) => {
     else dispatch(isDispatchFailed(logoutType));
 }
 
-export type AuthActionTypes = LoginActionType | GetUserInfoType | LogoutType;
+interface SignUpType {
+    type: typeof SIGN_UP;
+    payload: undefined;
+}
+
+/**
+ * @SIGN_UP
+ */
+
+const signUpType = { prefix: AUTH, type: SIGN_UP };
+
+export const signUp = (payload: SignUpPayload) => async (dispatch: Dispatch) => {
+    const api = API_URLS.AUTH.signUp();
+    dispatch(isDispatchCalling(signUpType));
+    const { response, error } = await apiCall({ ...api, payload });
+    if (response) dispatch(isDispatchSuccess(signUpType, response.data));
+    else dispatch(isDispatchFailed(signUpType, error));
+}
+
+export type AuthActionTypes = LoginActionType | GetUserInfoType | LogoutType | SignUpType;

@@ -1,5 +1,5 @@
 .siasuf-container {
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--primary-color);
 
     .siasuf-header {
@@ -36,8 +36,9 @@
     }
 
     .siasuf-body {
-        height: 60vh;
+        height: fit-content;
         margin: 0 20%;
+        margin-top: 8vh;
 
         .siasuf-form {
             display: flex;

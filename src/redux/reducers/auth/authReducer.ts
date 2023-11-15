@@ -2,7 +2,8 @@ import { isCallingApi, isFailedApiCall, isSuccessfulApiCall } from '@/helper/act
 import {
     GET_USER_INFO,
     LOGIN,
-    LOG_OUT
+    LOG_OUT,
+    SIGN_UP
 } from '../../types/authType';
 import {
     AuthState,
@@ -15,6 +16,7 @@ const initalState: AuthState = {
     token: null,
     userInfo: null,
     logedOut: false,
+    signUpError: false,
 }
 
 const authReducer = (state = initalState, action: AuthActionTypes) => {
@@ -98,6 +100,29 @@ const authReducer = (state = initalState, action: AuthActionTypes) => {
                     ...state,
                     isFetching: false,
                     error: true,
+                }
+            }
+            break;
+        case SIGN_UP:
+            if (isCallingApi(action)) {
+                return {
+                    ...state,
+                    isFetching: true,
+                    signUpError: false,
+                }
+            }
+            if (isSuccessfulApiCall(action)) {
+                return {
+                    ...state,
+                    isFetching: false,
+                    signUpError: false,
+                }
+            }
+            if (isFailedApiCall(action)) {
+                return {
+                    ...state,
+                    isFetching: false,
+                    signUpError: true,
                 }
             }
             break;
