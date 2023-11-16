@@ -9,6 +9,7 @@ export interface AuthState {
     userInfo: GetUserInfoInterface | null;
     logedOut: boolean;
     signUpError: boolean;
+    errorMessage: string | undefined;
 }
 
 export interface GetUserInfoInterface {

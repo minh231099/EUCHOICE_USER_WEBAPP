@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SignInAndSignUpForm from "../../components/SignInAndSignUpForm";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, notification } from "antd";
 import { useRouter } from "next/router";
 import { SignUpPayload } from "@/redux/reducers/auth/interfaces";
 import { RootState } from "@/redux";
@@ -12,16 +12,43 @@ const { Item } = Form;
 
 interface SignUpPageProps {
     signUpError: boolean | undefined;
+    isFetching: boolean | undefined;
+    errorMessage: string | undefined;
+}
+
+const ErrorKeysMess = {
+    "Email is exist!": "Email đã được đăng ký",
 }
 
 const SignUpPage = (props: SignUpPageProps) => {
-    const { signUpError } = props;
+    const { signUpError, isFetching, errorMessage } = props;
     // const [isVerify, setIsVerify] = useState<boolean>(false);
+    const [submited, setSubmitted] = useState<boolean>(false);
     const [form] = Form.useForm();
     const router = useRouter();
 
     const dispatch = useAppDispatch();
 
+    useEffect(() => {
+        if (submited) {
+            if (signUpError) {
+                notification.error({
+                    message: 'Đăng ký không thành công',
+                    description: ErrorKeysMess[errorMessage as keyof typeof ErrorKeysMess],
+                });
+            } else {
+                if (!isFetching && !errorMessage) {
+                    notification.success({
+                        message: 'Đăng ký thành công',
+                        description: 'Hãy đăng nhập để bắt đầu mua sắm',
+                        duration: 6
+                    });
+                    router.push('/login');
+                    setSubmitted(false);
+                }
+            }
+        }
+    }, [signUpError, isFetching, errorMessage]);
 
     // const onClickVerify = () => {
     //     if (form.getFieldValue('phone')) {
@@ -30,9 +57,9 @@ const SignUpPage = (props: SignUpPageProps) => {
     // }
 
     const onClickSignUp = (values: SignUpPayload) => {
-        console.log(values);
         if (values.password && values.password === values.repassword) {
             dispatch(signUp(values));
+            setSubmitted(true);
         }
     }
 
@@ -164,6 +191,7 @@ const mapStateToProps = (state: RootState) => {
     return {
         isFetching: state?.authReducer?.isFetching,
         signUpError: state?.authReducer?.signUpError,
+        errorMessage: state?.authReducer?.errorMessage,
     };
 };
 

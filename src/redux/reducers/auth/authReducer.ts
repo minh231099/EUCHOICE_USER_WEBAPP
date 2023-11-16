@@ -17,6 +17,7 @@ const initalState: AuthState = {
     userInfo: null,
     logedOut: false,
     signUpError: false,
+    errorMessage: undefined,
 }
 
 const authReducer = (state = initalState, action: AuthActionTypes) => {
@@ -109,6 +110,7 @@ const authReducer = (state = initalState, action: AuthActionTypes) => {
                     ...state,
                     isFetching: true,
                     signUpError: false,
+                    errorMessage: undefined,
                 }
             }
             if (isSuccessfulApiCall(action)) {
@@ -116,13 +118,16 @@ const authReducer = (state = initalState, action: AuthActionTypes) => {
                     ...state,
                     isFetching: false,
                     signUpError: false,
+                    errorMessage: undefined,
                 }
             }
             if (isFailedApiCall(action)) {
+                const message = action.payload?.message;
                 return {
                     ...state,
                     isFetching: false,
                     signUpError: true,
+                    errorMessage: message,
                 }
             }
             break;

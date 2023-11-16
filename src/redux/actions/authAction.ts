@@ -74,7 +74,7 @@ export const logOut = () => async (dispatch: Dispatch) => {
 
 interface SignUpType {
     type: typeof SIGN_UP;
-    payload: undefined;
+    payload: any;
 }
 
 /**
@@ -88,7 +88,7 @@ export const signUp = (payload: SignUpPayload) => async (dispatch: Dispatch) => 
     dispatch(isDispatchCalling(signUpType));
     const { response, error } = await apiCall({ ...api, payload });
     if (response) dispatch(isDispatchSuccess(signUpType, response.data));
-    else dispatch(isDispatchFailed(signUpType, error));
+    else dispatch(isDispatchFailed(signUpType, error?.response?.data));
 }
 
 export type AuthActionTypes = LoginActionType | GetUserInfoType | LogoutType | SignUpType;
