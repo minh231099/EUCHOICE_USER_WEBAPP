@@ -6,7 +6,7 @@
 }
 
 .warehouse-container {
-    min-height: 400px;
+    min-height: 50vh;
     margin-bottom: 20px;
 }
 
@@ -90,7 +90,7 @@
         margin-left: 20px;
 
 
-        .price-box {
+        .order-price-box {
             padding: 20px;
             border-radius: 8px;
             border-bottom-right-radius: 0px;
@@ -298,6 +298,10 @@
 }
 
 @media (max-width: 600px) {
+    .warehouse-container {
+        min-height: 35vh !important;
+    }
+
     .order-container {
         display: block;
         padding: 0px;
@@ -317,13 +321,6 @@
             padding: 0px;
             margin: 0px;
             margin-top: 20px;
-        }
-
-        .price-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
         }
     }
 
@@ -415,9 +412,11 @@
     }
 }
 
-@media (min-width: 601px) and (max-width: 700px) {}
-
 @media (min-width: 701px) and (max-width: 1000px) {
+    .warehouse-container {
+        min-height: 35vh !important;
+    }
+
     .order-container {
         display: block;
         padding: 0px;
@@ -437,12 +436,6 @@
             padding: 0px;
             margin: 0px;
             margin-top: 20px;
-        }
-
-        .price-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
     }
 

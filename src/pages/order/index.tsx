@@ -251,7 +251,7 @@ const OrderPage = (props: OrderPageProps) => {
             </div>
             <div className='payment-confirm-container'>
                 <div className='payment-info'>
-                    <div className='price-box'>
+                    <div className='order-price-box'>
                         <b>Tổng Chi Phí Đơn Đặt Hàng:</b>
                         <div className='LOD6EzA8EK'>
                             <span>Tạm Tính:</span>

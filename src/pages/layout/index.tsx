@@ -43,7 +43,7 @@ const Layout: React.FC<CustomProps> = (props) => {
     };
   }, []);
 
-  const showLayout = !router.pathname.startsWith('/login') && !router.pathname.startsWith('/signup');
+  const showLayout = !router.pathname.startsWith('/login') && !router.pathname.startsWith('/signup') && !router.pathname.startsWith('/helper');;
   const showUserLayout = router.pathname.startsWith('/user');
   const showFooter = !router.pathname.startsWith('/cart') && !router.pathname.startsWith('/order') && isMobile;
 

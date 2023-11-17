@@ -40,14 +40,14 @@ const Footer = () => {
                                 <div className="box">
                                     <div className="infoEu uppercase-foot text-title-foot"><h3 ><b></b><span >Về EUCHOICE</span><b></b></h3></div>
                                     <div className="text-line-foot">
-                                        <a href="https://euchoice.vn/helper/about-euchoice/">
+                                        <a href="/helper#about-euchoice">
                                             <span className="infoEu capitalize-foot">
                                                 Giới thiệu EUCHOICE
                                             </span>
                                         </a>
                                     </div>
                                     <div className="text-line-foot">
-                                        <a href="https://euchoice.vn/helper/privacy ">
+                                        <a href="/helper#privacy">
                                             <span className="infoEu capitalize-foot">
                                                 Chính sách bảo mật và lưu trữ thông tin
                                             </span>
@@ -73,28 +73,28 @@ const Footer = () => {
                                     <div className="infoEu uppercase-foot text-title-foot"><h3><b></b><span >Hỗ trợ khách hàng</span><b></b></h3></div>
                                     <div>
                                         <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/helper/shopping-guide/">
+                                            <a href="/helper#shopping-guide">
                                                 <span className="infoEu capitalize-foot">
                                                     Hướng dẫn mua hàng
                                                 </span>
                                             </a>
                                         </div>
                                         <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/helper/payment-methods/">
+                                            <a href="/helper#payment-methods">
                                                 <span className="infoEu capitalize-foot">
                                                     Phương thức thanh toán
                                                 </span>
                                             </a>
                                         </div>
                                         <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/helper/shipping-policy">
+                                            <a href="/helper#shipping-policy">
                                                 <span className="infoEu capitalize-foot">
                                                     Chính sách vận chuyển
                                                 </span>
                                             </a>
                                         </div>
                                         <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/helper/refund-policy">
+                                            <a href="/helper#refund-policy">
                                                 <span className="infoEu capitalize-foot">
                                                     Chính sách đổi trả và hoàn tiền
                                                 </span>

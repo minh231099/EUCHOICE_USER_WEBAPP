@@ -10,7 +10,7 @@ const Introduce = (props: IntroducePropsInterface) => {
     const { aboutUs } = props;
 
     return (
-        <div dangerouslySetInnerHTML={{ __html: aboutUs }}>
+        <div className="MLu2cmEh0i" dangerouslySetInnerHTML={{ __html: aboutUs }}>
         </div>
     )
 }

@@ -48,6 +48,8 @@
 @import 'User.module.css';
 @import 'Blogs.module.css';
 @import 'BlogDetails.module.css';
+@import 'Introduce.module.css';
+@import 'Helper.module.css';
 
 @import 'swiper/css';
 @import 'swiper/css/navigation';
