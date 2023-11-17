@@ -3,6 +3,7 @@ import { withRouter } from 'next/router'
 import { connect } from 'react-redux';
 import { RootState } from '@/redux';
 import { CategoryInterface } from '@/redux/reducers/category/interfaces';
+import { generateKey } from '@/utils/lib';
 
 interface FilterNavPropsInf {
     category: CategoryInterface[] | null | undefined;
@@ -36,7 +37,7 @@ const FilterNav = (props: FilterNavPropsInf) => {
             <div className='divider'></div>
             <ul className='ul-filter'>
                 {filterPrice?.map((item, index) => (
-                    <li className='li-filter' key={index} >
+                    <li className='li-filter' key={generateKey()} >
                         {item.value}
                     </li>
                 ))}
@@ -45,7 +46,7 @@ const FilterNav = (props: FilterNavPropsInf) => {
             <div className='divider'></div>
             <ul className='ul-filter'>
                 {props.category?.map((item: CategoryInterface, index) => (
-                    <li className='li-filter' key={index} onClick={() => {
+                    <li className='li-filter' key={generateKey()} onClick={() => {
                         props.router.push({ pathname: `/category/${item.name}` });
                         props.onClose()
                     }}>

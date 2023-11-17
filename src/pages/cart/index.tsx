@@ -10,6 +10,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import DeleteModal from './components/DeleteModal';
 import { useRouter } from 'next/router';
 import { GrFormClose } from "react-icons/gr";
+import { generateKey } from '@/utils/lib';
 
 const baseUrl = process.env.BASE_URL;
 
@@ -324,13 +325,13 @@ const CartPage = (props: CartPagePropsInterface) => {
                             cartInfoData.map((item, idx) => {
                                 const { name, address, city, country } = item.warehouse;
                                 return (
-                                    <div key={`cart-container-${idx}`} className='cart-container'>
+                                    <div key={generateKey()} className='cart-container'>
                                         <div className='warehouse-title'><ShopOutlined style={{ marginRight: 5 }} />{name} - {`${address}, ${city}, ${country}`}</div>
                                         <div className='product-list-body'>
                                             {
                                                 item.product.map((product, prodIdx) => {
                                                     return (
-                                                        <div key={`product-in-cart-${prodIdx}`} className='product-row product-row-mobile'>
+                                                        <div key={generateKey()} className='product-row product-row-mobile'>
                                                             <div className='product-cell product-name-cell product-name-mobile'>
                                                                 <input
                                                                     className='check-product'

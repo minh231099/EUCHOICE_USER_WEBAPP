@@ -1,4 +1,4 @@
-import { waitForElementToExistByClassName } from "@/utils/lib";
+import { generateKey, waitForElementToExistByClassName } from "@/utils/lib";
 import React, { useEffect } from "react";
 
 interface propsInterface {
@@ -76,7 +76,7 @@ const ProductImageSlider = (props: propsInterface) => {
                     images.map((_, idx) => (
                         <div
                             className='prod-img-img-position'
-                            key={`img-position-${idx}`}
+                            key={generateKey()}
                             style={{
                                 width: `${100 / len}%`
                             }}
@@ -87,7 +87,7 @@ const ProductImageSlider = (props: propsInterface) => {
             </div>
             {
                 images.map((img, idx) => (
-                    <div className='prod-img-container fade' key={idx}>
+                    <div className='prod-img-container fade' key={generateKey()}>
                         <img src={img} className='prod-img' />
                     </div>
                 ))
@@ -105,7 +105,7 @@ const ProductImageSlider = (props: propsInterface) => {
                     <div className="prod-img-slider-container d-flex">
                         {
                             images.map((img, idx) => (
-                                <div className='prod-img-slider' key={idx} onClick={() => { showSliders(idx + 1) }}>
+                                <div className='prod-img-slider' key={generateKey()} onClick={() => { showSliders(idx + 1) }}>
                                     <img src={img} className='prod-img-small' />
                                 </div>
                             ))

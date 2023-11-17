@@ -14,7 +14,7 @@ import { getCategoryList } from "@/redux/actions/categoryAction";
 import { RootState } from '@/redux';
 import { CategoryInterface } from "@/redux/reducers/category/interfaces";
 import { useRouter } from "next/router";
-import { isLogged } from "@/utils/lib";
+import { generateKey, isLogged } from "@/utils/lib";
 import UserDropDown from "./UserDropDown";
 import { CartInfoInterface } from "@/redux/reducers/cart/interfaces";
 import Cookies from "js-cookie";
@@ -120,7 +120,7 @@ const Header = (props: CategoryPagePropsInf) => {
     const content = (
         <div className="popover-category" style={{ width: `${width}px` }}>
             {category?.map((item: CategoryInterface, index) => (
-                <div key={index} className="popover-item" onClick={() => {
+                <div key={generateKey()} className="popover-item" onClick={() => {
                     router.push({ pathname: `/category/${item.name}` });
                     handleNavItemClick(null);
                 }}>
@@ -258,7 +258,7 @@ const Header = (props: CategoryPagePropsInf) => {
                         <div className="nav-bar-center">
                             {navItems.map((item, index) => (
                                 <div
-                                    key={index}
+                                    key={generateKey()}
                                     className={`nav-header ${activeIndex === index ? 'active' : ''}`}
                                     onClick={() => { handleNavItemClick(index), router.push({ pathname: `/${item.key}` }) }}
                                 >

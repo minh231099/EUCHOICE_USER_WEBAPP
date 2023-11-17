@@ -7,6 +7,7 @@ export interface ShippingInfoInterface {
     country: string;
     name: string;
     default: boolean;
+    phone_number: string;
 }
 
 export interface AddShippingInfoPayloadInterface {
@@ -17,6 +18,7 @@ export interface AddShippingInfoPayloadInterface {
     ward: string;
     address: string;
     main: boolean;
+    phone_number: string;
 }
 
 export interface ShippingInfoState {

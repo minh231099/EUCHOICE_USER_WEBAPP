@@ -9,7 +9,7 @@ import { RootState } from '@/redux';
 import { ProductInterface, ProductType } from '@/redux/reducers/product/interfaces';
 import ProductImageSlider from '@/components/ProductImageSlider';
 import { BsCartPlus } from 'react-icons/bs';
-import { isLogged } from '@/utils/lib';
+import { generateKey, isLogged } from '@/utils/lib';
 import { AddToCartPayload, addToCart, addToCartDone, buyNow, listProductInCart, buyNowDone } from '@/redux/actions/cartAction';
 import CustomNotification from '@/components/CustomNotification';
 
@@ -321,7 +321,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                                         {
                                             group1ListOption.map((option, idx) => (
                                                 <div
-                                                    key={`option-group1-${idx}`}
+                                                    key={generateKey()}
                                                     className='option-group'
                                                     id={`option-group1-${idx}`}
                                                     onClick={() => { onSelectGroup1(option, idx) }}
@@ -342,7 +342,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                                             {
                                                 group2ListOption.map((option, idx) => (
                                                     <div
-                                                        key={`option-group2-${idx}`}
+                                                        key={generateKey()}
                                                         id={`option-group2-${idx}`}
                                                         className='option-group'
                                                         onClick={() => { onSelectGroup2(option, idx) }}

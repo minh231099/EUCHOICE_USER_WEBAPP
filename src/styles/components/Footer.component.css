@@ -243,8 +243,8 @@ footer h4 {
 
 .gov-vn {
     margin-top: -10px;
-    width: 150px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
     object-fit: contain;
 }
 
@@ -252,4 +252,9 @@ div.divider-footer {
     position: relative;
     border-top: 1px solid var(--secondary-color);
     margin-bottom: 20px;
+}
+
+.vYR38dizSG {
+    font-weight: bold;
+    color: #fff;
 }

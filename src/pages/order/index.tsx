@@ -8,7 +8,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import { CartInfoInterface } from '@/redux/reducers/cart/interfaces';
 import { AddNewOrderPayloadType } from '@/redux/reducers/order/interfaces';
 import { ShippingInfoInterface } from '@/redux/reducers/shippingInfo/interfaces';
-import { convertNumberToMoney, convertToDate } from '@/utils/lib';
+import { convertNumberToMoney, convertToDate, generateKey } from '@/utils/lib';
 import { ShopOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Modal, Radio } from 'antd';
 import moment from 'moment';
@@ -224,7 +224,7 @@ const OrderPage = (props: OrderPageProps) => {
                     <b className='div-title'>Thông Tin Đặt Hàng</b>
                     <div className='shipping-info-details'>
                         <div className='vqC4TXlArw'>
-                            <b>Số điện thoại: </b><span></span>
+                            <b>Số điện thoại: </b><span>{shippingInfoList && shippingInfoList[selectedShippingInfo]?.phone_number ? shippingInfoList[selectedShippingInfo].phone_number : ''}</span>
                             <a className='Mvlh4jRsdn' onClick={openChangeAddressModal}>Thay đổi</a>
                         </div>
                         {
@@ -253,7 +253,19 @@ const OrderPage = (props: OrderPageProps) => {
                 <div className='payment-info'>
                     <div className='price-box'>
                         <b>Tổng Chi Phí Đơn Đặt Hàng:</b>
-                        <span className='price-box-price-text'>{convertNumberToMoney(totalPrice)}<span className='price-unit'>đ</span></span>
+                        <div className='LOD6EzA8EK'>
+                            <span>Tạm Tính:</span>
+                            <span>{convertNumberToMoney(totalPrice)}<span className='price-unit'>đ</span></span>
+                        </div>
+                        <div className='LOD6EzA8EK'>
+                            <span>Phí Giao Hàng:</span>
+                            <span>{convertNumberToMoney(30000)}<span className='price-unit'>đ</span></span>
+                        </div>
+                        <div className='payment-info-divider'></div>
+                        <div className='LOD6EzA8EK'>
+                            <span>Tổng:</span>
+                            <span className='ZJWWuQvKvI'>{convertNumberToMoney(totalPrice + 30000)}<span className='price-unit'>đ</span></span>
+                        </div>
                     </div>
                     <div className='confirm-order-button-container'>
                         <Button className='confirm-order-button' onClick={submitOrder}>Đặt Hàng</Button>
@@ -340,7 +352,7 @@ const ChangeAddressModal = (props: ChangeAddressModalProps) => {
                 <div className='JkmdZcHSNB'>
                     {
                         addressList?.map((address, index) => (
-                            <div key={index} className='osD86dX5Nr'>
+                            <div key={generateKey()} className='osD86dX5Nr'>
                                 <div className='blYGQciNev'>
                                     <div className='hNnjB1jR8E'>
                                         <Radio

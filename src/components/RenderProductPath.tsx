@@ -1,5 +1,6 @@
 import React from 'react';
 import { RightOutlined } from '@ant-design/icons';
+import { generateKey } from '@/utils/lib';
 
 export interface PathArrayElmInterface {
     name: string;
@@ -19,7 +20,7 @@ const RenderProductPath = (props: RenderProductPathPropsInterface) => {
         <div className={className ? className : 'prod-path-container'}>
             {
                 pathArray?.map((elm, idx) => (
-                    <div className={`name-container`} key={elm.name + idx}>
+                    <div className={`name-container`} key={generateKey()}>
                         <a className={`${idx > 0 ? 'mlr-10' : 'mr-10'} ${elm.clickable ? 'prod-path-clickable' : ''}`} onClick={elm.onClick}>{elm.name}</a>
                         {
                             idx + 1 < pathArray.length &&

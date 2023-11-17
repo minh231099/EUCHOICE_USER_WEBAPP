@@ -1,5 +1,6 @@
 import { API_URLS } from "@/api/apiURL";
 import apiCall from "@/helper/apiCall";
+import { generateKey } from "@/utils/lib";
 import { Card } from "antd";
 import { useRouter } from "next/router";
 import React from "react";
@@ -17,7 +18,7 @@ const Category = (props: any) => {
                 {props?.category?.map((item: any, index: any) => (
                     <Card
                         className="card-category"
-                        key={`card-key-${index}`}
+                        key={generateKey()}
                         onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}
                     >
                         <img className="img-category"

@@ -38,134 +38,18 @@ const Footer = () => {
                         <Col className="col" md={6} sm={12} xs={24}>
                             <div className="col-inner">
                                 <div className="box">
-                                    <div className="infoEu uppercase-foot text-title-foot"><h3><b></b><span >Hỗ trợ khách hàng</span><b></b></h3></div>
-                                    <div >
-                                        <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/chinh-sach-bao-mat/" >
-                                                <span className="infoEu capitalize-foot">
-                                                    Chính sách bảo mật
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/chinh-sach-doi-tra/">
-                                                <span className="infoEu capitalize-foot">
-                                                    Chính sách đổi trả
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/huong-dan-thanh-toan/">
-                                                <span className="infoEu capitalize-foot">
-                                                    Chính sách thanh toán
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/dieu-khoan-su-dung/">
-                                                <span className="infoEu capitalize-foot">
-                                                    Điều khoản sử dụng
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/huong-dan-mua-hang/">
-                                                <span className="infoEu capitalize-foot">
-                                                    Hướng dẫn mua hàng
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div className="text-line-foot">
-                                            <a href="https://euchoice.vn/chinh-sach-bao-ve-thong-tin-ca-nhan-cua-nguoi-tieu-dung/">
-                                                <span className="infoEu capitalize-foot">
-                                                    Chính sách bảo vệ khách hàng
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div className="infoEu uppercase-foot text-title-foot"><h3><b></b><span >Chấp nhận thanh toán</span><b></b></h3></div>
-                                    <Row>
-                                        <Col >
-                                            <img className="bn45" src="https://vudigital.co/wp-content/uploads/2022/12/logo-mastercard-da-thay-doi-nhu-the-nao-trong-hon-50-nam-2.webp" alt="bn45" />
-                                        </Col>
-                                        <Col >
-                                            <img className="bn45" src="https://resources.mynewsdesk.com/image/upload/c_fill,dpr_auto,f_auto,g_auto,q_auto:good,w_1782/oeb5fz6yafjdfm9yehbe" alt="bn45" />
-                                        </Col>
-                                        <Col >
-                                            <img className="bn45" src="https://www.global.jcb/en/about-us/brand-concept/images/index/pic_jcbcard_02.png" alt="bn45" />
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col >
-                                            <img className="bn45" src="https://www.taichinhz.com/wp-content/uploads/2021/10/zalopay-la-gi.jpg" alt="bn45" />
-                                        </Col>
-                                        <Col >
-                                            <img className="bn45" src="https://inkythuatso.com/uploads/images/2021/12/payoo-logo-inkythuatso-02-15-47-06.jpg" alt="bn45" />
-                                        </Col>
-                                        <Col >
-                                            <img className="bn45" src="https://napas.qltns.mediacdn.vn/479491956813160448/2022/10/14/logo-napas-nen-trong-16657148272251732659720.png" alt="bn45" />
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col className="col" md={6} sm={12} xs={24}>
-                            <div className="col-inner">
-                                <div className="box">
                                     <div className="infoEu uppercase-foot text-title-foot"><h3 ><b></b><span >Về EUCHOICE</span><b></b></h3></div>
                                     <div className="text-line-foot">
-                                        <a href="#">
+                                        <a href="https://euchoice.vn/helper/about-euchoice/">
                                             <span className="infoEu capitalize-foot">
-                                                giới thiệu EUCHOICE
+                                                Giới thiệu EUCHOICE
                                             </span>
                                         </a>
                                     </div>
                                     <div className="text-line-foot">
-                                        <a href="https://euchoice.vn/so-tai-khoan-ngan-hang/">
-                                            <span className="infoEu capitalize-foot">
-                                                số tài khoản ngân hàng
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div className="text-line-foot">
-                                        <a href="https://euchoice.vn/thong-tin-hang-hoa/">
-                                            <span className="infoEu capitalize-foot">
-                                                thông tin hàng hóa
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div className="text-line-foot">
-                                        <a href="https://euchoice.vn/chinh-sach-van-chuyen/">
-                                            <span className="infoEu capitalize-foot">
-                                                Chính sách vận chuyển
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div className="text-line-foot">
-                                        <a href="https://euchoice.vn/chinh-sach-bao-mat-va-luu-tru-thong-tin/">
+                                        <a href="https://euchoice.vn/helper/privacy ">
                                             <span className="infoEu capitalize-foot">
                                                 Chính sách bảo mật và lưu trữ thông tin
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div className="text-line-foot">
-                                        <a href="#">
-                                            <span className="infoEu capitalize-foot">
-                                                Quy chế hoạt động
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div className="text-line-foot">
-                                        <a href="#">
-                                            <span className="infoEu capitalize-foot">
-                                                Tin tức
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div className="text-line-foot">
-                                        <a href="#">
-                                            <span className="infoEu capitalize-foot">
-                                                Trung tâm hỗ trợ
                                             </span>
                                         </a>
                                     </div>
@@ -179,6 +63,68 @@ const Footer = () => {
                                             >
                                             </img>
                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                        <Col className="col" md={6} sm={12} xs={24}>
+                            <div className="col-inner">
+                                <div className="box">
+                                    <div className="infoEu uppercase-foot text-title-foot"><h3><b></b><span >Hỗ trợ khách hàng</span><b></b></h3></div>
+                                    <div>
+                                        <div className="text-line-foot">
+                                            <a href="https://euchoice.vn/helper/shopping-guide/">
+                                                <span className="infoEu capitalize-foot">
+                                                    Hướng dẫn mua hàng
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div className="text-line-foot">
+                                            <a href="https://euchoice.vn/helper/payment-methods/">
+                                                <span className="infoEu capitalize-foot">
+                                                    Phương thức thanh toán
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div className="text-line-foot">
+                                            <a href="https://euchoice.vn/helper/shipping-policy">
+                                                <span className="infoEu capitalize-foot">
+                                                    Chính sách vận chuyển
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div className="text-line-foot">
+                                            <a href="https://euchoice.vn/helper/refund-policy">
+                                                <span className="infoEu capitalize-foot">
+                                                    Chính sách đổi trả và hoàn tiền
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="z1zvpoXspE">
+                                        <span className="vYR38dizSG">Thanh Toán</span>
+                                        <Row>
+                                            <Col >
+                                                <img className="bn45" src="https://vudigital.co/wp-content/uploads/2022/12/logo-mastercard-da-thay-doi-nhu-the-nao-trong-hon-50-nam-2.webp" alt="bn45" />
+                                            </Col>
+                                            <Col >
+                                                <img className="bn45" src="https://resources.mynewsdesk.com/image/upload/c_fill,dpr_auto,f_auto,g_auto,q_auto:good,w_1782/oeb5fz6yafjdfm9yehbe" alt="bn45" />
+                                            </Col>
+                                            <Col >
+                                                <img className="bn45" src="https://www.global.jcb/en/about-us/brand-concept/images/index/pic_jcbcard_02.png" alt="bn45" />
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col >
+                                                <img className="bn45" src="https://www.taichinhz.com/wp-content/uploads/2021/10/zalopay-la-gi.jpg" alt="bn45" />
+                                            </Col>
+                                            <Col >
+                                                <img className="bn45" src="https://inkythuatso.com/uploads/images/2021/12/payoo-logo-inkythuatso-02-15-47-06.jpg" alt="bn45" />
+                                            </Col>
+                                            <Col >
+                                                <img className="bn45" src="https://napas.qltns.mediacdn.vn/479491956813160448/2022/10/14/logo-napas-nen-trong-16657148272251732659720.png" alt="bn45" />
+                                            </Col>
+                                        </Row>
                                     </div>
                                 </div>
                             </div>

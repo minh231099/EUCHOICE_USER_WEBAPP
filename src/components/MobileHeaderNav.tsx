@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { connect } from 'react-redux';
 import { RootState } from '@/redux';
 import { CategoryInterface } from '@/redux/reducers/category/interfaces';
+import { generateKey } from "@/utils/lib";
 
 interface MobileNavPropsInf {
     category: CategoryInterface[] | null | undefined;
@@ -40,7 +41,7 @@ const MobileHeaderNav = (props: MobileNavPropsInf) => {
                 {navItems.map((item: any, index) => {
                     if (item.key !== 'category')
                         return (
-                            <li className='li-filter' key={`nav-item-mb-${index}`} onClick={() => {
+                            <li className='li-filter' key={generateKey()} onClick={() => {
                                 props.router.push({ pathname: `/${item.key}` });
                                 props.onClose()
                             }}>
@@ -50,14 +51,14 @@ const MobileHeaderNav = (props: MobileNavPropsInf) => {
 
                     if (item.key === 'category')
                         return (
-                            <li className='li-filter' key={`nav-item-mb-${index}`} onClick={() => {
+                            <li className='li-filter' key={generateKey()} onClick={() => {
                                 getSH(!sh)
                             }}>
                                 {item.value} <DownOutlined className={`down-icon-mb-header icon-show-is-${sh}`} /> <RightOutlined className={`down-icon-mb-header icon-show-is-${!sh}`} />
                                 <div style={!sh ? { display: 'block' } : { display: "none" }}>
                                     <ul className="ul-filter">
                                         {props.category?.map((item: CategoryInterface, index) => (
-                                            <li key={index} className="li-filter-level-2" onClick={() => {
+                                            <li key={generateKey()} className="li-filter-level-2" onClick={() => {
                                                 props.router.push({ pathname: `/category/${item.name}` });
                                                 props.onClose()
                                             }}>

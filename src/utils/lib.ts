@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import moment, { Moment } from "moment";
+import moment from "moment";
 
 export function waitForElementToExistByClassName(selector: string) {
     return new Promise(resolve => {
@@ -48,4 +48,22 @@ export const compareTwoDate = (date1: string | undefined, date2: string | undefi
     if (diff === 0) return 0;
     else if (diff > 0) return 1;
     else return -1;
+}
+
+export const generateRandomCode = (length: number) => {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let randomCode = '';
+
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        randomCode += characters[randomIndex];
+    }
+
+    return randomCode;
+}
+
+export const generateKey = () => {
+    const randomCode1 = generateRandomCode(8);
+    const randomCode2 = generateRandomCode(8);
+    return `${randomCode1 + randomCode2}_${new Date().getTime()}`;
 }

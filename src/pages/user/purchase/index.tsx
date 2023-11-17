@@ -2,7 +2,7 @@ import { RootState } from '@/redux';
 import { cancelOrder, checkOrderDone, getListOrder } from '@/redux/actions/orderAction';
 import { useAppDispatch } from '@/redux/hooks';
 import { OrderType } from '@/redux/reducers/order/interfaces';
-import { compareTwoDate, convertNumberToMoney, convertToDate } from '@/utils/lib';
+import { compareTwoDate, convertNumberToMoney, convertToDate, generateKey } from '@/utils/lib';
 import { ShopOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider } from 'antd';
 import React, { useState, useEffect } from 'react';
@@ -122,7 +122,7 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
                     {
                         navItems.map((navItem, index) => (
                             <div
-                                key={index}
+                                key={generateKey()}
                                 className={`j5L55xGKBr ${isCurrentTab(type, navItem.id) ? 'KQeVWhP97F' : ''}`}
                                 onClick={() => { setCurrentTab(navItem.id) }}
                             >
@@ -136,7 +136,7 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
                         listOrderData?.map((order, index) => {
                             const { warehouse, cart } = order;
                             return (
-                                <LazyLoad key={index} height={200} offset={[-100, 0]}>
+                                <LazyLoad key={generateKey()} height={200} offset={[-100, 0]}>
                                     <div className='IPxqDV0w15'>
                                         <div className='n7vWrAkZl9'>
                                             <ShopOutlined style={{ marginRight: 5 }} /><span>{`${warehouse.name} - ${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</span>

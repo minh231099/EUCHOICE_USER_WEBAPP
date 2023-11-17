@@ -8,6 +8,7 @@ import FilterNav from '@/components/FilterNav';
 import { API_URLS } from '@/api/apiURL';
 import apiCall from '@/helper/apiCall';
 import { Pagination } from 'antd';
+import { generateKey } from '@/utils/lib';
 
 interface CategoryPagePropsInf {
     productList: ProductInterface[] | null | undefined;
@@ -46,7 +47,7 @@ const CategoryPage = (props: CategoryPagePropsInf) => {
                     <div className='div-product div-product-less'>
                         {props.list?.map((item: ProductInterface, index: number) => (
                             <ProductCard
-                                key={index}
+                                key={generateKey()}
                                 sourceImg={`${baseUrl}image/${item.image[0]}`}
                                 title={item.name}
                                 price={item.type[0]?.price?.toLocaleString('vi-VN')}
@@ -56,7 +57,7 @@ const CategoryPage = (props: CategoryPagePropsInf) => {
                     </div> : (props.list.length === 2 ? <div className='div-product div-product-less-2'>
                         {props.list?.map((item: ProductInterface, index: number) => (
                             <ProductCard
-                                key={index}
+                                key={generateKey()}
                                 sourceImg={`${baseUrl}image/${item.image[0]}`}
                                 title={item.name}
                                 price={item.type[0]?.price?.toLocaleString('vi-VN')}
@@ -66,7 +67,7 @@ const CategoryPage = (props: CategoryPagePropsInf) => {
                     </div> : (props.list.length === 3 ? <div className='div-product div-product-less-3'>
                         {props.list?.map((item: ProductInterface, index: number) => (
                             <ProductCard
-                                key={index}
+                                key={generateKey()}
                                 sourceImg={`${baseUrl}image/${item.image[0]}`}
                                 title={item.name}
                                 price={item.type[0]?.price?.toLocaleString('vi-VN')}
@@ -76,7 +77,7 @@ const CategoryPage = (props: CategoryPagePropsInf) => {
                     </div> : <div className='div-product'>
                         {props.list?.map((item: ProductInterface, index: number) => (
                             <ProductCard
-                                key={index}
+                                key={generateKey()}
                                 sourceImg={`${baseUrl}image/${item.image[0]}`}
                                 title={item.name}
                                 price={item.type[0]?.price?.toLocaleString('vi-VN')}

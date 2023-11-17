@@ -8,7 +8,7 @@ import { ConfigProvider, Steps } from 'antd';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { convertToDate } from '@/utils/lib';
+import { convertToDate, generateKey } from '@/utils/lib';
 
 import { connect } from 'react-redux';
 import { convertNumberToMoney } from '@/utils/lib';
@@ -126,7 +126,7 @@ const OrderDetails = (props: OrderDetailsProps) => {
                         {
                             orderDetails?.cart?.map((item, idx) => {
                                 const { product, type, amount } = item;
-                                return <div key={`bPYYC5KVFy${idx}`} className='bPYYC5KVFy'>
+                                return <div key={generateKey()} className='bPYYC5KVFy'>
                                     <div className='NUHjyLzAe9'>
                                         <img src={`${baseUrl}image/${product?.image?.[0]}`} className='kWE27JEQeR' />
                                         <div className='yGtP0MKAVm'>

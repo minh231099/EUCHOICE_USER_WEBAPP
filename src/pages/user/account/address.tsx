@@ -3,6 +3,7 @@ import { RootState } from '@/redux';
 import { getListShippingInfo } from '@/redux/actions/shippingInfo';
 import { useAppDispatch } from '@/redux/hooks';
 import { ShippingInfoInterface } from '@/redux/reducers/shippingInfo/interfaces';
+import { generateKey } from '@/utils/lib';
 import { Button, ConfigProvider } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { BsPlusLg } from 'react-icons/bs';
@@ -52,7 +53,7 @@ const AddressPage = (props: AddressPageType) => {
                     <div>
                         {
                             shippingInfoList?.map((address, index) => (
-                                <div key={index} className='hd5J3ctl1r'>
+                                <div key={generateKey()} className='hd5J3ctl1r'>
                                     <div className='blYGQciNev'>
                                         <div>
                                             <div className='HAhjsDFKTh'>
