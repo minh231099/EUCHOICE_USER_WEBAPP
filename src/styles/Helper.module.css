@@ -17,3 +17,64 @@
     height: 100px;
     box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
+
+.helper-body {
+    margin: 30px 10%;
+    display: flex;
+    flex: 1;
+}
+
+.helper-anchor-title {
+    padding: 20px;
+    font-weight: bold;
+}
+
+.helper-contents {
+    width: 75%;
+    margin-left: 10px;
+}
+
+.helper-content-title {
+    font-weight: bold;
+}
+
+code {
+    background-color: #eee;
+    border-radius: 3px;
+    font-family: courier, monospace;
+    padding: 0 3px;
+}
+
+.helper-bank-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.bank-icon-helper {
+    width: 350px;
+    margin: 50px 0 30px 0;
+}
+
+.helper-list-payment-method {
+    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 15px;
+}
+
+.helper-list-payment-method-item {
+    height: 60px;
+    width: 150px;
+    border-radius: 5%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.helper-list-payment-method-img {
+    width: 100px;
+}
