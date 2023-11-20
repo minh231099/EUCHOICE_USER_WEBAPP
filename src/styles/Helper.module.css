@@ -32,10 +32,12 @@
 .helper-contents {
     width: 75%;
     margin-left: 10px;
+    line-height: 22px;
 }
 
 .helper-content-title {
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 code {
@@ -77,4 +79,49 @@ code {
 
 .helper-list-payment-method-img {
     width: 100px;
+}
+
+.helper-p-title {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.helper-p-content {
+    margin-bottom: 14px;
+}
+
+.helper-content-title-par {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.helper-content-title-chil {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.helper-content-container {
+    margin-bottom: 50px;
+}
+
+.steps-shopping-guide-container {
+    counter-reset: number;
+}
+
+.steps-shopping-guide-container .steps-shopping-guide {
+    list-style: none;
+    counter-increment: number;
+}
+
+.steps-shopping-guide-container .steps-shopping-guide:before {
+    content: "Bước " counter(number) ".";
+    position: relative;
+    left: -5px
+}
+
+.mail-phone-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 120px;
 }
