@@ -439,9 +439,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                                 <img src='/free-delivery.png' className='product-policy-icon' />
                                 <div style={{ marginLeft: 10 }}>
                                     <b className="policy-title">GIAO HÀNG MIỄN PHÍ</b><br />
-                                    <span>Trong nội thành Hà Nội với đơn từ 300.000đ</span><br />
-                                    <span>15.000đ cho các khu vực ngoại thành Hà Nội</span><br />
-                                    <span>30.000đ cho tất cả các khu vực khác</span>
+                                    <span>Trong nội thành Hà Nội với đơn từ 300.000đ</span>
                                 </div>
                             </div>
                         </div>

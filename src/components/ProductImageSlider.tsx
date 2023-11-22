@@ -76,7 +76,7 @@ const ProductImageSlider = (props: propsInterface) => {
                     images.map((_, idx) => (
                         <div
                             className='prod-img-img-position'
-                            key={generateKey()}
+                            key={`prod-img-img-position-${idx}`}
                             style={{
                                 width: `${100 / len}%`
                             }}
@@ -87,7 +87,7 @@ const ProductImageSlider = (props: propsInterface) => {
             </div>
             {
                 images.map((img, idx) => (
-                    <div className='prod-img-container fade' key={generateKey()}>
+                    <div className='prod-img-container fade' key={`prod-img-container-${idx}`}>
                         <img src={img} className='prod-img' />
                     </div>
                 ))

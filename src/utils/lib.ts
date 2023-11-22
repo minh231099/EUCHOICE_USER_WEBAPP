@@ -65,5 +65,5 @@ export const generateRandomCode = (length: number) => {
 export const generateKey = () => {
     const randomCode1 = generateRandomCode(8);
     const randomCode2 = generateRandomCode(8);
-    return `${randomCode1 + randomCode2}_${new Date().getTime()}`;
+    return `${randomCode1 + randomCode2}_${new Date().getTime().toString()}`;
 }
