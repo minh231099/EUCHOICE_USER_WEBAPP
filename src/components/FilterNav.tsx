@@ -37,7 +37,7 @@ const FilterNav = (props: FilterNavPropsInf) => {
             <div className='divider'></div>
             <ul className='ul-filter'>
                 {filterPrice?.map((item, index) => (
-                    <li className='li-filter' key={generateKey()} >
+                    <li className='li-filter' key={`YCSwQQuJ0Q-${index}`} >
                         {item.value}
                     </li>
                 ))}
@@ -46,7 +46,7 @@ const FilterNav = (props: FilterNavPropsInf) => {
             <div className='divider'></div>
             <ul className='ul-filter'>
                 {props.category?.map((item: CategoryInterface, index) => (
-                    <li className='li-filter' key={generateKey()} onClick={() => {
+                    <li className='li-filter' key={`E2wbmr6fHC-${index}`} onClick={() => {
                         props.router.push({ pathname: `/category/${item.name}` });
                         props.onClose()
                     }}>

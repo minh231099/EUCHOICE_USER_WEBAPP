@@ -352,7 +352,7 @@ const ChangeAddressModal = (props: ChangeAddressModalProps) => {
                 <div className='JkmdZcHSNB'>
                     {
                         addressList?.map((address, index) => (
-                            <div key={generateKey()} className='osD86dX5Nr'>
+                            <div key={`q9tE43GnWt-${index}`} className='osD86dX5Nr'>
                                 <div className='blYGQciNev'>
                                     <div className='hNnjB1jR8E'>
                                         <Radio

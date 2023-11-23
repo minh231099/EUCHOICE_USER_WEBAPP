@@ -126,7 +126,7 @@ const OrderDetails = (props: OrderDetailsProps) => {
                         {
                             orderDetails?.cart?.map((item, idx) => {
                                 const { product, type, amount } = item;
-                                return <div key={generateKey()} className='bPYYC5KVFy'>
+                                return <div key={`SK1oGgKOOG-${idx}`} className='bPYYC5KVFy'>
                                     <div className='NUHjyLzAe9'>
                                         <img src={`${baseUrl}image/${product?.image?.[0]}`} className='kWE27JEQeR' />
                                         <div className='yGtP0MKAVm'>

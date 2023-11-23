@@ -325,13 +325,13 @@ const CartPage = (props: CartPagePropsInterface) => {
                             cartInfoData.map((item, idx) => {
                                 const { name, address, city, country } = item.warehouse;
                                 return (
-                                    <div key={generateKey()} className='cart-container'>
+                                    <div key={`A2rXpESK67-${idx}`} className='cart-container'>
                                         <div className='warehouse-title'><ShopOutlined style={{ marginRight: 5 }} />{name} - {`${address}, ${city}, ${country}`}</div>
                                         <div className='product-list-body'>
                                             {
                                                 item.product.map((product, prodIdx) => {
                                                     return (
-                                                        <div key={generateKey()} className='product-row product-row-mobile'>
+                                                        <div key={`NHW321qYKe-${prodIdx}`} className='product-row product-row-mobile'>
                                                             <div className='product-cell product-name-cell product-name-mobile'>
                                                                 <input
                                                                     className='check-product'

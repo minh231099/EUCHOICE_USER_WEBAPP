@@ -88,7 +88,9 @@ const ProductImageSlider = (props: propsInterface) => {
             {
                 images.map((img, idx) => (
                     <div className='prod-img-container fade' key={`prod-img-container-${idx}`}>
-                        <img src={img} className='prod-img' />
+                        <div className="c9OvanVbte">
+                            <img src={img} className='prod-img' />
+                        </div>
                     </div>
                 ))
             }
@@ -105,7 +107,7 @@ const ProductImageSlider = (props: propsInterface) => {
                     <div className="prod-img-slider-container d-flex">
                         {
                             images.map((img, idx) => (
-                                <div className='prod-img-slider' key={generateKey()} onClick={() => { showSliders(idx + 1) }}>
+                                <div className='prod-img-slider' key={`aanDUUcqcI-${idx}`} onClick={() => { showSliders(idx + 1) }}>
                                     <img src={img} className='prod-img-small' />
                                 </div>
                             ))

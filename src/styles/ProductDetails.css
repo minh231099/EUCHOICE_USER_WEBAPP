@@ -1,5 +1,5 @@
 .product-details-container {
-    padding: 20px 20px;
+    padding: 0px 60px 50px 60px;
     background-color: #fff;
 }
 
@@ -9,11 +9,11 @@
     justify-content: space-between;
 
     .product-image-container {
-        width: 50%;
+        width: 40%;
     }
 
     .product-information-container {
-        width: 50%;
+        width: 60%;
         padding-left: 25px;
 
         .group-class-container {

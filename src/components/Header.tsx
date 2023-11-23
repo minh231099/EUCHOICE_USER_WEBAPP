@@ -120,7 +120,7 @@ const Header = (props: CategoryPagePropsInf) => {
     const content = (
         <div className="popover-category" style={{ width: `${width}px` }}>
             {category?.map((item: CategoryInterface, index) => (
-                <div key={generateKey()} className="popover-item" onClick={() => {
+                <div key={`DOdt2Y6Vqd-${index}`} className="popover-item" onClick={() => {
                     router.push({ pathname: `/category/${item.name}` });
                     handleNavItemClick(null);
                 }}>
@@ -258,7 +258,7 @@ const Header = (props: CategoryPagePropsInf) => {
                         <div className="nav-bar-center">
                             {navItems.map((item, index) => (
                                 <div
-                                    key={generateKey()}
+                                    key={`AP1lSBpdXI-${index}`}
                                     className={`nav-header ${activeIndex === index ? 'active' : ''}`}
                                     onClick={() => { handleNavItemClick(index), router.push({ pathname: `/${item.key}` }) }}
                                 >

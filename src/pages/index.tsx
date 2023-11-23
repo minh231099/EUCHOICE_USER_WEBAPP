@@ -57,7 +57,7 @@ export default function Home(props: any) {
       <div className='carousel-home'>
         <Carousel autoplay dotPosition={'bottom'}>
           {props.listBannerTop?.map((item: BannerInterface, index: any) => {
-            return <div key={generateKey()} className='slider-img-container-home'>
+            return <div key={`NBtT6hBhVm-${index}`} className='slider-img-container-home'>
               <img className='slider-img-home' src={`${baseUrl}image/${item?.image}`}></img>
             </div>
           })}
@@ -72,7 +72,7 @@ export default function Home(props: any) {
                 props.category?.map((item: any, index: any, category: any) => {
                   if (index + 1 === category.length) {
                     return (
-                      <li key={generateKey()} className='last-li'>
+                      <li key={`ScYeP7z4Gl-${index}`} className='last-li'>
                         <div className='category-list-side'>
                           <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
                           <span>
@@ -84,7 +84,7 @@ export default function Home(props: any) {
                   }
                   else {
                     return (
-                      <li key={generateKey()}>
+                      <li key={`YGeNPk7MWz-${index}`}>
                         <div className='category-list-side'>
                           <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
                           <span>
@@ -183,7 +183,7 @@ export default function Home(props: any) {
                 >
                   {props?.listFS?.length < getNumberOfSwiper(w)! ?
                     props.listFS?.map((item: ProductInterface, index: any) => (
-                      <SwiperSlide key={generateKey()}>
+                      <SwiperSlide key={`Spw8yUreQC-${index}`}>
                         <div className='product-card-swipper'>
                           <ProductCardFS
                             sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
@@ -195,7 +195,7 @@ export default function Home(props: any) {
                         </div>
                       </SwiperSlide>
                     )) : conditional.map((e, index) => (
-                      <div key={generateKey()}>
+                      <div key={`T3bWRtDZIc-${index}`}>
                         {props.listFS?.map((item: ProductInterface, index: any) => (
                           <SwiperSlide key={`listFS-${index}`}>
                             <div className='product-card-swipper'>
@@ -252,7 +252,7 @@ export default function Home(props: any) {
             >
               {props?.top10?.length < getNumberOfSwiper(w)! ?
                 props.top10?.map((item: ProductInterface, index: any) => (
-                  <SwiperSlide key={generateKey()}>
+                  <SwiperSlide key={`BF5h5wECOW-${index}`}>
                     <div className='product-card-swipper'>
                       <ProductCard
                         sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
@@ -263,9 +263,9 @@ export default function Home(props: any) {
                     </div>
                   </SwiperSlide>
                 )) : conditional.map((e, index) => (
-                  <div key={generateKey()}>
+                  <div key={`i7ZuecyOOK-${index}`}>
                     {props.top10?.map((item: ProductInterface, index: any) => (
-                      <SwiperSlide key={generateKey()}>
+                      <SwiperSlide key={`QTXZ7OirSN-${index}`}>
                         <div className='product-card-swipper'>
                           <ProductCard
                             sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
@@ -310,7 +310,7 @@ export default function Home(props: any) {
                 return (
                   <div key={`deal-hot-${index}`}>
                     {props.listBannerSub?.map((item: BannerInterface, index: any) => {
-                      return <SwiperSlide key={generateKey()}>
+                      return <SwiperSlide key={`K3oXmcPnxW-${index}`}>
                         <div className='banner-div-wrapper-home'>
                           <img className='banner-img-home' src={`${baseUrl}image/${item?.image}`}></img>
                         </div>
@@ -335,7 +335,7 @@ export default function Home(props: any) {
           <div className='div-product'>
             {props.list50?.map((item: ProductInterface, index: any) => (
               <ProductCard
-                key={generateKey()}
+                key={`bJKkpv7u8C-${index}`}
                 sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
                 title={item?.name}
                 price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
@@ -361,7 +361,7 @@ export default function Home(props: any) {
           }}
         >
           {conditional.map((e, index) => (
-            <div key={generateKey()}>
+            <div key={`C5JcE8yqBm-${index}`}>
               <SwiperSlide>
                 <div className='two-col-home'>
                   <div className='div-img-col-home'><img className='img-col-home' src={certification} alt='certification'></img></div>

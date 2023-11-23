@@ -321,7 +321,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                                         {
                                             group1ListOption.map((option, idx) => (
                                                 <div
-                                                    key={generateKey()}
+                                                    key={`jieAmNgpSE-${idx}`}
                                                     className='option-group'
                                                     id={`option-group1-${idx}`}
                                                     onClick={() => { onSelectGroup1(option, idx) }}
@@ -342,7 +342,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                                             {
                                                 group2ListOption.map((option, idx) => (
                                                     <div
-                                                        key={generateKey()}
+                                                        key={`lpWEZ0Z8UJ-${idx}`}
                                                         id={`option-group2-${idx}`}
                                                         className='option-group'
                                                         onClick={() => { onSelectGroup2(option, idx) }}

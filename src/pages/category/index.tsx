@@ -18,7 +18,7 @@ const Category = (props: any) => {
                 {props?.category?.map((item: any, index: any) => (
                     <Card
                         className="card-category"
-                        key={generateKey()}
+                        key={`FpaQDHd3qs-${index}`}
                         onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}
                     >
                         <img className="img-category"

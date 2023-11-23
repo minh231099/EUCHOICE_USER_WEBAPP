@@ -41,7 +41,7 @@ const MobileHeaderNav = (props: MobileNavPropsInf) => {
                 {navItems.map((item: any, index) => {
                     if (item.key !== 'category')
                         return (
-                            <li className='li-filter' key={generateKey()} onClick={() => {
+                            <li className='li-filter' key={`XcnyT6T9Qc-${index}`} onClick={() => {
                                 props.router.push({ pathname: `/${item.key}` });
                                 props.onClose()
                             }}>
@@ -51,14 +51,14 @@ const MobileHeaderNav = (props: MobileNavPropsInf) => {
 
                     if (item.key === 'category')
                         return (
-                            <li className='li-filter' key={generateKey()} onClick={() => {
+                            <li className='li-filter' key={`2Czyh35cXp-${index}`} onClick={() => {
                                 getSH(!sh)
                             }}>
                                 {item.value} <DownOutlined className={`down-icon-mb-header icon-show-is-${sh}`} /> <RightOutlined className={`down-icon-mb-header icon-show-is-${!sh}`} />
                                 <div style={!sh ? { display: 'block' } : { display: "none" }}>
                                     <ul className="ul-filter">
                                         {props.category?.map((item: CategoryInterface, index) => (
-                                            <li key={generateKey()} className="li-filter-level-2" onClick={() => {
+                                            <li key={`lEsGoGeFZ2-${index}`} className="li-filter-level-2" onClick={() => {
                                                 props.router.push({ pathname: `/category/${item.name}` });
                                                 props.onClose()
                                             }}>

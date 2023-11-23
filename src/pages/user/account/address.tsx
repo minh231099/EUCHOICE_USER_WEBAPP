@@ -53,7 +53,7 @@ const AddressPage = (props: AddressPageType) => {
                     <div>
                         {
                             shippingInfoList?.map((address, index) => (
-                                <div key={generateKey()} className='hd5J3ctl1r'>
+                                <div key={`Hg97sEvknz-${index}`} className='hd5J3ctl1r'>
                                     <div className='blYGQciNev'>
                                         <div>
                                             <div className='HAhjsDFKTh'>

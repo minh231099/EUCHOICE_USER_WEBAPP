@@ -122,7 +122,7 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
                     {
                         navItems.map((navItem, index) => (
                             <div
-                                key={generateKey()}
+                                key={`14gpmJHwIO-${index}`}
                                 className={`j5L55xGKBr ${isCurrentTab(type, navItem.id) ? 'KQeVWhP97F' : ''}`}
                                 onClick={() => { setCurrentTab(navItem.id) }}
                             >
@@ -136,7 +136,7 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
                         listOrderData?.map((order, index) => {
                             const { warehouse, cart } = order;
                             return (
-                                <LazyLoad key={generateKey()} height={200} offset={[-100, 0]}>
+                                <LazyLoad key={`TWUYvmo03r-${index}`} height={200} offset={[-100, 0]}>
                                     <div className='IPxqDV0w15'>
                                         <div className='n7vWrAkZl9'>
                                             <ShopOutlined style={{ marginRight: 5 }} /><span>{`${warehouse.name} - ${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</span>
