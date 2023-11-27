@@ -139,7 +139,31 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
                                 <LazyLoad key={`TWUYvmo03r-${index}`} height={200} offset={[-100, 0]}>
                                     <div className='IPxqDV0w15'>
                                         <div className='n7vWrAkZl9'>
-                                            <ShopOutlined style={{ marginRight: 5 }} /><span>{`${warehouse.name} - ${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</span>
+                                            <div>
+                                                <ShopOutlined style={{ marginRight: 5 }} /><span>{`${warehouse.name} - ${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</span>
+                                            </div>
+                                            <div>
+                                                {
+                                                    order.status === 'cancel' && 
+                                                    <span>Trạng Thái: <span style={{ color: '#FA8071' }}>Đã Hủy</span></span>
+                                                }
+                                                {
+                                                    order.status === 'new' && 
+                                                    <span>Trạng Thái: <span style={{ color: '#01724E' }}>Hệ Thống Tiếp Nhận</span></span>
+                                                }
+                                                {
+                                                    order.status === 'done' && 
+                                                    <span>Trạng Thái: <span style={{ color: '#01724E' }}>Hoàn Thành</span></span>
+                                                }
+                                                {
+                                                    order.status === 'shipping' && 
+                                                    <span>Trạng Thái: <span style={{ color: '#01724E' }}>Đang Vận Chuyển</span></span>
+                                                }
+                                                {
+                                                    order.status === 'packing' && 
+                                                    <span>Trạng Thái: <span style={{ color: '#01724E' }}>Đang Đóng Gói</span></span>
+                                                }
+                                            </div>
                                         </div>
                                         <div className='T9OuzWhzc2' onClick={() => { onGoToDetailsOrder(order._id) }}>
                                             {

@@ -56,7 +56,7 @@ const AddNewShippingInfoModal = (props: PropsType) => {
             >
                 <div>
                     <Item name='phone_number' rules={[{ required: true, message: '' }]}>
-                        <Input placeholder='Phone Number' />
+                        <Input type='number' placeholder='Phone Number' />
                     </Item>
                 </div>
                 <div>

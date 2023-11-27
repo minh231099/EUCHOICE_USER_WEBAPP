@@ -3,7 +3,7 @@ import { RootState } from '@/redux';
 import { getOrderDetails } from '@/redux/actions/orderAction';
 import { useAppDispatch } from '@/redux/hooks';
 import { OrderType } from '@/redux/reducers/order/interfaces';
-import { FileAddOutlined, FileDoneOutlined, FileSearchOutlined, SendOutlined } from '@ant-design/icons';
+import { FileAddOutlined, FileDoneOutlined, FileSearchOutlined, InboxOutlined, SendOutlined } from '@ant-design/icons';
 import { ConfigProvider, Steps } from 'antd';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -30,14 +30,19 @@ const StatusName = {
         id: 2,
         icon: <FileSearchOutlined className='VeG3HWB4e3' />
     },
+    packing: {
+        title: 'Đang Đóng Gói',
+        id: 3,
+        icon: <InboxOutlined className='VeG3HWB4e3' />
+    },
     shipping: {
         title: 'Vận Chuyển',
-        id: 3,
+        id: 4,
         icon: <SendOutlined className='VeG3HWB4e3' />
     },
     done: {
         title: 'Hoàn Thành',
-        id: 4,
+        id: 5,
         icon: <FileDoneOutlined className='VeG3HWB4e3' />
     },
     cancel: {
