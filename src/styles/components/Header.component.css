@@ -2,7 +2,7 @@
     background-color: #fff;
     position: sticky;
     top: 0;
-    padding-bottom: 2px;
+    /* padding-bottom: 2px; */
     z-index: 99999;
 }
 
@@ -82,13 +82,18 @@
 }
 
 .header_second_row-container {
+
     .header_second_row {
         margin: 0 5%;
         width: 100%;
 
         .logo {
-            width: 150px;
-            height: 120px;
+            min-height: 80px;
+            min-width: 100px;
+            max-width: 150px;
+            max-height: 130px;
+            width: calc(100vh/8 + 20px);
+            height: calc(100vh/8);
             cursor: pointer;
         }
 
@@ -158,7 +163,7 @@
             margin-left: 20px;
 
             .cart_icon_container {
-                font-size: 40px;
+                font-size: max(calc(100vh/16 - 80px), 35px);
                 color: var(--primary-color);
                 position: relative;
                 cursor: pointer;
