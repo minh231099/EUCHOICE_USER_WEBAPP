@@ -420,6 +420,8 @@
     -webkit-box-align: center;
     align-items: center;
     color: #222;
+    cursor: pointer;
+    width: fit-content;
 }
 
 .last-li {

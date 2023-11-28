@@ -120,6 +120,11 @@ export const API_URLS = {
             endPoint: `v1/search/all${params}`,
             method: 'GET',
             headers: HEADERS.DEFAULT_HEADER
+        }),
+        filterPrice: (params: string) => ({
+            endPoint: `v1/search/price${params}`,
+            method: 'GET',
+            headers: HEADERS.DEFAULT_HEADER
         })
     },
     SHIPPING_INFO: {
