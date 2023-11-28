@@ -9,6 +9,7 @@ import shippingInfoReducer from './shippingInfo/shippingInfoReducer';
 import orderReducer from './order/orderReducer';
 import blogReducer from './blogs/blogReducer';
 import historyReducer from './history/historyReducers';
+import accountReducer from './account/accountReducer';
 
 const rootReducer = combineReducers({
     productReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     orderReducer,
     blogReducer,
     historyReducer,
+    accountReducer,
 });
 
 export default rootReducer;

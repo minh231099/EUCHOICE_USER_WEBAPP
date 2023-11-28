@@ -25,7 +25,7 @@
     width: fit-content;
     height: fit-content;
     padding: 2px 5px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     font-weight: 500;
 }
 
@@ -41,6 +41,16 @@
 }
 
 .hCvS66P2VE:hover {
+    color: var(--text-color)
+}
+
+.VsdiLpv53o {
+    cursor: pointer;
+    color: red;
+    margin-bottom: 5px;
+}
+
+.VsdiLpv53o:hover {
     color: var(--text-color)
 }
 

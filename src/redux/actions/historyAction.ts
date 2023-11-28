@@ -15,7 +15,7 @@ const { HISTORY } = prefix;
 
 const saveHistoryType = { prefix: HISTORY, type: SAVE_HISTORY }
 
-const exceptionPath = ['/login', '/signup'];
+const exceptionPath = ['/login', '/signup', '/order'];
 
 export const saveHistory = (history: HistoryInterface, nextPath: string) => async (dispatch: Dispatch) => {
     const newHis = {

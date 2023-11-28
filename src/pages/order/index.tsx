@@ -10,7 +10,7 @@ import { AddNewOrderPayloadType } from '@/redux/reducers/order/interfaces';
 import { ShippingInfoInterface } from '@/redux/reducers/shippingInfo/interfaces';
 import { convertNumberToMoney, convertToDate, generateKey } from '@/utils/lib';
 import { ShopOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Modal, Radio } from 'antd';
+import { Button, ConfigProvider, Divider, Modal, Radio } from 'antd';
 import moment from 'moment';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
@@ -28,6 +28,7 @@ interface OrderPageProps {
     addNewStatus: string | undefined;
     isFetchingAdd: boolean | undefined;
     addNewOrderStatus: string | undefined;
+    updateStatus: string | undefined;
 }
 
 const OrderPage = (props: OrderPageProps) => {
@@ -42,6 +43,7 @@ const OrderPage = (props: OrderPageProps) => {
         addNewStatus,
         isFetchingAdd,
         addNewOrderStatus,
+        updateStatus,
     } = props;
 
     const dispatch = useAppDispatch();
@@ -54,6 +56,8 @@ const OrderPage = (props: OrderPageProps) => {
 
     const openChangeAddressModal = () => setIsOpenChangeAddressModal(true);
     const closeChangeAddressModal = () => setIsOpenChangeAddressModal(false);
+
+    const [onChangingShippingInfoValues, setOnChangingShippingInfoValues] = useState<ShippingInfoInterface>();
 
     useEffect(() => {
         if (!savingFetching && (!listProductInOrderState || !listProductInOrderState.length))
@@ -75,13 +79,20 @@ const OrderPage = (props: OrderPageProps) => {
                 openAddNewModal();
             }
         }
-    }, [isFetchingShippingInfo, isErrorShippingInfo])
+    }, [isFetchingShippingInfo, isErrorShippingInfo]);
 
     useEffect(() => {
         if (!isFetchingAdd && addNewStatus === 'success') {
             dispatch(getListShippingInfo());
         }
     }, [isFetchingAdd, addNewStatus]);
+
+    useEffect(() => {
+        if (!isFetchingAdd && (updateStatus === 'success' || updateStatus === 'fail')) {
+            setOnChangingShippingInfoValues(undefined);
+            dispatch(getListShippingInfo());
+        }
+    }, [isFetchingAdd, updateStatus]);
 
     const changeSelectedShippingInfo = (index: number) => {
         setSelectedShippingInfo(index);
@@ -102,6 +113,7 @@ const OrderPage = (props: OrderPageProps) => {
     }
 
     const closeAddNewModal = () => {
+        setOnChangingShippingInfoValues(undefined);
         setAddNewModalVisible(false);
         onCloseAddNewModal();
     }
@@ -147,6 +159,11 @@ const OrderPage = (props: OrderPageProps) => {
             dispatch(addNewOrderDone());
         }
     }, [addNewOrderStatus]);
+
+    const onClickUpdateShippingInfo = (address: ShippingInfoInterface) => {
+        setOnChangingShippingInfoValues(address);
+        setAddNewModalVisible(true);
+    }
 
     return (
         <div className='order-container'>
@@ -236,7 +253,9 @@ const OrderPage = (props: OrderPageProps) => {
                                 <div className='dAcMCpjFUn'>
                                     <b>Address: </b>
                                     <span>
-                                        {`${shippingInfoList[selectedShippingInfo].address}, 
+                                        {`${shippingInfoList[selectedShippingInfo].address},  
+                                        ${shippingInfoList[selectedShippingInfo].ward},  
+                                        ${shippingInfoList[selectedShippingInfo].provine}, 
                                         ${shippingInfoList[selectedShippingInfo].city}, 
                                         ${shippingInfoList[selectedShippingInfo].country}`}
                                     </span>
@@ -280,12 +299,14 @@ const OrderPage = (props: OrderPageProps) => {
                 selectedShippingInfo={selectedShippingInfo}
                 changeSelectedShippingInfo={changeSelectedShippingInfo}
                 openAddNewModal={openAddNewModal}
+                onClickUpdateShippingInfo={onClickUpdateShippingInfo}
             />
 
             <AddNewShippingInfoModal
                 visible={addNewModalVisible}
                 onCancel={closeAddNewModal}
                 canCancel={(shippingInfoList && shippingInfoList?.length > 0)}
+                initialValues={onChangingShippingInfoValues}
             />
         </div>
     )
@@ -299,6 +320,7 @@ const mapStateToProps = (state: RootState) => {
         isErrorShippingInfo: state?.shippingInfoReducer?.error,
         savingFetching: state?.cartReducer?.savingFetching,
         addNewStatus: state?.shippingInfoReducer?.addNewStatus,
+        updateStatus: state?.shippingInfoReducer?.updateStatus,
         isFetchingAdd: state?.shippingInfoReducer?.isFetchingAdd,
         addNewOrderStatus: state?.orderReducer?.addNewOrderStatus,
     };
@@ -313,6 +335,7 @@ interface ChangeAddressModalProps {
     selectedShippingInfo: number;
     changeSelectedShippingInfo: (index: number) => void;
     openAddNewModal: () => void;
+    onClickUpdateShippingInfo: (address: ShippingInfoInterface) => void;
 }
 
 const ChangeAddressModal = (props: ChangeAddressModalProps) => {
@@ -322,7 +345,8 @@ const ChangeAddressModal = (props: ChangeAddressModalProps) => {
         onCancel,
         selectedShippingInfo,
         changeSelectedShippingInfo,
-        openAddNewModal
+        openAddNewModal,
+        onClickUpdateShippingInfo,
     } = props;
     const [tmpSelectedShippingInfo, setTmpSelecetedShippingInfo] = useState<number>(selectedShippingInfo);
 
@@ -364,19 +388,22 @@ const ChangeAddressModal = (props: ChangeAddressModalProps) => {
                                     </div>
                                     <div>
                                         <div className='HAhjsDFKTh'>
-                                            <span>{address.name}</span>
+                                            <span>{address.name}</span><Divider type='vertical' /><span>{address.phone_number}</span>
                                         </div>
                                         <div className='b7oniqAKaH'>
-                                            <span>{`${address.address}, ${address.city}, ${address.country}`}</span>
+                                            <span>{`${address.address}, ${address.ward}, ${address.provine}, ${address.city}, ${address.country}`}</span>
                                         </div>
                                     </div>
                                 </div>
-                                {
-                                    address.default &&
-                                    <div className='nq6AR8yAWr'>
-                                        Mặc định
-                                    </div>
-                                }
+                                <div className='PALD3GsXaZ'>
+                                    <a onClick={() => onClickUpdateShippingInfo(address)} className='u2Y7P47hIZ'>Chỉnh Sửa</a>
+                                    {
+                                        address.default &&
+                                        <div className='nq6AR8yAWr'>
+                                            Mặc định
+                                        </div>
+                                    }
+                                </div>
                             </div>
                         ))
                     }

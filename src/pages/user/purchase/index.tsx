@@ -65,7 +65,7 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
             const tmp = localStorage.getItem(purchaseHisScroll);
             document.documentElement.scrollTop = document.body.scrollTop = parseInt(tmp ? tmp : '0');
         }
-    }, [JSON.stringify(listOrderData)])
+    }, [JSON.stringify(listOrderData)]);
 
     const dispatch = useAppDispatch();
 

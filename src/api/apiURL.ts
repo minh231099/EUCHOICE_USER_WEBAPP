@@ -47,6 +47,18 @@ export const API_URLS = {
             headers: HEADERS.header()
         })
     },
+    ACCOUNT: {
+        updateUserInfo: () => ({
+            endPoint: `v1/account/update`,
+            method: 'PUT',
+            headers: HEADERS.header()
+        }),
+        changePassword: () => ({
+            endPoint: `v1/account/change_password`,
+            method: 'PUT',
+            headers: HEADERS.header()
+        })
+    },
     CART: {
         addToCart: () => ({
             endPoint: `v1/cart/add`,
@@ -120,6 +132,31 @@ export const API_URLS = {
             endPoint: `v1/shippingInfo/add`,
             method: 'POST',
             headers: HEADERS.header()
+        }),
+        updateShippingInfo: (id: string) => ({
+            endPoint: `v1/shippingInfo/update/${id}`,
+            method: 'PUT',
+            headers: HEADERS.header()
+        }),
+        deleteShippingInfo: (id: string) => ({
+            endPoint: `v1/shippingInfo/delete/${id}`,
+            method: 'PUT',
+            headers: HEADERS.header()
+        }),
+        getListCity: () => ({
+            endPoint: 'p/',
+            method: 'GET',
+            headers: HEADERS.DEFAULT_HEADER
+        }),
+        getListDistrict: (cityCode: number) => ({
+            endPoint: `p/${cityCode}?depth=2`,
+            method: 'GET',
+            headers: HEADERS.DEFAULT_HEADER
+        }),
+        getListWard: (districtCode: number) => ({
+            endPoint: `d/${districtCode}?depth=2`,
+            method: 'GET',
+            headers: HEADERS.DEFAULT_HEADER
         })
     },
     ORDER: {

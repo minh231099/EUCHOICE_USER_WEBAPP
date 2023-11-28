@@ -8,7 +8,7 @@ const nextConfig = {
   env: {
     API_URL: process.env.API_URL,
     BASE_URL: process.env.BASE_URL,
-    BASE_URL: process.env.BASE_URL,
+    PROVINCES_URL: process.env.PROVINCES_URL,
   }
 }
 

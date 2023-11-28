@@ -11,4 +11,5 @@ export default {
     ORDER: '[order]',
     BLOGS: '[blogs]',
     HISTORY: '[history]',
+    ACCOUNT: '[account]',
 };

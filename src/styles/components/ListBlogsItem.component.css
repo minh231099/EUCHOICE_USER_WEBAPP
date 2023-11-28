@@ -34,12 +34,17 @@
         .o8GCk7Jvox {
             font-size: 14px;
             height: 76px;
-            word-wrap: break-word;
-            overflow: hidden;
-            text-overflow: ellipsis;
             display: -webkit-box;
+            max-width: 100%;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            p {
+                margin-block-start: 0 !important;
+                margin-block-end: 0 !important;
+            }
         }
 
         .Rz4svPY2s5 {

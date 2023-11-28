@@ -50,6 +50,7 @@
 @import 'BlogDetails.module.css';
 @import 'Introduce.module.css';
 @import 'Helper.module.css';
+@import 'ChangePassword.module.css';
 
 @import 'swiper/css';
 @import 'swiper/css/navigation';

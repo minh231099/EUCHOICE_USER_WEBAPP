@@ -10,6 +10,7 @@ import { RootState } from '@/redux';
 import UserLeftLayout from './left_layout';
 import { saveHistory } from '@/redux/actions/historyAction';
 import { HistoryInterface } from '@/redux/reducers/history/interfaces';
+import { getListCity } from '@/redux/actions/shippingInfo';
 
 interface CustomProps {
   children: React.ReactNode;
@@ -34,6 +35,10 @@ const Layout: React.FC<CustomProps> = (props) => {
   useEffect(() => {
     dispatch(listProductInCart());
   }, [isLogged()]);
+
+  useEffect(() => {
+    dispatch(getListCity());
+  }, []);
 
   useEffect(() => {
     handleResize();
