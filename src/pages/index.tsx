@@ -73,7 +73,7 @@ export default function Home(props: any) {
                   if (index + 1 === category.length) {
                     return (
                       <li key={`ScYeP7z4Gl-${index}`} className='last-li'>
-                        <div className='category-list-side'>
+                        <div className='category-list-side' onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}>
                           <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
                           <span>
                             {item.name}
@@ -85,7 +85,7 @@ export default function Home(props: any) {
                   else {
                     return (
                       <li key={`YGeNPk7MWz-${index}`}>
-                        <div className='category-list-side'>
+                        <div className='category-list-side' onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}>
                           <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
                           <span>
                             {item.name}
