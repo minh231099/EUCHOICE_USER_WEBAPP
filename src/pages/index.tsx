@@ -99,21 +99,27 @@ export default function Home(props: any) {
             </ul>
             <ul className='value-list'>
               <li>
-                <div className='category-list-side'>
+                <div className='category-list-side' onClick={()=>{
+                  router.push({ pathname: `/product` });
+                }}>
                   <span>
                     Value of the Day
                   </span>
                 </div>
               </li>
               <li>
-                <div className='category-list-side'>
+                <div className='category-list-side' onClick={()=>{
+                  router.push({ pathname: `/product` });
+                }}>
                   <span>
                     Top 50 Offers
                   </span>
                 </div>
               </li>
               <li >
-                <div className='category-list-side'>
+                <div className='category-list-side' onClick={()=>{
+                  router.push({ pathname: `/product` });
+                }}>
                   <span>
                     New Arrivals
                   </span>
