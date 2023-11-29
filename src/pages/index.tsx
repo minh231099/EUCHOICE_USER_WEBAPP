@@ -194,10 +194,10 @@ export default function Home(props: any) {
                           />
                         </div>
                       </SwiperSlide>
-                    )) : conditional.map((e, index) => (
-                      <div key={`T3bWRtDZIc-${index}`}>
+                    )) : conditional.map((e, idx) => (
+                      <div key={`T3bWRtDZIc-${idx}`}>
                         {props.listFS?.map((item: ProductInterface, index: any) => (
-                          <SwiperSlide key={`listFS-${index}`}>
+                          <SwiperSlide key={`listFS-${idx}${index}`}>
                             <div className='product-card-swipper'>
                               <ProductCardFS
                                 sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
@@ -262,10 +262,10 @@ export default function Home(props: any) {
                       />
                     </div>
                   </SwiperSlide>
-                )) : conditional.map((e, index) => (
-                  <div key={`i7ZuecyOOK-${index}`}>
+                )) : conditional.map((e, idx) => (
+                  <div key={`i7ZuecyOOK-${idx}`}>
                     {props.top10?.map((item: ProductInterface, index: any) => (
-                      <SwiperSlide key={`QTXZ7OirSN-${index}`}>
+                      <SwiperSlide key={`QTXZ7OirSN-${idx}-${index}`}>
                         <div className='product-card-swipper'>
                           <ProductCard
                             sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
@@ -306,11 +306,11 @@ export default function Home(props: any) {
                 disableOnInteraction: false,
               }}
             >
-              {conditional.map((e, index) => {
+              {conditional.map((e, idx) => {
                 return (
-                  <div key={`deal-hot-${index}`}>
+                  <div key={`deal-hot-${idx}`}>
                     {props.listBannerSub?.map((item: BannerInterface, index: any) => {
-                      return <SwiperSlide key={`K3oXmcPnxW-${index}`}>
+                      return <SwiperSlide key={`K3oXmcPnxW-${idx}${index}`}>
                         <div className='banner-div-wrapper-home'>
                           <img className='banner-img-home' src={`${baseUrl}image/${item?.image}`}></img>
                         </div>

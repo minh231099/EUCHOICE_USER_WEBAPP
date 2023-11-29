@@ -75,7 +75,7 @@ const AddNewShippingInfoModal = (props: PropsType) => {
 
     useEffect(() => {
         if (listCity) {
-            setCityOptions(listCity.map((items: ListCityInterface) => {
+            const tmp1 = listCity.map((items: ListCityInterface) => {
                 const tmp = items.name.split(' ');
 
                 if (items.name.includes('Thành phố'))
@@ -88,13 +88,16 @@ const AddNewShippingInfoModal = (props: PropsType) => {
                     code: items.code,
                     label: tmp.join(' '),
                 }
-            }));
+            });
+            if (JSON.stringify(tmp1) !== JSON.stringify(cityOptions)) {
+                setCityOptions(tmp1);
+            }
         }
-    }, [listCity?.length]);
+    }, [JSON.parse(JSON.stringify(listDistrict))]);
 
     useEffect(() => {
         if (listDistrict) {
-            setDistrictOptions(listDistrict.map((items: ListCityInterface) => {
+            const tmp1 = listDistrict.map((items: ListCityInterface) => {
                 const tmp = items.name.split(' ');
 
                 if (items.name.includes('Thành phố'))
@@ -107,13 +110,17 @@ const AddNewShippingInfoModal = (props: PropsType) => {
                     code: items.code,
                     label: tmp.join(' '),
                 }
-            }))
+            })
+
+            if (JSON.stringify(tmp1) !== JSON.stringify(districtOptions)) {
+                setDistrictOptions(tmp1);
+            }
         }
     }, [JSON.parse(JSON.stringify(listDistrict))]);
 
     useEffect(() => {
         if (listWard) {
-            setWardOptions(listWard.map((items: ListCityInterface) => {
+            const tmp1 = listWard.map((items: ListCityInterface) => {
                 const tmp = items.name.split(' ');
 
                 if (items.name.includes('Thị trấn'))
@@ -126,7 +133,11 @@ const AddNewShippingInfoModal = (props: PropsType) => {
                     code: items.code,
                     label: tmp.join(' '),
                 }
-            }))
+            })
+
+            if (JSON.stringify(tmp1) !== JSON.stringify(wardOptions)) {
+                setWardOptions(tmp1)
+            }
         }
     }, [JSON.parse(JSON.stringify(listWard))])
 
