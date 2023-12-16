@@ -99,7 +99,7 @@ export default function Home(props: any) {
             </ul>
             <ul className='value-list'>
               <li>
-                <div className='category-list-side' onClick={()=>{
+                <div className='category-list-side' onClick={() => {
                   router.push({ pathname: `/product` });
                 }}>
                   <span>
@@ -108,7 +108,7 @@ export default function Home(props: any) {
                 </div>
               </li>
               <li>
-                <div className='category-list-side' onClick={()=>{
+                <div className='category-list-side' onClick={() => {
                   router.push({ pathname: `/product` });
                 }}>
                   <span>
@@ -117,7 +117,7 @@ export default function Home(props: any) {
                 </div>
               </li>
               <li >
-                <div className='category-list-side' onClick={()=>{
+                <div className='category-list-side' onClick={() => {
                   router.push({ pathname: `/product` });
                 }}>
                   <span>
@@ -128,11 +128,11 @@ export default function Home(props: any) {
             </ul>
           </div>
           <div className='div-img-side-wrapper'>
-            <img src='https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/8.jpg'></img>
+            <img src={`${baseUrl}image/${props.listBannerPos[0].image}`}></img>
             <div className='div-text-detail-side-wrapper'>
               <div>
                 <h2>
-                  Infomation for banner
+                  {props.listBannerPos[0].name}
                 </h2>
                 <Button
                   className='see-all-btn'
@@ -144,11 +144,11 @@ export default function Home(props: any) {
             </div>
           </div>
           <div className='div-img-side-wrapper'>
-            <img src='https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/11.jpg'></img>
+            <img src={`${baseUrl}image/${props.listBannerPos[1].image}`}></img>
             <div className='div-text-detail-side-wrapper'>
               <div>
                 <h2>
-                  Infomation for banner
+                  {props.listBannerPos[1].name}
                 </h2>
                 <Button
                   className='see-all-btn'
@@ -428,6 +428,10 @@ export const getServerSideProps = async () => {
   const apiBannerTop = API_URLS.BANNER.getListBanner(isTop);
   const listBannerTop = await apiCall({ ...apiBannerTop });
 
+  const isPos = '?pos=true';
+  const apiBannerPos = API_URLS.BANNER.getListBanner(isPos);
+  const listBannerPos = await apiCall({ ...apiBannerPos });
+
   const apiBannerSub = API_URLS.BANNER.getListBanner('');
   const listBannerSub = await apiCall({ ...apiBannerSub });
 
@@ -442,6 +446,7 @@ export const getServerSideProps = async () => {
       listFS: listFS.response?.data || null,
       listBannerTop: listBannerTop.response?.data || null,
       listBannerSub: listBannerSub.response?.data || null,
+      listBannerPos: listBannerPos.response?.data || null,
     }
   }
 }

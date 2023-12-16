@@ -143,7 +143,7 @@ const OrderDetails = (props: OrderDetailsProps) => {
                                             <div>x{amount}</div>
                                         </div>
                                     </div>
-                                    <div className='pYPfmv2vWO'>{convertNumberToMoney(type.price * amount)}<span className='price-unit'>đ</span></div>
+                                    <div className='pYPfmv2vWO'>{convertNumberToMoney(type.price)}<span className='price-unit'>đ</span></div>
                                 </div>
                             })
                         }
