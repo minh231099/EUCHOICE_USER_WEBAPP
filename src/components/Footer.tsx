@@ -151,7 +151,7 @@ const Footer = () => {
                 <div className="divider-footer">
                 </div>
                 <div className="copyright">
-                    <strong>© Bản quyền thuộc về Công Ty EUCHOICE</strong>
+                    <strong>© Bản quyền thuộc về Công Ty TNHH XNK Hữu Cơ Việt Nam</strong>
                 </div>
             </section>
         </footer >

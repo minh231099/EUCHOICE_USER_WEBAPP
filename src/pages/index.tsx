@@ -191,13 +191,14 @@ export default function Home(props: any) {
                     props.listFS?.map((item: ProductInterface, index: any) => (
                       <SwiperSlide key={`Spw8yUreQC-${index}`}>
                         <div className='product-card-swipper'>
-                          <ProductCardFS
-                            sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                            title={item?.name}
-                            price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
-                            amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
-                            onClick={() => onClickProduct(item._id)}
-                          />
+                          <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer">
+                            <ProductCardFS
+                              sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                              title={item?.name}
+                              price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
+                              amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
+                            />
+                          </a>
                         </div>
                       </SwiperSlide>
                     )) : conditional.map((e, idx) => (
@@ -205,13 +206,14 @@ export default function Home(props: any) {
                         {props.listFS?.map((item: ProductInterface, index: any) => (
                           <SwiperSlide key={`listFS-${idx}${index}`}>
                             <div className='product-card-swipper'>
-                              <ProductCardFS
-                                sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                                title={item?.name}
-                                price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
-                                amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
-                                onClick={() => onClickProduct(item._id)}
-                              />
+                              <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer">
+                                <ProductCardFS
+                                  sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                                  title={item?.name}
+                                  price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
+                                  amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
+                                />
+                              </ a>
                             </div>
                           </SwiperSlide>
                         ))}
@@ -260,12 +262,13 @@ export default function Home(props: any) {
                 props.top10?.map((item: ProductInterface, index: any) => (
                   <SwiperSlide key={`BF5h5wECOW-${index}`}>
                     <div className='product-card-swipper'>
-                      <ProductCard
-                        sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                        title={item?.name}
-                        price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-                        onClick={() => onClickProduct(item._id)}
-                      />
+                      <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer">
+                        <ProductCard
+                          sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                          title={item?.name}
+                          price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                        />
+                      </a>
                     </div>
                   </SwiperSlide>
                 )) : conditional.map((e, idx) => (
@@ -273,12 +276,13 @@ export default function Home(props: any) {
                     {props.top10?.map((item: ProductInterface, index: any) => (
                       <SwiperSlide key={`QTXZ7OirSN-${idx}-${index}`}>
                         <div className='product-card-swipper'>
-                          <ProductCard
-                            sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                            title={item?.name}
-                            price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-                            onClick={() => onClickProduct(item._id)}
-                          />
+                          <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer">
+                            <ProductCard
+                              sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                              title={item?.name}
+                              price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                            />
+                          </a>
                         </div>
                       </SwiperSlide>
                     ))}
@@ -340,13 +344,14 @@ export default function Home(props: any) {
           </div>
           <div className='div-product'>
             {props.list50?.map((item: ProductInterface, index: any) => (
-              <ProductCard
-                key={`bJKkpv7u8C-${index}`}
-                sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                title={item?.name}
-                price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-                onClick={() => onClickProduct(item._id)}
-              />
+              <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`bJKkpv7u8C-${index}`}>
+                <ProductCard
+
+                  sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                  title={item?.name}
+                  price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                />
+              </a>
             ))}
           </div>
           <div className='btn-wrapper-home-all'>

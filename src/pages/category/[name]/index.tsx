@@ -21,7 +21,7 @@ const CategoryPage = (props: CategoryPagePropsInf) => {
     const [open, setOpen] = useState(false);
     const router = useRouter();
     const { name } = router.query;
-    
+
     const showDrawer = () => {
         setOpen(true);
     };
@@ -46,43 +46,47 @@ const CategoryPage = (props: CategoryPagePropsInf) => {
                 {props.list.length === 1 ?
                     <div className='div-product div-product-less'>
                         {props.list?.map((item: ProductInterface, index: number) => (
-                            <ProductCard
-                                key={`RWTAmHBG6w-${index}`}
-                                sourceImg={`${baseUrl}image/${item.image[0]}`}
-                                title={item.name}
-                                price={item.type[0]?.price?.toLocaleString('vi-VN')}
-                                onClick={() => onClickProduct(item._id)}
-                            />
+                            <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`RWTAmHBG6w-${index}`}>
+                                <ProductCard
+
+                                    sourceImg={`${baseUrl}image/${item.image[0]}`}
+                                    title={item.name}
+                                    price={item.type[0]?.price?.toLocaleString('vi-VN')}
+                                />
+                            </a>
                         ))}
                     </div> : (props.list.length === 2 ? <div className='div-product div-product-less-2'>
                         {props.list?.map((item: ProductInterface, index: number) => (
-                            <ProductCard
-                                key={`OnrMTDuXb3-${index}`}
-                                sourceImg={`${baseUrl}image/${item.image[0]}`}
-                                title={item.name}
-                                price={item.type[0]?.price?.toLocaleString('vi-VN')}
-                                onClick={() => onClickProduct(item._id)}
-                            />
+                            <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`OnrMTDuXb3-${index}`}>
+                                <ProductCard
+
+                                    sourceImg={`${baseUrl}image/${item.image[0]}`}
+                                    title={item.name}
+                                    price={item.type[0]?.price?.toLocaleString('vi-VN')}
+                                />
+                            </a>
                         ))}
                     </div> : (props.list.length === 3 ? <div className='div-product div-product-less-3'>
                         {props.list?.map((item: ProductInterface, index: number) => (
-                            <ProductCard
-                                key={`qiosCTOSVL-${index}`}
-                                sourceImg={`${baseUrl}image/${item.image[0]}`}
-                                title={item.name}
-                                price={item.type[0]?.price?.toLocaleString('vi-VN')}
-                                onClick={() => onClickProduct(item._id)}
-                            />
+                            <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`qiosCTOSVL-${index}`}>
+                                <ProductCard
+
+                                    sourceImg={`${baseUrl}image/${item.image[0]}`}
+                                    title={item.name}
+                                    price={item.type[0]?.price?.toLocaleString('vi-VN')}
+                                />
+                            </a>
                         ))}
                     </div> : <div className='div-product'>
                         {props.list?.map((item: ProductInterface, index: number) => (
-                            <ProductCard
-                                key={`Z1hkcGyBPs-${index}`}
-                                sourceImg={`${baseUrl}image/${item.image[0]}`}
-                                title={item.name}
-                                price={item.type[0]?.price?.toLocaleString('vi-VN')}
-                                onClick={() => onClickProduct(item._id)}
-                            />
+                            <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`Z1hkcGyBPs-${index}`}>
+                                <ProductCard
+
+                                    sourceImg={`${baseUrl}image/${item.image[0]}`}
+                                    title={item.name}
+                                    price={item.type[0]?.price?.toLocaleString('vi-VN')}
+                                />
+                            </a>
                         ))}
                     </div>))}
             </div>

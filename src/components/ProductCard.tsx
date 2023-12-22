@@ -4,13 +4,12 @@ interface ProductCardPropsInf {
     sourceImg: any | null | undefined,
     title: string | null | undefined,
     price: string | null | undefined,
-    onClick: () => void
 }
 
 const ProductCard = (props: ProductCardPropsInf) => {
     return (
         <div className="product-card-container">
-            <div className="product-card" onClick={() => { props.onClick() }}>
+            <div className="product-card">
                 <div className="product-image-wrapper">
                     <img className="product-image" src={props.sourceImg} alt="Product Image"></img>
                 </div>
