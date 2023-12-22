@@ -144,23 +144,23 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
                                             </div>
                                             <div>
                                                 {
-                                                    order.status === 'cancel' && 
+                                                    order.status === 'cancel' &&
                                                     <span>Trạng Thái: <span style={{ color: '#FA8071' }}>Đã Hủy</span></span>
                                                 }
                                                 {
-                                                    order.status === 'new' && 
+                                                    order.status === 'new' &&
                                                     <span>Trạng Thái: <span style={{ color: '#01724E' }}>Hệ Thống Tiếp Nhận</span></span>
                                                 }
                                                 {
-                                                    order.status === 'done' && 
+                                                    order.status === 'done' &&
                                                     <span>Trạng Thái: <span style={{ color: '#01724E' }}>Hoàn Thành</span></span>
                                                 }
                                                 {
-                                                    order.status === 'shipping' && 
+                                                    order.status === 'shipping' &&
                                                     <span>Trạng Thái: <span style={{ color: '#01724E' }}>Đang Vận Chuyển</span></span>
                                                 }
                                                 {
-                                                    order.status === 'packing' && 
+                                                    order.status === 'packing' &&
                                                     <span>Trạng Thái: <span style={{ color: '#01724E' }}>Đang Đóng Gói</span></span>
                                                 }
                                             </div>
@@ -181,7 +181,7 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
                                                                 <div>x{amount}</div>
                                                             </div>
                                                         </div>
-                                                        <div className='pYPfmv2vWO'>{convertNumberToMoney(type.price * amount)}<span className='price-unit'>đ</span></div>
+                                                        <div className='pYPfmv2vWO'>{convertNumberToMoney(type.price)}<span className='price-unit'>đ</span></div>
                                                     </div>
                                                 })
                                             }

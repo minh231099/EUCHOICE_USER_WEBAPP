@@ -73,24 +73,24 @@ export default function Home(props: any) {
                   if (index + 1 === category.length) {
                     return (
                       <li key={`ScYeP7z4Gl-${index}`} className='last-li'>
-                        <div className='category-list-side' onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}>
+                        <a className='category-list-side' href={`/category/${item.name}`}>
                           <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
                           <span>
                             {item.name}
                           </span>
-                        </div>
+                        </a>
                       </li>
                     )
                   }
                   else {
                     return (
                       <li key={`YGeNPk7MWz-${index}`}>
-                        <div className='category-list-side' onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}>
+                        <a className='category-list-side' href={`/category/${item.name}`}>
                           <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
                           <span>
                             {item.name}
                           </span>
-                        </div>
+                        </a>
                       </li>
                     )
                   }
@@ -191,7 +191,7 @@ export default function Home(props: any) {
                     props.listFS?.map((item: ProductInterface, index: any) => (
                       <SwiperSlide key={`Spw8yUreQC-${index}`}>
                         <div className='product-card-swipper'>
-                          <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer">
+                          <a href={`product/${item._id}`} rel="noopener noreferrer">
                             <ProductCardFS
                               sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
                               title={item?.name}
@@ -206,7 +206,7 @@ export default function Home(props: any) {
                         {props.listFS?.map((item: ProductInterface, index: any) => (
                           <SwiperSlide key={`listFS-${idx}${index}`}>
                             <div className='product-card-swipper'>
-                              <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer">
+                              <a href={`/product/${item._id}`} rel="noopener noreferrer">
                                 <ProductCardFS
                                   sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
                                   title={item?.name}
@@ -262,7 +262,7 @@ export default function Home(props: any) {
                 props.top10?.map((item: ProductInterface, index: any) => (
                   <SwiperSlide key={`BF5h5wECOW-${index}`}>
                     <div className='product-card-swipper'>
-                      <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer">
+                      <a href={`/product/${item._id}`} rel="noopener noreferrer">
                         <ProductCard
                           sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
                           title={item?.name}
@@ -276,7 +276,7 @@ export default function Home(props: any) {
                     {props.top10?.map((item: ProductInterface, index: any) => (
                       <SwiperSlide key={`QTXZ7OirSN-${idx}-${index}`}>
                         <div className='product-card-swipper'>
-                          <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer">
+                          <a href={`/product/${item._id}`} rel="noopener noreferrer">
                             <ProductCard
                               sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
                               title={item?.name}
@@ -344,7 +344,7 @@ export default function Home(props: any) {
           </div>
           <div className='div-product'>
             {props.list50?.map((item: ProductInterface, index: any) => (
-              <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`bJKkpv7u8C-${index}`}>
+              <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`bJKkpv7u8C-${index}`}>
                 <ProductCard
 
                   sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}

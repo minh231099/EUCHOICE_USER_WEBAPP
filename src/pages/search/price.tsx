@@ -54,7 +54,7 @@ const SearchPricePage = (props: SearchPagePropsInf) => {
                 {props.list?.length === 1 ?
                     <div className='div-product div-product-less'>
                         {props.list?.map((item: ProductInterface, index: number) => (
-                            <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`wBfKAWrKkI-${index}`}>
+                            <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`wBfKAWrKkI-${index}`}>
                                 <ProductCard
 
                                     sourceImg={`${baseUrl}image/${item.image[0]}`}
@@ -65,7 +65,7 @@ const SearchPricePage = (props: SearchPagePropsInf) => {
                         ))}
                     </div> : (props.list?.length === 2 ? <div className='div-product div-product-less-2'>
                         {props.list?.map((item: ProductInterface, index: number) => (
-                            <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`mLozssslyG-${index}`}>
+                            <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`mLozssslyG-${index}`}>
                                 <ProductCard
 
                                     sourceImg={`${baseUrl}image/${item.image[0]}`}
@@ -76,7 +76,7 @@ const SearchPricePage = (props: SearchPagePropsInf) => {
                         ))}
                     </div> : (props.list?.length === 3 ? <div className='div-product div-product-less-3'>
                         {props.list?.map((item: ProductInterface, index: number) => (
-                            <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`8xSOg4inqF-${index}`}>
+                            <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`8xSOg4inqF-${index}`}>
                                 <ProductCard
 
                                     sourceImg={`${baseUrl}image/${item.image[0]}`}
@@ -87,7 +87,7 @@ const SearchPricePage = (props: SearchPagePropsInf) => {
                         ))}
                     </div> : <div className='div-product'>
                         {props.list?.map((item: ProductInterface, index: number) => (
-                            <a href={`https:/euchoice.vn/product/${item._id}`} rel="noopener noreferrer" key={`E0SQFT4sKs-${index}`}>
+                            <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`E0SQFT4sKs-${index}`}>
                                 <ProductCard
 
                                     sourceImg={`${baseUrl}image/${item.image[0]}`}
