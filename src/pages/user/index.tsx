@@ -6,10 +6,11 @@ import { BsBoxSeam, BsCalendarCheck, BsCartX, BsTruck } from 'react-icons/bs';
 
 const UserPage = () => {
     const dispatch = useAppDispatch();
-    const router = useRouter()
+    const router = useRouter();
+
     const onLogOut = () => {
         dispatch(logOut());
-    }
+    };
 
     const navigatorPurchase = (type: string) => {
         router.push({
@@ -22,7 +23,7 @@ const UserPage = () => {
         router.push({
             pathname: path,
         });
-    }
+    };
 
     return (
         <div className='GHikxnVHFR'>

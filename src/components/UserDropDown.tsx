@@ -17,7 +17,6 @@ const UserDropDown = (props: UserDropDownPropsItf) => {
     const [userName, setUserName] = useState<string>('')
     const dispatch = useAppDispatch();
     const router = useRouter();
-    const currentPath = router.asPath;
 
     useEffect(() => {
         dispatch(getUserInfo());

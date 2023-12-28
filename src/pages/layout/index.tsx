@@ -23,8 +23,10 @@ const Layout: React.FC<CustomProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {console.log(isMobile, window.innerWidth)}, [isMobile]);
+
   const handleResize = () => {
-    setIsMobile(window.innerWidth < 771);
+    setIsMobile(window.innerWidth < 801);
   };
 
   useEffect(() => {
@@ -43,9 +45,9 @@ const Layout: React.FC<CustomProps> = (props) => {
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    // return () => {
+    //   window.removeEventListener('resize', handleResize);
+    // };
   }, []);
 
   const showLayout = !router.pathname.startsWith('/login') && !router.pathname.startsWith('/signup') && !router.pathname.startsWith('/helper');;

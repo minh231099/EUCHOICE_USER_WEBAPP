@@ -261,7 +261,13 @@
 }
 
 .slick-list {
-    border-radius: 0 10px 10px 10px;
+    border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+    .slick-list {
+        border-radius: 0 0 10px 10px;
+    }
 }
 
 .title-h2 {

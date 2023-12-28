@@ -14,17 +14,15 @@ import { getCategoryList } from "@/redux/actions/categoryAction";
 import { RootState } from '@/redux';
 import { CategoryInterface } from "@/redux/reducers/category/interfaces";
 import { useRouter } from "next/router";
-import { generateKey, isLogged } from "@/utils/lib";
+import { isLogged } from "@/utils/lib";
 import UserDropDown from "./UserDropDown";
 import { CartInfoInterface } from "@/redux/reducers/cart/interfaces";
 import Cookies from "js-cookie";
 import { getListShippingInfo } from "@/redux/actions/shippingInfo";
-import { API_URLS } from "@/api/apiURL";
-import apiCall from "@/helper/apiCall";
 
 const logo = '/logo.png';
 
-interface CategoryPagePropsInf {
+interface HeaderPagePropsInf {
     category: CategoryInterface[] | null | undefined;
     listProductsInCart: CartInfoInterface[] | null | undefined;
     isFetching: boolean | null | undefined;
@@ -32,7 +30,7 @@ interface CategoryPagePropsInf {
     logedOut: boolean | null | undefined;
 }
 
-const Header = (props: CategoryPagePropsInf) => {
+const Header = (props: HeaderPagePropsInf) => {
     const { category, listProductsInCart, isFetching, logedOut, token } = props;
     const router = useRouter();
     const { t } = useTranslation();

@@ -90,10 +90,13 @@ const OrderDetails = (props: OrderDetailsProps) => {
             <div className='Vo975bjGLM'>
                 <div className='bZQ0MSNB9b'>
                     <div className='D56h5pa34O' onClick={onBackToPushchase}><AiOutlineArrowLeft /> <span className='EnxLq1AW6F'>Trở Lại</span></div>
-                    <div>Mã Đơn Hàng: <span>{orderDetails?.orderId} | <span className='cae8QrM1G0' style={{ color: orderDetails?.status === 'cancel' ? '#B80F0A' : '00B072' }}>
-                        {StatusName[orderDetails?.status as keyof typeof StatusName]?.title}
-                    </span>
-                    </span></div>
+                    <div className='qipNcABEC9'>
+                        <div>Mã Đơn Hàng: {orderDetails?.orderId} </div>
+                        <div className='aYFuJNI42t'>|</div>
+                        <div className='cae8QrM1G0' style={{ color: orderDetails?.status === 'cancel' ? '#B80F0A' : '#00B072' }}>
+                            {StatusName[orderDetails?.status as keyof typeof StatusName]?.title}
+                        </div>
+                    </div>
                 </div>
                 <div className='KOSTPWBdzB'>
                     {

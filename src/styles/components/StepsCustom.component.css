@@ -75,4 +75,41 @@
 
 .WKDOczktmK {
     margin-top: 20px;
+    text-align: center;
+}
+
+.aYFuJNI42t {
+    margin: 0 2px;
+}
+
+.qipNcABEC9 {
+    display: flex;
+}
+
+@media (max-width: 650px) {
+    .WKDOczktmK {
+        max-width: 110px;
+    }
+}
+
+@media (max-width: 500px) {
+    .WKDOczktmK {
+        font-size: 14px;
+    }
+
+    .rNAsGxQfoM {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .aYFuJNI42t {
+        display: none;
+    }
+
+    .qipNcABEC9 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }

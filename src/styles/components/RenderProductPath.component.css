@@ -1,7 +1,13 @@
 .prod-path-container {
-    display: flex;
+    max-width: 100%;
     width: fit-content;
     font-size: .8125rem;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .name-container {

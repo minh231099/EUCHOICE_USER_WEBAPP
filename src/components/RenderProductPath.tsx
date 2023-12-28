@@ -20,13 +20,13 @@ const RenderProductPath = (props: RenderProductPathPropsInterface) => {
         <div className={className ? className : 'prod-path-container'}>
             {
                 pathArray?.map((elm, idx) => (
-                    <div className={`name-container`} key={`qdhV1B5un3-${idx}`}>
+                    <span className={`name-container`} key={`qdhV1B5un3-${idx}`}>
                         <a className={`${idx > 0 ? 'mlr-10' : 'mr-10'} ${elm.clickable ? 'prod-path-clickable' : ''}`} onClick={elm.onClick}>{elm.name}</a>
                         {
                             idx + 1 < pathArray.length &&
                             <RightOutlined />
                         }
-                    </div>
+                    </span>
                 ))
             }
         </div>

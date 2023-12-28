@@ -62,3 +62,20 @@
     background-color: var(--primary-color);
     ;
 }
+
+@media (max-width: 600px) {
+    .siasuf-header {
+        padding: 0 5% !important;
+    }
+
+    .siasuf-body {
+        margin: 0 5% !important;
+        margin-top: 50px !important;
+
+        .siasuf-form {
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+    }
+}

@@ -153,6 +153,7 @@
 .bZQ0MSNB9b {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-radius: 6px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     padding: 15px;

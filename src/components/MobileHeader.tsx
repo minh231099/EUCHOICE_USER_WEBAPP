@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsCart2 } from 'react-icons/bs';
 import { useRouter } from "next/router";
 import { FaSearch } from 'react-icons/fa';
 import { AiOutlineUser } from 'react-icons/ai';
 import { AppstoreOutlined } from '@ant-design/icons';
+import { connect } from 'react-redux';
 import { Drawer } from 'antd';
 import MobileHeaderNav from './MobileHeaderNav';
+import { isLogged } from '@/utils/lib';
+import Cookies from "js-cookie";
+import { RootState } from '@/redux';
 
-const MobileHeader = () => {
+interface MobileHeaderPropsInf {
+    token: string | null | undefined;
+    logedOut: boolean | null | undefined;
+    isFetching: boolean | null | undefined;
+}
+
+const MobileHeader = (props: MobileHeaderPropsInf) => {
+    const {token, logedOut, isFetching} = props;
     const { t } = useTranslation();
     const router = useRouter();
     const [searchInput, setSearchInput] = useState<string>('');
@@ -30,6 +41,22 @@ const MobileHeader = () => {
     const onClose = () => {
         setOpen(false);
     };
+
+    const onClickUserInfoIcon = () => {
+        if (isLogged()) {
+            router.push('/user');
+        } else {
+            router.push('/login')
+        }
+    };
+
+    useEffect(() => {
+        if (!token && logedOut && !isFetching) {
+            Cookies.remove('jwt');
+            router.push('/');
+        }
+    }, [logedOut, isFetching]);
+
     return (
         <header className='header-mobile'>
             <div className='mobile_header_container'>
@@ -57,7 +84,7 @@ const MobileHeader = () => {
                             <BsCart2 className="cart_icon-mobile" />
                         </div>
                         <div className="user_icon_container d-flex">
-                            <AiOutlineUser className="user-icon" onClick={() => router.push('/user')} />
+                            <AiOutlineUser className="user-icon" onClick={onClickUserInfoIcon} />
                         </div>
                     </div>
                     <Drawer
@@ -75,4 +102,12 @@ const MobileHeader = () => {
     )
 }
 
-export default MobileHeader;
+const mapStateToProps = (state: RootState) => {
+    return {
+        isFetching: state?.authReducer?.isFetching,
+        logedOut: state?.authReducer?.logedOut,
+        token: state?.authReducer?.token,
+    };
+};
+
+export default connect(mapStateToProps)(MobileHeader);

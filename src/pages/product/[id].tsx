@@ -297,10 +297,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                     />
                 </div>
                 <div className='product-information-container'>
-                    <h1 className='product-name'>{productInfo?.name}</h1>
-                    {/* <div className='product-rating'>
-                        <span>Đã bán: {totalSold}</span>
-                    </div> */}
+                    <div className='vOXUo8sFgs'>{productInfo?.name}</div>
                     <div className='product-price'>
                         {
                             productPrice ?
