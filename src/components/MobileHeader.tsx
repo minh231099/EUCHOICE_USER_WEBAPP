@@ -27,6 +27,7 @@ const MobileHeader = (props: MobileHeaderPropsInf) => {
     const [open, setOpen] = useState(false);
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        router.push({ pathname: `/search/all`, query: { key: searchInput } });
     }
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,9 +65,11 @@ const MobileHeader = (props: MobileHeaderPropsInf) => {
                     <AppstoreOutlined style={{ fontSize: '20px', marginRight: '10px', marginTop: '-3px', color: 'white' }} onClick={showDrawer} />
                     <form className="search_container-mobile" onSubmit={handleSubmit}>
                         <div className="d-flex">
-                            <button className="search_button" type="submit">
-                                <FaSearch className="search_icon" />
-                            </button>
+                            <div className='NeNN4nHkek'>
+                                <button className="search_button-mobile" type="submit">
+                                    <FaSearch className="search_icon" />
+                                </button>
+                            </div>
                             <input
                                 className="search_box-mobile"
                                 type="text"

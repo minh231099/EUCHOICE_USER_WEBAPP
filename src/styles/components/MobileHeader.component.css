@@ -22,31 +22,41 @@
     display: block;
     border: 1px solid #ccc;
     margin-left: 10px;
+    border: none;
 }
 
 .search_box-mobile {
     box-sizing: border-box;
     border: 0;
-    border-radius: 0;
     margin: 0;
     font-size: 12px;
     width: 90%;
-    color: #fff;
+    color: #333;
     padding: 0px 5px;
+    border-radius: 0px 15px 15px 0px;
 }
 
-.search_button {
-    background: #fff;
-    border: 0;
+.NeNN4nHkek {
     width: 10%;
-    background: var(--primary-color);
-    margin: 5px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px 0 0 15px;
 
-    .search_icon {
-        color: var(--icon-color);
+    .search_button-mobile {
+        border: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-color);
+        margin: 5px;
+        border-radius: 9px 0 0 9px;
+        .search_icon {
+            color: var(--icon-color);
+        }
     }
+    
 }
-
 .right-content {
     align-items: center;
     width: 25%;
