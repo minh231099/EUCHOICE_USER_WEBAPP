@@ -110,7 +110,7 @@ const Header = (props: HeaderPagePropsInf) => {
             value: 'Tin tức'
         },
         {
-            key: 'introduce',
+            key: 'helper',
             value: 'Giới thiệu'
         },
     ];

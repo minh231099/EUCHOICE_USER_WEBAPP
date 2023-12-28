@@ -25,9 +25,9 @@ const Footer = () => {
                                     </div>
                                     <p className="infoEu text-justify-foot">EUCHOICE là một công ty chuyên cung cấp và phân phối các sản phẩm Châu Âu chính ngạch, có hóa đơn, chứng từ sản phẩm. Phục vụ nhu cầu cao cấp, dịch vụ nhanh chóng & tin cậy nhằm mang đến cho bạn những sự lựa chọn thời thượng & độc đáo nhất.</p>
                                     <div className="infoEu connect-foot uppercase-foot text-title-foot"><h3 ><b></b><span >KẾT NỐI VỚI CHÚNG TÔI</span><b></b></h3></div>
-                                    <a href="#" className="fa fa-facebook"></a>
+                                    <a href="https://www.facebook.com/euchoicehangnhapkhau/" className="fa fa-facebook"></a>
                                     <a href="#" className="fa fa-youtube"></a>
-                                    <a href="#" className="fa fa-instagram"></a>
+                                    <a href="https://www.instagram.com/eu.choice/" className="fa fa-instagram"></a>
                                     <div>
                                         <img className="bn46" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="bn45" />
                                         <img className="bn46" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="bn45" />
@@ -151,7 +151,7 @@ const Footer = () => {
                 <div className="divider-footer">
                 </div>
                 <div className="copyright">
-                    <strong>© Bản quyền thuộc về Công Ty EUCHOICE</strong>
+                    <strong>© Bản quyền thuộc về Công Ty TNHH XNK Hữu Cơ Việt Nam</strong>
                 </div>
             </section>
         </footer >

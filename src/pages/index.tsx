@@ -73,24 +73,24 @@ export default function Home(props: any) {
                   if (index + 1 === category.length) {
                     return (
                       <li key={`ScYeP7z4Gl-${index}`} className='last-li'>
-                        <div className='category-list-side' onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}>
+                        <a className='category-list-side' href={`/category/${item.name}`}>
                           <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
                           <span>
                             {item.name}
                           </span>
-                        </div>
+                        </a>
                       </li>
                     )
                   }
                   else {
                     return (
                       <li key={`YGeNPk7MWz-${index}`}>
-                        <div className='category-list-side' onClick={() => { router.push({ pathname: `/category/${item.name}` }) }}>
+                        <a className='category-list-side' href={`/category/${item.name}`}>
                           <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
                           <span>
                             {item.name}
                           </span>
-                        </div>
+                        </a>
                       </li>
                     )
                   }
@@ -99,7 +99,7 @@ export default function Home(props: any) {
             </ul>
             <ul className='value-list'>
               <li>
-                <div className='category-list-side' onClick={()=>{
+                <div className='category-list-side' onClick={() => {
                   router.push({ pathname: `/product` });
                 }}>
                   <span>
@@ -108,7 +108,7 @@ export default function Home(props: any) {
                 </div>
               </li>
               <li>
-                <div className='category-list-side' onClick={()=>{
+                <div className='category-list-side' onClick={() => {
                   router.push({ pathname: `/product` });
                 }}>
                   <span>
@@ -117,7 +117,7 @@ export default function Home(props: any) {
                 </div>
               </li>
               <li >
-                <div className='category-list-side' onClick={()=>{
+                <div className='category-list-side' onClick={() => {
                   router.push({ pathname: `/product` });
                 }}>
                   <span>
@@ -128,11 +128,11 @@ export default function Home(props: any) {
             </ul>
           </div>
           <div className='div-img-side-wrapper'>
-            <img src='https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/8.jpg'></img>
+            <img src={`${baseUrl}image/${props.listBannerPos[0].image}`}></img>
             <div className='div-text-detail-side-wrapper'>
               <div>
                 <h2>
-                  Infomation for banner
+                  {props.listBannerPos[0].name}
                 </h2>
                 <Button
                   className='see-all-btn'
@@ -144,11 +144,11 @@ export default function Home(props: any) {
             </div>
           </div>
           <div className='div-img-side-wrapper'>
-            <img src='https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/11.jpg'></img>
+            <img src={`${baseUrl}image/${props.listBannerPos[1].image}`}></img>
             <div className='div-text-detail-side-wrapper'>
               <div>
                 <h2>
-                  Infomation for banner
+                  {props.listBannerPos[1].name}
                 </h2>
                 <Button
                   className='see-all-btn'
@@ -191,13 +191,14 @@ export default function Home(props: any) {
                     props.listFS?.map((item: ProductInterface, index: any) => (
                       <SwiperSlide key={`Spw8yUreQC-${index}`}>
                         <div className='product-card-swipper'>
-                          <ProductCardFS
-                            sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                            title={item?.name}
-                            price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
-                            amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
-                            onClick={() => onClickProduct(item._id)}
-                          />
+                          <a href={`product/${item._id}`} rel="noopener noreferrer">
+                            <ProductCardFS
+                              sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                              title={item?.name}
+                              price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
+                              amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
+                            />
+                          </a>
                         </div>
                       </SwiperSlide>
                     )) : conditional.map((e, idx) => (
@@ -205,13 +206,14 @@ export default function Home(props: any) {
                         {props.listFS?.map((item: ProductInterface, index: any) => (
                           <SwiperSlide key={`listFS-${idx}${index}`}>
                             <div className='product-card-swipper'>
-                              <ProductCardFS
-                                sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                                title={item?.name}
-                                price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
-                                amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
-                                onClick={() => onClickProduct(item._id)}
-                              />
+                              <a href={`/product/${item._id}`} rel="noopener noreferrer">
+                                <ProductCardFS
+                                  sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                                  title={item?.name}
+                                  price={item?.type ? item?.type[0]?.priceSale?.toLocaleString('vi-VN') : ""}
+                                  amount={item?.type ? item?.type[0]?.amountSale?.toString() : ""}
+                                />
+                              </ a>
                             </div>
                           </SwiperSlide>
                         ))}
@@ -260,12 +262,13 @@ export default function Home(props: any) {
                 props.top10?.map((item: ProductInterface, index: any) => (
                   <SwiperSlide key={`BF5h5wECOW-${index}`}>
                     <div className='product-card-swipper'>
-                      <ProductCard
-                        sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                        title={item?.name}
-                        price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-                        onClick={() => onClickProduct(item._id)}
-                      />
+                      <a href={`/product/${item._id}`} rel="noopener noreferrer">
+                        <ProductCard
+                          sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                          title={item?.name}
+                          price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                        />
+                      </a>
                     </div>
                   </SwiperSlide>
                 )) : conditional.map((e, idx) => (
@@ -273,12 +276,13 @@ export default function Home(props: any) {
                     {props.top10?.map((item: ProductInterface, index: any) => (
                       <SwiperSlide key={`QTXZ7OirSN-${idx}-${index}`}>
                         <div className='product-card-swipper'>
-                          <ProductCard
-                            sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                            title={item?.name}
-                            price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-                            onClick={() => onClickProduct(item._id)}
-                          />
+                          <a href={`/product/${item._id}`} rel="noopener noreferrer">
+                            <ProductCard
+                              sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                              title={item?.name}
+                              price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                            />
+                          </a>
                         </div>
                       </SwiperSlide>
                     ))}
@@ -340,13 +344,14 @@ export default function Home(props: any) {
           </div>
           <div className='div-product'>
             {props.list50?.map((item: ProductInterface, index: any) => (
-              <ProductCard
-                key={`bJKkpv7u8C-${index}`}
-                sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
-                title={item?.name}
-                price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
-                onClick={() => onClickProduct(item._id)}
-              />
+              <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`bJKkpv7u8C-${index}`}>
+                <ProductCard
+
+                  sourceImg={item?.image ? `${baseUrl}image/${item?.image[0]}` : ""}
+                  title={item?.name}
+                  price={item?.type ? item?.type[0]?.price?.toLocaleString('vi-VN') : ""}
+                />
+              </a>
             ))}
           </div>
           <div className='btn-wrapper-home-all'>
@@ -428,6 +433,10 @@ export const getServerSideProps = async () => {
   const apiBannerTop = API_URLS.BANNER.getListBanner(isTop);
   const listBannerTop = await apiCall({ ...apiBannerTop });
 
+  const isPos = '?pos=true';
+  const apiBannerPos = API_URLS.BANNER.getListBanner(isPos);
+  const listBannerPos = await apiCall({ ...apiBannerPos });
+
   const apiBannerSub = API_URLS.BANNER.getListBanner('');
   const listBannerSub = await apiCall({ ...apiBannerSub });
 
@@ -442,6 +451,7 @@ export const getServerSideProps = async () => {
       listFS: listFS.response?.data || null,
       listBannerTop: listBannerTop.response?.data || null,
       listBannerSub: listBannerSub.response?.data || null,
+      listBannerPos: listBannerPos.response?.data || null,
     }
   }
 }
