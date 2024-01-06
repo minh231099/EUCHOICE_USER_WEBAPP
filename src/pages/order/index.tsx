@@ -2,11 +2,11 @@ import AddNewShippingInfoModal from '@/components/AddNewShippingInfoModal';
 import CustomNotification from '@/components/CustomNotification';
 import { RootState } from '@/redux';
 import { listProductInCart, saveProductToOrderInfo } from '@/redux/actions/cartAction';
-import { addNewOrder, addNewOrderDone } from '@/redux/actions/orderAction';
+import { addNewOrder, addNewOrderDone, getDeliveryFee } from '@/redux/actions/orderAction';
 import { getListShippingInfo } from '@/redux/actions/shippingInfo';
 import { useAppDispatch } from '@/redux/hooks';
 import { CartInfoInterface } from '@/redux/reducers/cart/interfaces';
-import { AddNewOrderPayloadType } from '@/redux/reducers/order/interfaces';
+import { AddNewOrderPayloadType, GetDeliveryFeePayload } from '@/redux/reducers/order/interfaces';
 import { ShippingInfoInterface } from '@/redux/reducers/shippingInfo/interfaces';
 import { convertNumberToMoney, convertToDate, generateKey } from '@/utils/lib';
 import { ShopOutlined } from '@ant-design/icons';
@@ -29,6 +29,8 @@ interface OrderPageProps {
     isFetchingAdd: boolean | undefined;
     addNewOrderStatus: string | undefined;
     updateStatus: string | undefined;
+    paymentLink: string | undefined;
+    deliveryFee: number | undefined;
 }
 
 const OrderPage = (props: OrderPageProps) => {
@@ -44,6 +46,8 @@ const OrderPage = (props: OrderPageProps) => {
         isFetchingAdd,
         addNewOrderStatus,
         updateStatus,
+        paymentLink,
+        deliveryFee,
     } = props;
 
     const dispatch = useAppDispatch();
@@ -51,6 +55,8 @@ const OrderPage = (props: OrderPageProps) => {
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [selectedShippingInfo, setSelectedShippingInfo] = useState<number>(0);
     const [isOpenChangeAddressModal, setIsOpenChangeAddressModal] = useState<boolean>(false);
+    const [paymentMethod, setPaymentMethod] = useState<string>('cod');
+    const [totalWeight, setTotalWeight] = useState<number>(0);
     const esimatedDate1 = convertToDate(moment().add(3, 'days').toString());
     const esimatedDate2 = convertToDate(moment().add(5, 'days').toString());
 
@@ -60,18 +66,34 @@ const OrderPage = (props: OrderPageProps) => {
     const [onChangingShippingInfoValues, setOnChangingShippingInfoValues] = useState<ShippingInfoInterface>();
 
     useEffect(() => {
+        console.log(listProductInOrderState);
         if (!savingFetching && (!listProductInOrderState || !listProductInOrderState.length))
             router.push('/cart');
         else {
             let tmp = 0;
+            let tmpW = 0;
             listProductInOrderState?.forEach(item => {
                 item.product.forEach(prod => {
                     tmp += (prod.price * prod.amount);
+                    tmpW += prod.weight;
                 })
             });
             setTotalPrice(tmp);
+            setTotalWeight(tmpW);
         }
     }, []);
+
+    useEffect(() => {
+        if (totalWeight !== 0 && totalPrice !== 0) {
+            const payload: GetDeliveryFeePayload = {
+                weight: totalWeight,
+                price: totalPrice,
+                provine: shippingInfoList![selectedShippingInfo].provine,
+                city: shippingInfoList![selectedShippingInfo].city,
+            }
+            dispatch(getDeliveryFee(payload));
+        }
+    }, [selectedShippingInfo, totalWeight, totalPrice]);
 
     useEffect(() => {
         if (!isFetchingShippingInfo && !isErrorShippingInfo && shippingInfoList) {
@@ -80,6 +102,12 @@ const OrderPage = (props: OrderPageProps) => {
             }
         }
     }, [isFetchingShippingInfo, isErrorShippingInfo]);
+
+    useEffect(() => {
+        if (paymentLink && paymentMethod === 'appota') {
+            console.log(paymentLink);
+        }
+    }, [paymentLink]);
 
     useEffect(() => {
         if (!isFetchingAdd && addNewStatus === 'success') {
@@ -130,6 +158,7 @@ const OrderPage = (props: OrderPageProps) => {
 
             const payload: AddNewOrderPayloadType = {
                 carts: tmp,
+                paymentMethod: paymentMethod,
                 shippingInfo: shippingInfoList[selectedShippingInfo]._id,
             }
             dispatch(addNewOrder(payload));
@@ -139,7 +168,7 @@ const OrderPage = (props: OrderPageProps) => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        if (isVisible) {
+        if (isVisible && paymentMethod === 'cod') {
             const timeout = setTimeout(() => {
                 setIsVisible(false);
                 router.push('/user/purchase');
@@ -154,15 +183,23 @@ const OrderPage = (props: OrderPageProps) => {
 
     useEffect(() => {
         if (addNewOrderStatus === 'success') {
-            setIsVisible(true);
-            dispatch(listProductInCart());
-            dispatch(addNewOrderDone());
+            if (paymentMethod === 'cod') {
+                setIsVisible(true);
+                dispatch(listProductInCart());
+                dispatch(addNewOrderDone());
+            } else {
+                window.location.replace(paymentLink!);
+            }
         }
     }, [addNewOrderStatus]);
 
     const onClickUpdateShippingInfo = (address: ShippingInfoInterface) => {
         setOnChangingShippingInfoValues(address);
         setAddNewModalVisible(true);
+    }
+
+    const onChangePaymentMethod = (event: any) => {
+        setPaymentMethod(event.target.id);
     }
 
     return (
@@ -267,6 +304,26 @@ const OrderPage = (props: OrderPageProps) => {
                         }
                     </div>
                 </div>
+                <div className='payment-method-container'>
+                    <b className='div-title'>Hình Thức Thanh Toán</b>
+                    <div className='payment-list-container'>
+                        <label className="CzKUFTbefV">
+                            <input type="radio" name="payment-method" id="cod" checked={paymentMethod === 'cod'} onChange={onChangePaymentMethod} />
+                            <span className="EB1bsExZU5"></span>
+                            <img className='TbjUwLIbnv' src='/cod.png' />
+                            <div className='zFUqXK1YDj'>
+                                <span>COD</span><br />
+                                <span>Thanh toán khi nhận hàng</span>
+                            </div>
+                        </label>
+                        <label className="CzKUFTbefV">
+                            <input type="radio" name="payment-method" id="appota" checked={paymentMethod === 'appota'} onChange={onChangePaymentMethod} />
+                            <span className="EB1bsExZU5"></span>
+                            <img className='TbjUwLIbnv' src='/icon-appota.png' />
+                            <div className='zFUqXK1YDj'>Thanh toán qua Ví Appota</div>
+                        </label>
+                    </div>
+                </div>
             </div>
             <div className='payment-confirm-container'>
                 <div className='payment-info'>
@@ -278,12 +335,12 @@ const OrderPage = (props: OrderPageProps) => {
                         </div>
                         <div className='LOD6EzA8EK'>
                             <span>Phí Giao Hàng:</span>
-                            <span>{convertNumberToMoney(30000)}<span className='price-unit'>đ</span></span>
+                            <span>{convertNumberToMoney(deliveryFee!)}<span className='price-unit'>đ</span></span>
                         </div>
                         <div className='payment-info-divider'></div>
                         <div className='LOD6EzA8EK'>
                             <span>Tổng:</span>
-                            <span className='ZJWWuQvKvI'>{convertNumberToMoney(totalPrice + 30000)}<span className='price-unit'>đ</span></span>
+                            <span className='ZJWWuQvKvI'>{convertNumberToMoney(totalPrice + deliveryFee!)}<span className='price-unit'>đ</span></span>
                         </div>
                     </div>
                     <div className='confirm-order-button-container'>
@@ -323,6 +380,8 @@ const mapStateToProps = (state: RootState) => {
         updateStatus: state?.shippingInfoReducer?.updateStatus,
         isFetchingAdd: state?.shippingInfoReducer?.isFetchingAdd,
         addNewOrderStatus: state?.orderReducer?.addNewOrderStatus,
+        paymentLink: state?.orderReducer?.paymentLink,
+        deliveryFee: state?.orderReducer?.deliveryFee,
     };
 };
 

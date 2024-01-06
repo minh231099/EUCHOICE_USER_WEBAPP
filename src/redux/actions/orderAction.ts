@@ -3,7 +3,7 @@ import { API_URLS } from "@/api/apiURL";
 import prefix from "../prefix";
 import { isDispatchCalling, isDispatchFailed, isDispatchSuccess } from "@/helper/dispatchDedicate";
 import apiCall from "@/helper/apiCall";
-import { AddNewOrderPayloadType, OrderType } from '../reducers/order/interfaces';
+import { AddNewOrderPayloadType, GetDeliveryFeePayload, OrderType } from '../reducers/order/interfaces';
 
 import {
     ADD_NEW_ORDER,
@@ -12,13 +12,14 @@ import {
     GET_ORDER_DETAILS,
     CHECK_ORDER_DONE,
     CANCEL_ORDER,
+    GET_DELIVERY_FEE,
 } from '../types/orderType';
 
 const { ORDER } = prefix;
 
 interface AddNewOrderType {
     type: typeof ADD_NEW_ORDER;
-    payload: undefined;
+    payload: any;
 }
 /**
  * @ADD_NEW_ORDER
@@ -30,8 +31,7 @@ export const addNewOrder = (payload: AddNewOrderPayloadType) => async (dispatch:
     const api = API_URLS.ORDER.addNewOrder();
     dispatch(isDispatchCalling(addNewOrderType));
     const { response, error } = await apiCall({ ...api, payload });
-
-    if (response) dispatch(isDispatchSuccess(addNewOrderType));
+    if (response) dispatch(isDispatchSuccess(addNewOrderType, response));
     else dispatch(isDispatchFailed(addNewOrderType));
 }
 
@@ -128,6 +128,24 @@ export const cancelOrder = (id: string) => async (dispatch: Dispatch) => {
     if (response) dispatch(isDispatchSuccess(cancelOrderType));
     else dispatch(isDispatchFailed(cancelOrderType));
 }
+/**
+ * @GET_DELIVERY_FEE
+ */
 
+interface GetDeliveryFeeType {
+    type: typeof GET_DELIVERY_FEE;
+    payload: number;
+}
 
-export type OrderActionTypes = AddNewOrderType | AddNewOrderDoneType | GetListOrdersType | GetOrderDetailsType | CheckOrderDoneType | CancelOrderType;
+const getDeliveryFeeType = { prefix: ORDER, type: GET_DELIVERY_FEE };
+
+export const getDeliveryFee = (payload: GetDeliveryFeePayload) => async (dispatch: Dispatch) => {
+    const api = API_URLS.ORDER.getDeliveryFee();
+    dispatch(isDispatchCalling(getDeliveryFeeType));
+    const {response, error} = await apiCall({...api, payload});
+
+    if (response) dispatch(isDispatchSuccess(getDeliveryFeeType, response.data));
+    else dispatch(isDispatchFailed(getDeliveryFeeType));
+}
+
+export type OrderActionTypes = AddNewOrderType | AddNewOrderDoneType | GetListOrdersType | GetOrderDetailsType | CheckOrderDoneType | CancelOrderType | GetDeliveryFeeType;

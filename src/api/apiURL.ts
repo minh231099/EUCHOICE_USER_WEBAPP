@@ -190,6 +190,11 @@ export const API_URLS = {
             method: 'PUT',
             headers: HEADERS.header()
         }),
+        getDeliveryFee: () => ({
+            endPoint: `v1/order/delivery/fee`,
+            method: 'POST',
+            headers: HEADERS.header()
+        })
     },
     INTRODUCE: {
         getAboutUs: () => ({

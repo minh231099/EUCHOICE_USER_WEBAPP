@@ -6,7 +6,7 @@
 }
 
 .warehouse-container {
-    min-height: 50vh;
+    min-height: 30vh;
     margin-bottom: 20px;
 }
 
@@ -185,6 +185,7 @@
 .blYGQciNev {
     display: flex;
     max-width: 80%;
+
     .hNnjB1jR8E {
         margin-right: 5px;
         font-size: 18px;
@@ -307,9 +308,109 @@
     margin-right: 5px;
 }
 
+.payment-method-container {
+    margin-top: 20px;
+}
+
+.TbjUwLIbnv {
+    width: 50px;
+    height: 50px;
+    margin: 0px 20px 0px 30px;
+    opacity: 0.4;
+}
+
+.payment-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.CzKUFTbefV {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.CzKUFTbefV input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.EB1bsExZU5 {
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border: var(--primary-color) 1px solid;
+    border-radius: 50%;
+    scale: 0.7;
+    opacity: 0.5;
+}
+
+.CzKUFTbefV:hover {
+    .TbjUwLIbnv {
+        opacity: 1;
+    }
+
+    .zFUqXK1YDj {
+        opacity: 1;
+    }
+
+    .EB1bsExZU5 {
+        opacity: 1;
+    }
+}
+
+.EB1bsExZU5:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.CzKUFTbefV .EB1bsExZU5:after {
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: solid 3px white;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.CzKUFTbefV input:checked {
+    ~.EB1bsExZU5 {
+        background: var(--primary-color);
+        opacity: 1;
+    }
+
+    ~.TbjUwLIbnv {
+        opacity: 1;
+    }
+
+    ~.zFUqXK1YDj {
+        opacity: 1;
+    }
+}
+
+.CzKUFTbefV input:checked~.EB1bsExZU5:after {
+    display: block;
+}
+
+.zFUqXK1YDj {
+    line-height: 1.4rem;
+    font-size: 14px;
+    opacity: 0.4;
+}
+
 @media (max-width: 600px) {
     .warehouse-container {
-        min-height: 35vh !important;
+        min-height: 25vh !important;
     }
 
     .order-container {
@@ -424,7 +525,7 @@
 
 @media (min-width: 701px) and (max-width: 1000px) {
     .warehouse-container {
-        min-height: 35vh !important;
+        min-height: 25vh !important;
     }
 
     .order-container {

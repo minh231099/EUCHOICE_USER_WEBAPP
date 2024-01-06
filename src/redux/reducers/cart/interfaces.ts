@@ -24,6 +24,7 @@ export interface ProductInCart {
     productId: string;
     typeId: string;
     storage: number;
+    weight: number;
 }
 
 export interface CartInfoInterface {

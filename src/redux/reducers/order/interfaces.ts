@@ -4,6 +4,7 @@ import { WarehouseInterface } from "../warehouse/interfaces";
 
 export interface AddNewOrderPayloadType {
     carts: string[];
+    paymentMethod: string,
     shippingInfo: string;
 }
 
@@ -14,6 +15,8 @@ export interface OrderState {
     listOrder: OrderType[] | undefined;
     orderDetails: OrderType | undefined;
     changeOrderStatus: boolean;
+    paymentLink: string | undefined;
+    deliveryFee: number;
 }
 
 interface CartInOrder {
@@ -35,4 +38,11 @@ export interface OrderType {
     orderId: string;
     estReceived: string;
     shippingInfo: ShippingInfoInterface;
+}
+
+export interface GetDeliveryFeePayload {
+    weight: number;
+    price: number;
+    provine: string;
+    city: string;
 }

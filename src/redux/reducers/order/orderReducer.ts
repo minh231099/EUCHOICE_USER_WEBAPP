@@ -1,6 +1,6 @@
 import { isCallingApi, isFailedApiCall, isSuccessfulApiCall } from '@/helper/actionDedicate';
 
-import { ADD_NEW_ORDER, ADD_NEW_ORDER_DONE, CANCEL_ORDER, CHECK_ORDER_DONE, GET_LIST_ORDER, GET_ORDER_DETAILS } from '@/redux/types/orderType';
+import { ADD_NEW_ORDER, ADD_NEW_ORDER_DONE, CANCEL_ORDER, CHECK_ORDER_DONE, GET_DELIVERY_FEE, GET_LIST_ORDER, GET_ORDER_DETAILS } from '@/redux/types/orderType';
 import { OrderActionTypes } from '@/redux/actions/orderAction';
 import { OrderState } from './interfaces';
 
@@ -11,6 +11,8 @@ const initalState: OrderState = {
     listOrder: undefined,
     orderDetails: undefined,
     changeOrderStatus: false,
+    paymentLink: undefined,
+    deliveryFee: 0,
 }
 
 const orderReducer = (state = initalState, action: OrderActionTypes) => {
@@ -25,11 +27,13 @@ const orderReducer = (state = initalState, action: OrderActionTypes) => {
                 }
             }
             if (isSuccessfulApiCall(action)) {
+                const {payload} = action;
                 return {
                     ...state,
                     isFetching: false,
                     error: false,
                     addNewOrderStatus: 'success',
+                    paymentLink: payload.data,
                 }
             }
             if (isFailedApiCall(action)) {
@@ -153,6 +157,27 @@ const orderReducer = (state = initalState, action: OrderActionTypes) => {
                     isFetching: false,
                     error: true,
                     changeOrderStatus: false,
+                }
+            }
+            break;
+        case GET_DELIVERY_FEE:
+            if (isCallingApi(action)) {
+                return {
+                    ...state,
+                    deliveryFee: 0,
+                }
+            }
+            if (isSuccessfulApiCall(action)) {
+                const {payload} = action;
+                return {
+                    ...state,
+                    deliveryFee: payload,
+                }
+            }
+            if (isFailedApiCall(action)) {
+                return {
+                    ...state,
+                    deliveryFee: 0,
                 }
             }
             break;
