@@ -153,6 +153,24 @@ const OrderDetails = (props: OrderDetailsProps) => {
                     </div>
                     <div className='dCme0Xe3Mz'>
                         <div className='nMSZsfpWfI'>
+                            <div>Tổng Tiền Hàng:</div>
+                            <div className='PQmqwBnjbg'>
+                                <span className='YgtfbkDOcI'>
+                                    {convertNumberToMoney(orderDetails?.price ? orderDetails?.price : 0)}
+                                </span>
+                                <span className='price-unit'>đ</span>
+                            </div>
+                        </div>
+                        <div className='nMSZsfpWfI'>
+                            <div>Phí Vận Chuyển:</div>
+                            <div className='PQmqwBnjbg'>
+                                <span className='YgtfbkDOcI'>
+                                    {convertNumberToMoney(orderDetails?.delivery_fee ? orderDetails?.delivery_fee : 0)}
+                                </span>
+                                <span className='price-unit'>đ</span>
+                            </div>
+                        </div>
+                        <div className='nMSZsfpWfI'>
                             <div>Thành Tiền:</div>
                             <div className='mAEuftJaKn'>
                                 <span className='YgtfbkDOcI'>

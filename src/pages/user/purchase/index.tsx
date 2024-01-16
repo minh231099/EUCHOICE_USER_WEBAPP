@@ -198,7 +198,7 @@ const PurchaseHistoryPage = (props: PurchaseHistoryPageType) => {
                                                     </div>
                                                 }
                                                 <span className='mAEuftJaKn'>
-                                                    Thành Tiền: <span className='YgtfbkDOcI'>{convertNumberToMoney(order.price)}</span><span className='price-unit'>đ</span>
+                                                    Thành Tiền: <span className='YgtfbkDOcI'>{convertNumberToMoney(order.price + order.delivery_fee)}</span><span className='price-unit'>đ</span>
                                                 </span>
                                             </div>
                                             <div className='re2hADo8vE'>
