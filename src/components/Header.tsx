@@ -215,10 +215,7 @@ const Header = (props: HeaderPagePropsInf) => {
                                 <div className="cart_icon_container hidden-search-button">
                                     <SearchOutlined className="cart_icon" onClick={() => { setIsShowBoxSearch(true) }} />
                                 </div>
-                                <div className="cart_icon_container hidden-search-button">
-                                    <Divider type="vertical" className="deli-divider" />
-                                </div>
-                                <div className="cart_icon_container" onClick={onClickCartIcon}>
+                                <div className="cart_icon_container">
                                     <div className="deliver-wrapper">
                                         <BiPhoneCall className="cart_icon" />
                                         <div className="delivery-detail">
@@ -227,12 +224,12 @@ const Header = (props: HeaderPagePropsInf) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="cart_icon_container">
+                                {/* <div className="cart_icon_container">
                                     <Divider type="vertical" className="deli-divider" />
                                 </div>
                                 <div className="cart_icon_container">
                                     <HeartOutlined className="cart_icon" />
-                                </div>
+                                </div> */}
                                 <div className="cart_icon_container">
                                     <Divider type="vertical" className="deli-divider" />
                                 </div>

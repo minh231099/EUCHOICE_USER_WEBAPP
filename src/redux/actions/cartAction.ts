@@ -35,6 +35,7 @@ export interface AddToCartPayload {
     amount: number;
     type: string;
     buyNow?: boolean;
+    weight?: number;
 }
 
 export const addToCart = (payload: AddToCartPayload) => async (dispatch: Dispatch) => {
@@ -64,7 +65,9 @@ export const buyNow = (payload: AddToCartPayload) => async (dispatch: Dispatch) 
     const { response } = await apiCall({ ...api, payload });
 
     if (response) {
-        dispatch(isDispatchSuccess(saveProductToOrderInfoType, response.data));
+        const tmp = response.data;
+        tmp[0].product[0].weight = payload.weight;
+        dispatch(isDispatchSuccess(saveProductToOrderInfoType, tmp));
         dispatch(isDispatchSuccess(buyNowType));
     }
     else dispatch(isDispatchFailed(buyNowType));

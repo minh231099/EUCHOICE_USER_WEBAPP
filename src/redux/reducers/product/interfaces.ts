@@ -30,6 +30,7 @@ export interface ProductInterface {
     updatedAt: string;
     group1?: string;
     group2?: string;
+    weight: number;
 }
 
 export interface ProductState {

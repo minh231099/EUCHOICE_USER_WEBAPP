@@ -272,6 +272,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                     amount: buyQuantity,
                     type: typeSelected,
                     buyNow: true,
+                    weight: productInfo?.weight,
                 }
                 dispatch(buyNow(payload));
             }

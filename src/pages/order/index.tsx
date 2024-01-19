@@ -66,10 +66,10 @@ const OrderPage = (props: OrderPageProps) => {
     const [onChangingShippingInfoValues, setOnChangingShippingInfoValues] = useState<ShippingInfoInterface>();
 
     useEffect(() => {
-        console.log(listProductInOrderState);
         if (!savingFetching && (!listProductInOrderState || !listProductInOrderState.length))
             router.push('/cart');
         else {
+            console.log(listProductInOrderState);
             let tmp = 0;
             let tmpW = 0;
             listProductInOrderState?.forEach(item => {
