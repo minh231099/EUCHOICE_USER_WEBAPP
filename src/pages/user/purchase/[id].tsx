@@ -187,7 +187,7 @@ const OrderDetails = (props: OrderDetailsProps) => {
                         </div>
                         <div className='nMSZsfpWfI'>
                             <div>Phương Thức Thanh Toán:</div>
-                            <div>Trả Tiền Khi Nhận Hàng</div>
+                            <div style={{ marginLeft: 4 }}>{orderDetails?.paymentMethod === 'cod' ? 'Trả Tiền Khi Nhận Hàng' : 'Chuyển Khoản Qua Appota'}</div>
                         </div>
                     </div>
                 </div>

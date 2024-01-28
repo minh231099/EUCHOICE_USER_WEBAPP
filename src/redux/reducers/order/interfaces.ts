@@ -39,6 +39,7 @@ export interface OrderType {
     estReceived: string;
     shippingInfo: ShippingInfoInterface;
     delivery_fee: number;
+    paymentMethod: string;
 }
 
 export interface GetDeliveryFeePayload {
