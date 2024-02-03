@@ -31,6 +31,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
     const [prodPath, setProdPath] = useState<PathArrayElmInterface[]>([]);
     const [imgList, setImgList] = useState<string[]>([]);
     const [productPrice, setProductPrice] = useState<string | undefined>();
+    const [productSalePrice, setProductSalePrice] = useState<string | undefined>();
     const [totalSold, setTotalSold] = useState<number>(0);
     const [totalAmount, setTotalAmount] = useState<number>(1);
     const [buyQuantity, setBuyQuantitty] = useState<number>(1);
@@ -47,6 +48,9 @@ const ProductPage = (props: ProductPagePropsInf) => {
 
     const [maxPrice, setMaxPrice] = useState<string>();
     const [minPrice, setMinPrice] = useState<string>();
+    const [maxSalePrice, setMaxSalePrice] = useState<string>();
+    const [minSalePrice, setMinSalePrice] = useState<string>();
+    const [salePercent, setSalePercent] = useState<number | undefined>();
 
     const dispatch = useAppDispatch();
 
@@ -116,19 +120,43 @@ const ProductPage = (props: ProductPagePropsInf) => {
     const convertTypeToClass = (productType: ProductType[]) => {
         if (productType.length > 1) {
             setProductPrice(undefined);
-            setMaxPrice(productType.reduce((maxProduct, product) => {
+
+            const tmpMaxPrice = productType.reduce((maxProduct, product) => {
                 if (!maxProduct || product.price > maxProduct.price)
                     return product;
                 return maxProduct;
-            }).price.toLocaleString('vi-VN'));
-            setMinPrice(productType.reduce((minProduct, product) => {
+            }).price.toLocaleString('vi-VN')
+            setMaxPrice(tmpMaxPrice);
+
+            const tmpMinPrice = productType.reduce((minProduct, product) => {
                 if (!minProduct || product.price < minProduct.price)
                     return product;
                 return minProduct;
-            }).price.toLocaleString('vi-VN'));
+            }).price.toLocaleString('vi-VN');
+            setMinPrice(tmpMinPrice);
+
+            const tmpMaxPriceSale = productType.reduce((maxProduct, product) => {
+                if ((!maxProduct || product.priceSale > maxProduct.priceSale) && product.amountSale != 0)
+                    return product;
+                return maxProduct;
+            }).priceSale;
+            setMaxSalePrice(tmpMaxPriceSale ? tmpMaxPriceSale.toLocaleString('vi-VN') : tmpMaxPrice);
+
+            const tmpMinPriceSale = productType.reduce((minProduct, product) => {
+                if ((!minProduct || product.priceSale < minProduct.priceSale) && product.amountSale != 0)
+                    return product;
+                return minProduct;
+            }).priceSale;
+            setMinSalePrice(tmpMinPriceSale ? tmpMinPriceSale.toLocaleString('vi-VN') : tmpMinPrice);
         } else {
             setProductPrice(productType[0].price.toLocaleString('vi-VN'));
             setTypeSelected(productType[0]._id);
+            setProductSalePrice(productType[0].priceSale ? productType[0].priceSale.toLocaleString('vi-VN') : undefined);
+            const percentTmp = productType[0].priceSale ?
+                Math.ceil(100 - productType[0].priceSale / productType[0].price * 100)
+                :
+                undefined;
+            setSalePercent(percentTmp);
         }
 
         let tmp = 0;
@@ -236,6 +264,12 @@ const ProductPage = (props: ProductPagePropsInf) => {
                 setProductPrice(tmp[0].price.toLocaleString('vi-VN'));
                 setTotalAmount(tmp[0].amount);
                 setTypeSelected(tmp[0]._id);
+                setProductSalePrice(tmp[0].priceSale ? tmp[0].priceSale.toLocaleString('vi-VN') : undefined);
+                const percentTmp = tmp[0].priceSale ?
+                    Math.ceil(100 - tmp[0].priceSale / tmp[0].price * 100)
+                    :
+                    undefined;
+                setSalePercent(percentTmp);
             } else convertTypeToClass(tmp);
         }
 
@@ -279,10 +313,16 @@ const ProductPage = (props: ProductPagePropsInf) => {
         }
     }
 
-    const renderRangePrice = () => {
+    const renderRangePrice = (flag: string) => {
         if (minPrice != maxPrice)
-            return <>{minPrice}< div className='price-unit'>đ</div><div style={{ margin: '0 10px' }}>-</div>{maxPrice}< div className='price-unit'>đ</div></>
+            return <>{minPrice}< div className='price-unit'>đ</div><div style={{ margin: flag != 'cross' ? '0 10px' : 0 }}>-</div>{maxPrice}< div className='price-unit'>đ</div></>
         else return <>{minPrice}<div className='price-unit'>đ</div></>
+    }
+
+    const renderRangePriceSale = () => {
+        if (minSalePrice != maxSalePrice)
+            return <>{minSalePrice}< div className='price-unit'>đ</div><div style={{ margin: '0 10px' }}>-</div>{maxSalePrice}< div className='price-unit'>đ</div></>
+        else return <>{minSalePrice}<div className='price-unit'>đ</div></>
     }
 
     return (
@@ -302,9 +342,38 @@ const ProductPage = (props: ProductPagePropsInf) => {
                     <div className='product-price'>
                         {
                             productPrice ?
-                                <> {productPrice} < div className='price-unit'>đ</div></>
+                                <> {
+                                    <div className='RaDbSRRHRS'>
+                                        <div className='RaDbSRRHRS'>
+                                            {
+                                                productSalePrice ?
+                                                    <div className='RaDbSRRHRS t6mnF0dNLc'>{productPrice} <div className='price-unit'>đ</div></div>
+                                                    :
+                                                    null
+                                            }
+                                        </div>
+                                        <div className='RaDbSRRHRS'>{productSalePrice ? productSalePrice : productPrice} < div className='price-unit'>đ</div></div>
+                                        {
+                                            productSalePrice ?
+                                                <div className='IpsuVi9qiO'>
+                                                    giảm {salePercent}%
+                                                </div> : null
+                                        }
+                                    </div>
+                                }</>
                                 :
-                                <>{renderRangePrice()}</>
+                                <>
+                                    {
+                                        <div className='RaDbSRRHRS'>
+                                            <div className='RaDbSRRHRS t6mnF0dNLc'>
+                                                {minPrice != minSalePrice || maxPrice != maxSalePrice ? renderRangePrice('cross') : null}
+                                            </div>
+                                            <div className='RaDbSRRHRS'>
+                                                {minPrice != minSalePrice || maxPrice != maxSalePrice ? renderRangePriceSale() : renderRangePrice('')}
+                                            </div>
+                                        </div>
+                                    }
+                                </>
                         }
                     </div>
                     <div className='group-class-container'>

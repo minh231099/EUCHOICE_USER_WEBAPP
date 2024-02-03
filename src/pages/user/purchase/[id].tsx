@@ -174,13 +174,15 @@ const OrderDetails = (props: OrderDetailsProps) => {
                             <div>Thành Tiền:</div>
                             <div className='mAEuftJaKn'>
                                 <span className='YgtfbkDOcI'>
-                                    {convertNumberToMoney(
-                                        orderDetails?.price ?
-                                            orderDetails?.delivery_fee ?
-                                                orderDetails?.price + orderDetails?.delivery_fee
-                                                : orderDetails?.price
-                                            : 0
-                                    )}
+                                    {
+                                        convertNumberToMoney(
+                                            orderDetails?.price ?
+                                                orderDetails?.delivery_fee ?
+                                                    orderDetails?.price + orderDetails?.delivery_fee
+                                                    : orderDetails?.price
+                                                : 0
+                                        )
+                                    }
                                 </span>
                                 <span className='price-unit'>đ</span>
                             </div>
