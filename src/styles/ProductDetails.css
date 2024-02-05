@@ -265,6 +265,7 @@
     border-radius: 5px;
     background-color: var(--primary-color);
     color: var(--secondary-text-color);
+    text-transform: uppercase;
 }
 
 @keyframes show-product-more-info {}
