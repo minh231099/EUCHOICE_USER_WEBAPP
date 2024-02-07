@@ -14,6 +14,7 @@
     /* display: flex;
     justify-content: center; */
     cursor: pointer;
+    max-width: 200px;
 }
 
 .product-card:hover {
@@ -107,27 +108,11 @@ sup {
     margin: 1em 0 0;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 750px) {
     .div-product-less {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-}
-
-@media (min-width: 515px) {
-    .div-product-less-2 {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-}
-
-@media (min-width: 960px) {
-    .div-product-less-3 {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
     }
 }
 

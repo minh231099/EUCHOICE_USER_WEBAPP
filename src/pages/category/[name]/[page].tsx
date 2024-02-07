@@ -41,52 +41,18 @@ const CategoryPagiPage = (props: CategoryPagePropsInf) => {
                 <div className='div-filter'>
                     <FilterNav onClose={() => { }} />
                 </div>
-                {props.list.length === 1 ?
-                    <div className='div-product div-product-less'>
-                        {props.list?.map((item: ProductInterface, index: number) => (
-                            <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`IzKSbeIsem-${index}`}>
-                                <ProductCard
+                <div className={`div-product ${props.list.length < 6 ? 'div-product-less' : null}`}>
+                    {props.list?.map((item: ProductInterface, index: number) => (
+                        <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`IzKSbeIsem-${index}`}>
+                            <ProductCard
 
-                                    sourceImg={`${baseUrl}image/${item.image[0]}`}
-                                    title={item.name}
-                                    price={item.type[0]?.price?.toLocaleString('vi-VN')}
-                                />
-                            </a>
-                        ))}
-                    </div> : (props.list.length === 2 ? <div className='div-product div-product-less-2'>
-                        {props.list?.map((item: ProductInterface, index: number) => (
-                            <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`lF9Mj4eAzW-${index}`}>
-                                <ProductCard
-
-                                    sourceImg={`${baseUrl}image/${item.image[0]}`}
-                                    title={item.name}
-                                    price={item.type[0]?.price?.toLocaleString('vi-VN')}
-                                />
-                            </a>
-                        ))}
-                    </div> : (props.list.length === 3 ? <div className='div-product div-product-less-3'>
-                        {props.list?.map((item: ProductInterface, index: number) => (
-                            <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`2OlmDEN9qE-${index}`}>
-                                <ProductCard
-
-                                    sourceImg={`${baseUrl}image/${item.image[0]}`}
-                                    title={item.name}
-                                    price={item.type[0]?.price?.toLocaleString('vi-VN')}
-                                />
-                            </a>
-                        ))}
-                    </div> : <div className='div-product'>
-                        {props.list?.map((item: ProductInterface, index: number) => (
-                            <a href={`/product/${item._id}`} rel="noopener noreferrer" key={`sv1B0bdnGc-${index}`}>
-                                <ProductCard
-
-                                    sourceImg={`${baseUrl}image/${item.image[0]}`}
-                                    title={item.name}
-                                    price={item.type[0]?.price?.toLocaleString('vi-VN')}
-                                />
-                            </a>
-                        ))}
-                    </div>))}
+                                sourceImg={`${baseUrl}image/${item.image[0]}`}
+                                title={item.name}
+                                price={item.type[0]?.price?.toLocaleString('vi-VN')}
+                            />
+                        </a>
+                    ))}
+                </div>
             </div>
             <Drawer
                 placement={'left'}
