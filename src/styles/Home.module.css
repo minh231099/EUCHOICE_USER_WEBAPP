@@ -434,6 +434,12 @@
     margin-bottom: 30px;
 }
 
+.li-filter img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+} 
+
 .category-list-side img {
     width: 25px;
     height: 25px;

@@ -542,6 +542,12 @@
     .popover-item:hover {
         color: var(--primary-color);
     }
+
+    .popover-item img {
+        width: 25px;
+        height: 25px;
+        object-fit: contain;
+    } 
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
