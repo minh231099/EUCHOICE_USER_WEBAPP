@@ -6,6 +6,8 @@ import { CategoryInterface } from '@/redux/reducers/category/interfaces';
 import { generateKey } from '@/utils/lib';
 import { API_URLS } from '@/api/apiURL';
 import apiCall from '@/helper/apiCall';
+const baseUrl = process.env.BASE_URL;
+const iconCate = '/cup.png';
 
 interface FilterNavPropsInf {
     category: CategoryInterface[] | null | undefined;
@@ -59,12 +61,13 @@ const FilterNav = (props: FilterNavPropsInf) => {
             <span className='span-filter'>DANH MỤC SẢN PHẨM</span>
             <div className='divider'></div>
             <ul className='ul-filter'>
-                {props.category?.map((item: CategoryInterface, index) => (
+                {props.category?.map((item: any, index) => (
                     <li className='li-filter' key={`E2wbmr6fHC-${index}`} onClick={() => {
                         props.router.push({ pathname: `/category/${item.name}` });
                         props.onClose()
                     }}>
-                        {item.name}
+                        <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
+                        <span style={{marginLeft: '10px'}}>{item.name}</span>
                     </li>
                 ))}
             </ul>

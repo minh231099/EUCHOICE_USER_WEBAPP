@@ -364,7 +364,7 @@ const ProductPage = (props: ProductPagePropsInf) => {
                                 :
                                 <>
                                     {
-                                        <div className='RaDbSRRHRS'>
+                                        <div className='RaDbSRRHRS alololo'>
                                             <div className='RaDbSRRHRS t6mnF0dNLc'>
                                                 {minPrice != minSalePrice || maxPrice != maxSalePrice ? renderRangePrice('cross') : null}
                                             </div>

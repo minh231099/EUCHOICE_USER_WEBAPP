@@ -256,6 +256,12 @@
     }
 }
 
+.alololo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
 .IpsuVi9qiO {
     font-size: 14px;
     font-weight: bold;

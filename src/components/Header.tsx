@@ -19,7 +19,8 @@ import UserDropDown from "./UserDropDown";
 import { CartInfoInterface } from "@/redux/reducers/cart/interfaces";
 import Cookies from "js-cookie";
 import { getListShippingInfo } from "@/redux/actions/shippingInfo";
-
+const baseUrl = process.env.BASE_URL;
+const iconCate = '/cup.png';
 const logo = '/logo.png';
 
 interface HeaderPagePropsInf {
@@ -117,12 +118,13 @@ const Header = (props: HeaderPagePropsInf) => {
 
     const content = (
         <div className="popover-category" style={{ width: `${width}px` }}>
-            {category?.map((item: CategoryInterface, index) => (
+            {category?.map((item: any, index) => (
                 <div key={`DOdt2Y6Vqd-${index}`} className="popover-item" onClick={() => {
                     router.push({ pathname: `/category/${item.name}` });
                     handleNavItemClick(null);
                 }}>
-                    {item.name}
+                    <img src={item?.image ? `${baseUrl}image/${item?.image}` : iconCate}></img>
+                    <span style={{marginLeft: '10px'}}>{item.name}</span>
                 </div>
             ))}
         </div>
