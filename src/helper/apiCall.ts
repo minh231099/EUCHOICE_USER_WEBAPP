@@ -3,7 +3,6 @@ import https from 'https'
 import http from 'http'
 
 const baseUrl = process.env.API_URL;
-const providencesUrl = process.env.PROVINCES_URL;
 
 interface apiCallParamsInterface {
   endPoint: string;
@@ -17,10 +16,10 @@ interface apiCallParamsInterface {
 }
 
 const apiCall = async (apiCallParams: apiCallParamsInterface): Promise<any> => {
-  const { method, endPoint, payload, headers, params, callTo } = apiCallParams;
+  const { method, endPoint, payload, headers, params } = apiCallParams;
   try {
     const axiosInstance = axios.create({
-      baseURL: callTo === 'providence' ? providencesUrl : baseUrl,
+      baseURL: baseUrl,
       timeout: 60000,
       headers,
       params,

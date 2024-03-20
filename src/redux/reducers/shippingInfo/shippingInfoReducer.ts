@@ -129,14 +129,14 @@ const shippingInfoReducer = (state = initalState, action: ShippingInfoActionType
                 return {
                     ...state,
                     isFetching: false,
-                    listCity: action.payload,
+                    listCity: action.payload.data,
                 }
             }
             if (isFailedApiCall(action)) {
                 return {
                     ...state,
                     isFetching: false,
-                    listCity: action.payload,
+                    listCity: action.payload.data,
                 }
             }
             break;
@@ -151,14 +151,14 @@ const shippingInfoReducer = (state = initalState, action: ShippingInfoActionType
                 return {
                     ...state,
                     isFetching: false,
-                    listDistrict: action.payload,
+                    listDistrict: action.payload.data,
                 }
             }
             if (isFailedApiCall(action)) {
                 return {
                     ...state,
                     isFetching: false,
-                    listDistrict: action.payload,
+                    listDistrict: action.payload.data,
                 }
             }
             break;
@@ -173,14 +173,14 @@ const shippingInfoReducer = (state = initalState, action: ShippingInfoActionType
                 return {
                     ...state,
                     isFetching: false,
-                    listWard: action.payload,
+                    listWard: action.payload.data,
                 }
             }
             if (isFailedApiCall(action)) {
                 return {
                     ...state,
                     isFetching: false,
-                    listWard: action.payload,
+                    listWard: action.payload.data,
                 }
             }
             break;

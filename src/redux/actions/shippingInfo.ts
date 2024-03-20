@@ -106,7 +106,9 @@ export const deleteShippingInfo = (id: string) => async (dispatch: Dispatch) => 
 
 interface GetListCityActionType {
     type: typeof GET_LIST_CITY;
-    payload: ListCityInterface[];
+    payload: {
+        data: ListCityInterface[]
+    };
 }
 
 const getListCityType = { prefix: SHIPPING_INFO, type: GET_LIST_CITY };
@@ -127,7 +129,9 @@ export const getListCity = () => async (dispatch: Dispatch) => {
 
 interface GetListDistrictActionType {
     type: typeof GET_LIST_DISTRICT;
-    payload: ListCityInterface[];
+    payload: {
+        data: ListCityInterface[]
+    };
 }
 
 const getListDistrictType = { prefix: SHIPPING_INFO, type: GET_LIST_DISTRICT };
@@ -138,7 +142,7 @@ export const getListDistrict = (cityCode: number) => async (dispatch: Dispatch) 
 
     const { response } = await apiCall({ ...api, callTo: 'providence' });
 
-    if (response) dispatch(isDispatchSuccess(getListDistrictType, response.districts));
+    if (response) dispatch(isDispatchSuccess(getListDistrictType, response));
     else dispatch(isDispatchFailed(getListDistrictType));
 }
 
@@ -148,7 +152,9 @@ export const getListDistrict = (cityCode: number) => async (dispatch: Dispatch) 
 
 interface GetListWardActionType {
     type: typeof GET_LIST_WARD;
-    payload: ListCityInterface[];
+    payload: {
+        data: ListCityInterface[]
+    };
 }
 
 const getListWardType = { prefix: SHIPPING_INFO, type: GET_LIST_WARD };
@@ -159,7 +165,7 @@ export const getListWard = (districtCode: number) => async (dispatch: Dispatch) 
 
     const { response } = await apiCall({ ...api, callTo: 'providence' });
 
-    if (response) dispatch(isDispatchSuccess(getListWardType, response.wards));
+    if (response) dispatch(isDispatchSuccess(getListWardType, response));
     else dispatch(isDispatchFailed(getListWardType));
 }
 

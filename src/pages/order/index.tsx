@@ -69,7 +69,6 @@ const OrderPage = (props: OrderPageProps) => {
         if (!savingFetching && (!listProductInOrderState || !listProductInOrderState.length))
             router.push('/cart');
         else {
-            console.log(listProductInOrderState);
             let tmp = 0;
             let tmpW = 0;
             listProductInOrderState?.forEach(item => {
@@ -84,7 +83,7 @@ const OrderPage = (props: OrderPageProps) => {
     }, []);
 
     useEffect(() => {
-        if (totalWeight !== 0 && totalPrice !== 0) {
+        if (totalWeight !== 0 && totalPrice !== 0 && shippingInfoList?.length) {
             const payload: GetDeliveryFeePayload = {
                 weight: totalWeight,
                 price: totalPrice,
@@ -102,12 +101,6 @@ const OrderPage = (props: OrderPageProps) => {
             }
         }
     }, [isFetchingShippingInfo, isErrorShippingInfo]);
-
-    useEffect(() => {
-        if (paymentLink && paymentMethod === 'appota') {
-            console.log(paymentLink);
-        }
-    }, [paymentLink]);
 
     useEffect(() => {
         if (!isFetchingAdd && addNewStatus === 'success') {

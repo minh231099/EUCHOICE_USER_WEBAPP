@@ -76,17 +76,10 @@ const AddNewShippingInfoModal = (props: PropsType) => {
     useEffect(() => {
         if (listCity) {
             const tmp1 = listCity.map((items: ListCityInterface) => {
-                const tmp = items.name.split(' ');
-
-                if (items.name.includes('Thành phố'))
-                    tmp.splice(0, 2);
-                else
-                    tmp.splice(0, 1);
-
                 return {
-                    value: tmp.join(' '),
+                    value: items.name,
                     code: items.code,
-                    label: tmp.join(' '),
+                    label: items.name,
                 }
             });
             if (JSON.stringify(tmp1) !== JSON.stringify(cityOptions)) {
@@ -98,17 +91,10 @@ const AddNewShippingInfoModal = (props: PropsType) => {
     useEffect(() => {
         if (listDistrict) {
             const tmp1 = listDistrict.map((items: ListCityInterface) => {
-                const tmp = items.name.split(' ');
-
-                if (items.name.includes('Thành phố'))
-                    tmp.splice(0, 2);
-                else
-                    tmp.splice(0, 1);
-
                 return {
-                    value: tmp.join(' '),
+                    value: items.name,
                     code: items.code,
-                    label: tmp.join(' '),
+                    label: items.name,
                 }
             })
 
@@ -121,17 +107,10 @@ const AddNewShippingInfoModal = (props: PropsType) => {
     useEffect(() => {
         if (listWard) {
             const tmp1 = listWard.map((items: ListCityInterface) => {
-                const tmp = items.name.split(' ');
-
-                if (items.name.includes('Thị trấn'))
-                    tmp.splice(0, 2);
-                else
-                    tmp.splice(0, 1);
-
                 return {
-                    value: tmp.join(' '),
+                    value: items.name,
                     code: items.code,
-                    label: tmp.join(' '),
+                    label: items.name,
                 }
             })
 

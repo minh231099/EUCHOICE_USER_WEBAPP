@@ -149,19 +149,19 @@ export const API_URLS = {
             headers: HEADERS.header()
         }),
         getListCity: () => ({
-            endPoint: 'p/',
+            endPoint: 'v1/vietnam',
             method: 'GET',
-            headers: HEADERS.DEFAULT_HEADER
+            headers: HEADERS.header()
         }),
         getListDistrict: (cityCode: number) => ({
-            endPoint: `p/${cityCode}?depth=2`,
+            endPoint: `v1/vietnam?parent_code=${cityCode}`,
             method: 'GET',
-            headers: HEADERS.DEFAULT_HEADER
+            headers: HEADERS.header()
         }),
         getListWard: (districtCode: number) => ({
-            endPoint: `d/${districtCode}?depth=2`,
+            endPoint: `v1/vietnam?parent_code=${districtCode}`,
             method: 'GET',
-            headers: HEADERS.DEFAULT_HEADER
+            headers: HEADERS.header()
         })
     },
     ORDER: {
