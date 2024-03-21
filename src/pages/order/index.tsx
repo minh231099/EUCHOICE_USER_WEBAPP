@@ -312,8 +312,8 @@ const OrderPage = (props: OrderPageProps) => {
                         <label className="CzKUFTbefV">
                             <input type="radio" name="payment-method" id="appota" checked={paymentMethod === 'appota'} onChange={onChangePaymentMethod} />
                             <span className="EB1bsExZU5"></span>
-                            <img className='TbjUwLIbnv' src='/icon-appota.png' />
-                            <div className='zFUqXK1YDj'>Thanh toán qua Ví Appota</div>
+                            <img className='TbjUwLIbnv1' src='/icon-appota.jpg' />
+                            <div className='zFUqXK1YDj'>Thanh toán qua AppotaPay</div>
                         </label>
                     </div>
                 </div>

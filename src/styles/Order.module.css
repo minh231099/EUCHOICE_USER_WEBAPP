@@ -319,6 +319,13 @@
     opacity: 0.4;
 }
 
+.TbjUwLIbnv1 {
+    width: 80px;
+    height: 50px;
+    margin: 0px 10px 0px 10px;
+    opacity: 0.4;
+}
+
 .payment-list-container {
     display: flex;
     flex-direction: column;
@@ -358,6 +365,10 @@
         opacity: 1;
     }
 
+    .TbjUwLIbnv1 {
+        opacity: 1;
+    }
+
     .zFUqXK1YDj {
         opacity: 1;
     }
@@ -390,6 +401,10 @@
     }
 
     ~.TbjUwLIbnv {
+        opacity: 1;
+    }
+
+    ~.TbjUwLIbnv1 {
         opacity: 1;
     }
 
