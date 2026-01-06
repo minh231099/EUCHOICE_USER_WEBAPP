@@ -8,7 +8,7 @@
 .VNAMgHYWSk {
     display: grid;
     grid-template-columns: 30% 30% 30%;
-    gap: 5%;
+    gap: 25px;
 }
 
 .NZRJB9P9QE {
@@ -31,6 +31,7 @@
 @media (min-width: 551px) and (max-width: 769px) {
     .VNAMgHYWSk {
         grid-template-columns: 47.5% 47.5%;
+        gap: 20px;
     }
 }
 
