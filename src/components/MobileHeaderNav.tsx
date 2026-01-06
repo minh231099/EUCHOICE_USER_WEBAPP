@@ -29,7 +29,7 @@ const navItems = [
         value: 'Sản phẩm'
     },
     {
-        key: 'new',
+        key: 'blogs',
         value: 'Tin tức'
     }
 ];
